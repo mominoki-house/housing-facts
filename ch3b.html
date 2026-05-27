@@ -14,19 +14,20 @@
     --color-text-secondary: #6e6e73;
     --color-text-tertiary: #aeaeb2;
     --color-accent: #3d5a80;
+    --color-accent-soft: rgba(61,90,128,0.08);
     --color-border: #e5e5e7;
     --color-conclusion-bg: #f5f4f0;
     --color-table-head: #f0f0f0;
     --color-table-stripe: #f9f9f9;
-    --font-serif: "YuMincho", "Hiragino Mincho Pro", "Hiragino Mincho ProN", serif;
+    --font-serif: "Helvetica Neue", "Hiragino Sans", "Hiragino Kaku Gothic ProN", Arial, "Noto Sans JP", Meiryo, sans-serif;
     --font-sans: "Hiragino Kaku Gothic ProN", "Hiragino Sans", -apple-system, sans-serif;
-    --max-w: 640px;
+    --max-w: 620px;
 }
 html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
 body {
     font-family: var(--font-serif);
-    font-size: 16px;
-    line-height: 1.9;
+    font-size: 18px;
+    line-height: 1.7;
     color: var(--color-text);
     background: var(--color-bg);
     -webkit-font-smoothing: antialiased;
@@ -73,8 +74,8 @@ body {
 }
 
 /* ===== Body Text ===== */
-.body-text { text-indent: 1em; margin-bottom: 24px; }
-.content-section p { text-indent: 1em; margin-bottom: 0.6em; font-size: 16px; line-height: 1.9; }
+.body-text { text-indent: 0; margin-bottom: 24px; }
+.content-section p { text-indent: 0; margin-bottom: 1.5em; font-size: 18px; line-height: 1.7; }
 
 /* ===== Lists ===== */
 .section ul { margin: 12px 0 12px 1.5em; padding: 0; }
@@ -117,11 +118,24 @@ tr:nth-child(even) { background: var(--color-table-stripe); }
 }
 .sub-table-heading { text-indent: 0; font-weight: 600; margin: 24px 0 8px; }
 
-/* ===== Owari Heading ===== */
-.owari-heading {
-    text-align: center; border-bottom: none; font-size: 20px; font-weight: 600;
-    margin-top: 32px; margin-bottom: 32px; padding-bottom: 12px;
-}
+/* ===== CSS Bar Chart ===== */
+.bar-chart { margin: 24px 0; font-family: var(--font-sans); }
+.bar-row { display: flex; align-items: center; margin-bottom: 12px; }
+.bar-label { width: 80px; font-size: 13px; font-weight: 500; color: var(--color-text); flex-shrink: 0; }
+.bar-track { flex: 1; height: 28px; background: var(--color-border); border-radius: 4px; overflow: hidden; }
+.bar-fill { height: 100%; border-radius: 4px; background: var(--color-accent); display: flex; align-items: center; justify-content: flex-end; padding-right: 8px; min-width: 36px; }
+.bar-fill-warn { background: var(--color-text); }
+.bar-value { font-size: 12px; font-weight: 600; color: var(--color-surface); white-space: nowrap; }
+.bar-value-outside { font-size: 12px; font-weight: 600; color: var(--color-text); margin-left: 8px; white-space: nowrap; }
+
+/* ===== Number Cards ===== */
+.num-cards { display: flex; gap: 12px; margin: 24px 0; font-family: var(--font-sans); }
+.num-card { flex: 1; padding: 16px 12px; background: var(--color-conclusion-bg); border-radius: 8px; text-align: center; }
+.num-card-value { font-size: 20px; font-weight: 600; color: var(--color-text); margin-bottom: 4px; }
+.num-card-label { font-size: 11px; color: var(--color-text-secondary); line-height: 1.4; }
+.num-card-total { flex: 1; padding: 16px 12px; background: var(--color-text); border-radius: 8px; text-align: center; }
+.num-card-total .num-card-value { color: var(--color-surface); }
+.num-card-total .num-card-label { color: var(--color-border); }
 
 /* ===== Final CTA ===== */
 .final-cta {
@@ -159,6 +173,12 @@ tr:nth-child(even) { background: var(--color-table-stripe); }
     text-align: center; margin-top: 28px; line-height: 1.7;
 }
 
+/* ===== Owari Heading ===== */
+.owari-heading {
+    text-align: center; border-bottom: none; font-size: 20px; font-weight: 600;
+    margin-top: 32px; margin-bottom: 32px; padding-bottom: 12px;
+}
+
 /* ===== Footer ===== */
 .footer {
     padding: 32px 24px; max-width: var(--max-w); margin: 0 auto;
@@ -173,7 +193,7 @@ tr:nth-child(even) { background: var(--color-table-stripe); }
 @media (max-width: 480px) {
     .container { padding: 0 20px; }
     .section-title { font-size: 18px; }
-    .chapter-heading { font-size: 16px; }
+    .chapter-heading { font-size: 18px; }
     .nav a { padding: 12px 10px; margin: 0 1px; font-size: 11px; }
     table { font-size: 12px; }
     th, td { padding: 6px 8px; }
@@ -362,10 +382,10 @@ tr:nth-child(even) { background: var(--color-table-stripe); }
 <p class="sub-table-heading">30年間の金額差</p>
 
 <table>
-<tr><th></th><th>A：大手の家</th><th>B：高性能住宅</th><th>Bの優位</th></tr>
-<tr><td>修繕費</td><td>800〜1,000万円</td><td>500〜600万円</td><td>+200〜400万円</td></tr>
-<tr><td>光熱費</td><td>約720万円</td><td>約432万円</td><td>+約288万円</td></tr>
-<tr><td><strong>30年後の資産価値</strong></td><td><strong>ほぼゼロ</strong></td><td><strong>250〜500万円</strong></td><td><strong>+250〜500万円</strong></td></tr>
+<tr><th></th><th>A：大手の家</th><th>B：高性能住宅</th></tr>
+<tr><td>修繕費</td><td>800〜1,000万円</td><td>500〜600万円</td></tr>
+<tr><td>光熱費</td><td>約720万円</td><td>約432万円</td></tr>
+<tr><td><strong>30年後の資産価値</strong></td><td><strong>ほぼゼロ</strong></td><td><strong>250〜500万円</strong></td></tr>
 </table>
 
 <p class="body-text">では、100年——3世代で考えるとどうなるか。</p>
@@ -382,13 +402,26 @@ tr:nth-child(even) { background: var(--color-table-stripe); }
 <p class="body-text">この差額は「家の性能の差」が生んだ数字です。</p>
 <p class="body-text">長期優良住宅の劣化対策等級3は「75〜90年間、大規模改修不要」が設計基準です。調湿素材が壁体内結露を防ぎ、構造材を腐朽菌やシロアリから守り続ける。</p>
 
-<table>
-<tr><th>30年間でBが得する金額</th><th>差額</th></tr>
-<tr><td>建物の資産価値</td><td>250〜500万円</td></tr>
-<tr><td>修繕費の節約</td><td>200〜400万円</td></tr>
-<tr><td>光熱費の節約</td><td>約288万円</td></tr>
-<tr><td><strong>合計</strong></td><td><strong>740〜1,190万円</strong></td></tr>
-</table>
+<div class="num-cards">
+<div class="num-card">
+<div class="num-card-value">250〜500万</div>
+<div class="num-card-label">資産価値の差</div>
+</div>
+<div class="num-card">
+<div class="num-card-value">200〜400万</div>
+<div class="num-card-label">修繕費の節約</div>
+</div>
+<div class="num-card">
+<div class="num-card-value">約288万</div>
+<div class="num-card-label">光熱費の節約</div>
+</div>
+</div>
+<div class="num-cards">
+<div class="num-card-total">
+<div class="num-card-value">合計 740〜1,190万円</div>
+<div class="num-card-label">30年間でBが得する金額</div>
+</div>
+</div>
 
 <p class="body-text">Bの家の方が30年間で<strong>700万円以上安い</strong>。しかも建物の資産価値が残っている。</p>
 <p class="body-text">（この試算は一定の前提に基づく概算です。建物の規模、地域、選ぶ設備によって数字は変わります。ただし、方向性——高性能住宅の方がトータルコストが安くなる——は変わりません。）</p>
@@ -421,12 +454,27 @@ tr:nth-child(even) { background: var(--color-table-stripe); }
 <p class="body-text">「元が取れる」と営業マンは言います。</p>
 <p class="body-text">確かに、FIT（固定価格買取制度）の買取価格はこう推移しています。</p>
 
-<table>
-<tr><th>時期</th><th>FIT買取価格</th></tr>
-<tr><td>2012年（制度開始）</td><td>42円/kWh</td></tr>
-<tr><td><strong>2025年</strong></td><td><strong>15円/kWh（64%下落）</strong></td></tr>
-<tr><td>FIT終了後</td><td>7〜9円/kWh</td></tr>
-</table>
+<div class="bar-chart">
+<div class="bar-row">
+<span class="bar-label">2012年</span>
+<div class="bar-track">
+<div class="bar-fill" style="width:100%"><span class="bar-value">42円/kWh</span></div>
+</div>
+</div>
+<div class="bar-row">
+<span class="bar-label"><strong>2025年</strong></span>
+<div class="bar-track">
+<div class="bar-fill bar-fill-warn" style="width:36%"><span class="bar-value">15円</span></div>
+</div>
+<span class="bar-value-outside">64%下落</span>
+</div>
+<div class="bar-row">
+<span class="bar-label">FIT終了後</span>
+<div class="bar-track">
+<div class="bar-fill bar-fill-warn" style="width:19%"><span class="bar-value">7〜9円</span></div>
+</div>
+</div>
+</div>
 
 <p class="body-text">投資回収にどのくらいかかるか。</p>
 <p class="body-text">好条件で8〜10年。蓄電池を入れて自家消費すると14〜17年です。</p>
@@ -646,6 +694,7 @@ window.addEventListener('scroll', function() {
     var sh = (h.scrollHeight || b.scrollHeight) - h.clientHeight;
     document.getElementById('progressBar').style.width = (st / sh * 100) + '%';
 });
+
 </script>
 </body>
 </html>

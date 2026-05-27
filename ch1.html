@@ -20,9 +20,9 @@
     --color-border: #e5e5e7;
     --color-conclusion-bg: #f5f4f0;
     --color-white: #ffffff;
-    --font-serif: "YuMincho", "Hiragino Mincho Pro", "Hiragino Mincho ProN", serif;
+    --font-serif: "Helvetica Neue", "Hiragino Sans", "Hiragino Kaku Gothic ProN", Arial, "Noto Sans JP", Meiryo, sans-serif;
     --font-sans: "Hiragino Kaku Gothic ProN", "Hiragino Sans", -apple-system, sans-serif;
-    --max-w: 640px;
+    --max-w: 620px;
 }
 
 html {
@@ -32,8 +32,8 @@ html {
 
 body {
     font-family: var(--font-serif);
-    font-size: 16px;
-    line-height: 1.9;
+    font-size: 18px;
+    line-height: 1.7;
     color: var(--color-text);
     background: var(--color-bg);
     -webkit-font-smoothing: antialiased;
@@ -61,16 +61,23 @@ body {
 /* ===== Hero ===== */
 .hero {
     text-align: center;
-    padding: 80px 24px 48px;
+    padding: 48px 24px 48px;
     max-width: var(--max-w);
     margin: 0 auto;
+}
+.hero-cover {
+    display: block;
+    max-width: 280px;
+    height: auto;
+    margin: 0 auto 32px;
+    filter: drop-shadow(0 8px 24px rgba(0,0,0,0.15));
 }
 .hero-title {
     font-family: var(--font-serif);
     font-size: 24px;
     font-weight: 600;
     letter-spacing: 0.08em;
-    line-height: 1.5;
+    line-height: 1.7;
     color: var(--color-text);
     margin-bottom: 32px;
 }
@@ -212,10 +219,10 @@ body {
 
 /* ===== Body Text ===== */
 .content-section p {
-    text-indent: 1em;
-    margin-bottom: 0.6em;
-    font-size: 16px;
-    line-height: 1.9;
+    text-indent: 0;
+    margin-bottom: 1.5em;
+    font-size: 18px;
+    line-height: 1.7;
 }
 
 .content-section strong {
@@ -248,6 +255,121 @@ tr:nth-child(even) {
     font-size: 13px;
     color: var(--color-text-secondary);
     margin: 8px 0 24px;
+}
+
+/* ===== CSS Bar Chart ===== */
+.bar-chart {
+    margin: 24px 0;
+    font-family: var(--font-sans);
+}
+.bar-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+}
+.bar-label {
+    width: 56px;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--color-text);
+    flex-shrink: 0;
+}
+.bar-track {
+    flex: 1;
+    height: 28px;
+    background: var(--color-border);
+    border-radius: 4px;
+    overflow: hidden;
+    position: relative;
+}
+.bar-fill {
+    height: 100%;
+    border-radius: 4px;
+    background: var(--color-accent);
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 8px;
+    min-width: 48px;
+}
+.bar-fill-warn {
+    background: var(--color-text);
+}
+.bar-value {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--color-white);
+    white-space: nowrap;
+}
+.bar-value-outside {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--color-text);
+    margin-left: 8px;
+    white-space: nowrap;
+}
+
+/* ===== Gauge Bar ===== */
+.gauge {
+    margin: 24px 0;
+    font-family: var(--font-sans);
+}
+.gauge-track {
+    width: 100%;
+    height: 36px;
+    background: var(--color-border);
+    border-radius: 6px;
+    overflow: hidden;
+    position: relative;
+}
+.gauge-fill {
+    height: 100%;
+    border-radius: 6px 0 0 6px;
+    display: flex;
+    align-items: center;
+}
+.gauge-segment {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.gauge-segment-label {
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--color-white);
+    white-space: nowrap;
+}
+.gauge-legend {
+    display: flex;
+    gap: 16px;
+    margin-top: 8px;
+    font-size: 12px;
+    color: var(--color-text-secondary);
+}
+.gauge-legend-item {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+.gauge-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 2px;
+    flex-shrink: 0;
+}
+.gauge-label-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 6px;
+    font-size: 13px;
+}
+.gauge-label-left {
+    font-weight: 600;
+    color: var(--color-text);
+}
+.gauge-label-right {
+    color: var(--color-text-tertiary);
 }
 
 /* ===== Conclusion Box ===== */
@@ -381,7 +503,8 @@ tr:nth-child(even) {
 
 <div class="container">
 <header class="hero">
-    <h1 class="hero-title">聞かれなければ言わない</h1>
+    <img src="cover.png" alt="聞かれなければ言わない" class="hero-cover">
+    <h1 class="hero-title">聞かれなければ言わない<br>住宅業界の12の事実</h1>
     <div class="hero-intro"><p class="hero-text">家づくりで一番難しいのは、「何を聞けばいいかわからない」ことです。<br>知らなければ、質問できない。質問されなければ、説明されない。<br>この資料は、あなたが聞けなかった質問の答えです。<br>感想や意見はほとんどありません。数字と出典だけです。</p><p class="hero-text">知らなかったとしても、あなたのせいではありません。<br>聞かれなければ言わない——それが、この業界の常識だからです。</p><p class="hero-text">この資料を読んで、信じる必要はありません。<br>ただ、1つだけお願いがあります。<br>気になった内容があったら、ご自身で調べてみてください。<br>全て、調べれば出てくる情報です。</p></div>
     <div class="reading-time">全4ページ 読了時間 約20分</div>
 </header>
@@ -460,16 +583,28 @@ tr:nth-child(even) {
 <p>ダスト1gあたりのDEHP濃度は、中央値で2,100μgでした。</p>
 <p>これがどのくらい高いのか。他国と比べてみます。</p>
 
-<table>
-<thead>
-<tr><th>国</th><th>DEHP濃度（μg/g）</th><th>日本との差</th></tr>
-</thead>
-<tbody>
-<tr><td><strong>日本</strong></td><td><strong>2,100</strong></td><td><strong>—</strong></td></tr>
-<tr><td>カナダ</td><td>232</td><td>日本の <strong>9分の1</strong></td></tr>
-<tr><td>米国</td><td>39</td><td>日本の <strong>54分の1</strong></td></tr>
-</tbody>
-</table>
+<div class="bar-chart">
+<div class="bar-row">
+<span class="bar-label"><strong>日本</strong></span>
+<div class="bar-track">
+<div class="bar-fill bar-fill-warn" style="width:100%"><span class="bar-value">2,100 μg/g</span></div>
+</div>
+</div>
+<div class="bar-row">
+<span class="bar-label">カナダ</span>
+<div class="bar-track">
+<div class="bar-fill" style="width:11%"><span class="bar-value">232</span></div>
+</div>
+<span class="bar-value-outside">9分の1</span>
+</div>
+<div class="bar-row">
+<span class="bar-label">米国</span>
+<div class="bar-track">
+<div class="bar-fill" style="width:1.9%"></div>
+</div>
+<span class="bar-value-outside">39 — <strong>54分の1</strong></span>
+</div>
+</div>
 <p class="table-note">（調査規模：日本100軒/カナダ726軒。採取条件は完全に同一ではありません。それでも、桁が違います。）</p>
 
 <p>なぜ日本だけこれほど高いのか。</p>
@@ -516,17 +651,27 @@ tr:nth-child(even) {
 <p>産業技術総合研究所の推計では、1歳児の食事経由のDEHP摂取量は平均で約6μg/kg/日です。</p>
 <p>合計すると、約16.5μg/kg/日。</p>
 
-<table>
-<thead>
-<tr><th>摂取経路</th><th>摂取量（μg/kg/日）</th><th>安全基準に対して</th></tr>
-</thead>
-<tbody>
-<tr><td>ハウスダスト経由</td><td>10.5</td><td>53%</td></tr>
-<tr><td>食事経由</td><td>6.0</td><td>30%</td></tr>
-<tr><td><strong>幼児の合計</strong></td><td><strong>16.5</strong></td><td><strong>83%</strong></td></tr>
-<tr><td><strong>米国EPA安全基準</strong></td><td><strong>20.0</strong></td><td>100%（上限）</td></tr>
-</tbody>
-</table>
+<div class="gauge">
+<div class="gauge-label-row">
+<span class="gauge-label-left">幼児の合計 16.5 μg/kg/日</span>
+<span class="gauge-label-right">安全基準 20.0</span>
+</div>
+<div class="gauge-track">
+<div class="gauge-fill" style="width:83%">
+<div class="gauge-segment" style="flex:53;background:var(--color-text)">
+<span class="gauge-segment-label">ダスト 53%</span>
+</div>
+<div class="gauge-segment" style="flex:30;background:var(--color-accent)">
+<span class="gauge-segment-label">食事 30%</span>
+</div>
+</div>
+</div>
+<div class="gauge-legend">
+<div class="gauge-legend-item"><span class="gauge-dot" style="background:var(--color-text)"></span>ハウスダスト 10.5</div>
+<div class="gauge-legend-item"><span class="gauge-dot" style="background:var(--color-accent)"></span>食事 6.0</div>
+<div class="gauge-legend-item"><span class="gauge-dot" style="background:var(--color-border)"></span>残り17%</div>
+</div>
+</div>
 
 <p>ホコリと食事を合わせただけで、安全基準の83%に達します。</p>
 

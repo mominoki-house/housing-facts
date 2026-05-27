@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>聞かれなければ言わない | 第3章前半</title>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+    --color-bg: #faf9f7;
+    --color-surface: #ffffff;
+    --color-text: #1d1d1f;
+    --color-text-secondary: #6e6e73;
+    --color-text-tertiary: #aeaeb2;
+    --color-accent: #3d5a80;
+    --color-border: #e5e5e7;
+    --color-conclusion-bg: #f5f4f0;
+    --color-table-head: #f0f0f0;
+    --color-table-stripe: #f9f9f9;
+    --font-serif: "YuMincho", "Hiragino Mincho Pro", "Hiragino Mincho ProN", serif;
+    --font-sans: "Hiragino Kaku Gothic ProN", "Hiragino Sans", -apple-system, sans-serif;
+    --max-w: 640px;
+}
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body {
+    font-family: var(--font-serif);
+    font-size: 16px;
+    line-height: 1.9;
+    color: var(--color-text);
+    background: var(--color-bg);
+    -webkit-font-smoothing: antialiased;
+}
+.progress-bar {
+    position: fixed; top: 0; left: 0; width: 0%; height: 3px;
+    background: var(--color-accent); z-index: 1000; transition: width 0.1s linear;
+}
+.nav {
+    position: sticky; top: 3px; background: var(--color-surface);
+    border-bottom: 1px solid var(--color-border); z-index: 999;
+    padding: 12px 0; text-align: center;
+}
+.nav a {
+    font-family: var(--font-sans); font-size: 13px; color: var(--color-text-secondary);
+    text-decoration: none; padding: 12px 14px; margin: 0 2px; display: inline-block;
+    min-height: 44px; line-height: 20px;
+}
+.nav a.active { color: var(--color-accent); border-bottom: 2px solid var(--color-accent); font-weight: 600; }
+.container { max-width: var(--max-w); margin: 0 auto; padding: 0 24px; }
+.chapter-heading { font-family: var(--font-serif); font-size: 18px; font-weight: 600; text-align: center; margin: 64px 0 48px; padding: 24px 0; border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border); }
+.section { margin-bottom: 64px; }
+.section-number { font-family: var(--font-sans); font-size: 11px; color: var(--color-text-tertiary); letter-spacing: 0.1em; display: block; margin-bottom: 8px; }
+.section-title { font-family: var(--font-serif); font-size: 20px; font-weight: 600; margin-bottom: 8px; padding-bottom: 12px; border-bottom: 1px solid var(--color-border); }
+.body-text { text-indent: 1em; margin-bottom: 24px; }
+.conclusion-box { border-radius: 8px; box-shadow: inset 3px 0 0 var(--color-text); background: var(--color-conclusion-bg); padding: 20px 24px; margin: 32px 0; }
+.conclusion-box p { text-indent: 0; font-size: 15px; line-height: 1.8; }
+.source { font-family: var(--font-sans); font-size: 11px; color: var(--color-text-tertiary); line-height: 1.6; margin-top: 24px; padding-top: 16px; border-top: 1px solid var(--color-border); word-break: break-all; overflow-wrap: break-word; }
+.note-item { margin-bottom: 4px; }
+table { border-collapse: collapse; width: 100%; margin: 24px 0; font-size: 14px; font-family: var(--font-sans); }
+th, td { border: 1px solid var(--color-border); padding: 8px 12px; text-align: left; }
+th { background: var(--color-table-head); font-weight: 500; font-size: 13px; }
+tr:nth-child(even) { background: var(--color-table-stripe); }
+.table-note { text-indent: 0; font-size: 13px; color: var(--color-text-secondary); margin-top: -16px; margin-bottom: 24px; }
+.sub-table-heading { text-indent: 0; font-weight: 600; margin: 24px 0 8px; }
+.content-sep { text-align: center; margin: 32px 0; color: var(--color-text-tertiary); font-size: 14px; letter-spacing: 0.5em; }
+.content-sep::after { content: "* * *"; }
+.cta-section { text-align: center; padding: 48px 0 64px; margin-top: 48px; border-top: 1px solid var(--color-border); }
+.cta-button { display: inline-block; font-family: var(--font-sans); font-size: 16px; font-weight: 500; color: var(--color-surface); background: var(--color-accent); padding: 16px 48px; border-radius: 8px; text-decoration: none; transition: transform 0.2s; }
+.cta-button:hover { transform: translateY(-1px); }
+.cta-note { font-family: var(--font-sans); font-size: 12px; color: var(--color-text-tertiary); margin-top: 12px; }
+.footer { padding: 32px 24px; max-width: var(--max-w); margin: 0 auto; border-top: 1px solid var(--color-border); }
+.disclaimer { font-family: var(--font-sans); font-size: 11px; color: var(--color-text-tertiary); line-height: 1.7; margin-bottom: 16px; }
+@media (max-width: 480px) {
+    .container { padding: 0 20px; } .section-title { font-size: 18px; }
+    .nav a { padding: 12px 10px; margin: 0 1px; font-size: 11px; }
+    .cta-button { display: block; width: 100%; text-align: center; padding: 14px 32px; font-size: 15px; }
+    table { font-size: 13px; }
+    th, td { padding: 6px 8px; }
+}
+</style>
+</head>
+<body>
+<div class="progress-bar" id="progressBar"></div>
+<nav class="nav">
+<a href="ch1.html">第1章</a>
+<a href="ch2.html">第2章</a>
+<a href="ch3a.html" class="active">第3章前半</a>
+<a href="ch3b.html">第3章後半</a>
+</nav>
+<div class="container">
+<h2 class="chapter-heading">第3章前半　資産になる家、ならない家</h2>
+
+<article class="section">
+<span class="section-number">暴露 07</span>
+<h3 class="section-title">設備に頼る暮らしの生涯コスト</h3>
+<p class="body-text">第2章で、湿度を管理できない家は健康だけでなく、家の資産価値そのものを壊していくことを見ました。</p>
+<p class="body-text">設備に頼る暮らしには、もう1つの問題があります。コストです。</p>
+<p class="body-text">その前に、1つ確認しておきたいことがあります。</p>
+<p class="body-text">住宅展示場に行くと、「快適な暮らし」という言葉をよく聞きます。</p>
+<p class="body-text">大手ハウスメーカーの訴求を調べてみました。</p>
+<p class="body-text">一条工務店は「家は、性能。」。セキスイハイムは「あったかハイム」。積水ハウスは「家に帰れば、積水ハウス。」。三井ホームは「憧れを、かたちに。」。</p>
+<p class="body-text">14社のキャッチコピーを見ると、訴求の重点は快適、省エネ、デザイン、性能に置かれています。「家族の健康」を真正面から掲げている大手は、確認できませんでした。</p>
+<p class="body-text">各社が提案する「快適な暮らし」の中身を見ると、ほぼ全てが設備です。</p>
+<p class="body-text">その設備にいくらかかるのか。具体的に見ていきます。</p>
+
+<p class="sub-table-heading">大手各社の全館空調の価格を見てみます。</p>
+<table>
+<tr><th>メーカー</th><th>初期費用</th><th>追加でかかるもの</th></tr>
+<tr><td>一条工務店</td><td>50〜80万円</td><td>10年後に+40万円</td></tr>
+<tr><td>積水ハウス</td><td>100〜300万円</td><td>住宅規模で変動</td></tr>
+<tr><td>三井ホーム</td><td>約210万円</td><td>—</td></tr>
+<tr><td>セキスイハイム</td><td>80〜130万円</td><td>2階対応で+50万円</td></tr>
+</table>
+
+<p class="body-text">これらは全て、電気で動く「機械」です。</p>
+<p class="body-text">機械には寿命があり、メンテナンスが必要で、壊れたら止まります。</p>
+<p class="body-text">快適さが、設備の稼働に依存しているのです。</p>
+
+<p class="sub-table-heading">そしてこれらの全館空調に加えて、さらに以下の設備が必要になります。</p>
+<table>
+<tr><th>設備</th><th>年間コスト</th><th>寿命の目安</th></tr>
+<tr><td>床暖房</td><td>6〜10万円</td><td>10〜15年で熱源機交換</td></tr>
+<tr><td>エアコン（4〜5台）</td><td>5.5〜13万円</td><td>10〜14年で全台買替</td></tr>
+<tr><td>空気清浄機</td><td>0.3〜0.5万円</td><td>6〜10年</td></tr>
+<tr><td>消臭剤・芳香剤</td><td>0.3〜0.6万円</td><td>—</td></tr>
+<tr><td>加湿器・除湿機</td><td>電気代+管理</td><td>カビ・菌リスクあり</td></tr>
+<tr><td><strong>合計</strong></td><td><strong>年12〜25万円</strong></td><td><strong>→ 50年で500〜1,000万円</strong></td></tr>
+</table>
+
+<p class="body-text">これらの設備を全て使用した場合、<strong>50年で500〜1,000万円</strong>です。</p>
+<p class="body-text">（内訳の目安：床暖房光熱費6〜10万 + エアコン買替積立2.5〜7万 + クリーニング3〜6万 + 消耗品1〜2万 = 年12.5〜25万円。控えめに見ても年10万円を超えます。）</p>
+<p class="body-text">高断熱住宅でエアコンのみの構成なら大幅に下がりますが、多くの一般住宅では、これに近い設備構成が現実です。</p>
+<p class="body-text">全ての設備には寿命があります。壊れます。交換が必要です。電気を使います。</p>
+<p class="body-text">設備に頼る暮らしは、家を建てた後もずっとお金がかかる暮らしです。</p>
+
+<div class="conclusion-box"><p>結論：設備に頼る暮らしは、50年で500〜1,000万円のランニングコストがかかる。設備は必ず壊れ、必ず交換が必要になり、必ず電気を使う。</p></div>
+
+<details class="source">
+<summary style="font-family:var(--font-sans);font-size:11px;color:var(--color-text-tertiary);cursor:pointer;letter-spacing:0.05em;padding:4px 0;">出典・注釈</summary>
+<div style="margin-top:8px;">
+<p class="note-item">[注51] 各社全館空調の価格: 公式サイトに価格非公開のため施主ブログ・比較サイトからの集約値。エアシーズンは100-300万円と幅が大きい（住宅規模による）</p>
+<p class="note-item">[注52] エアコン平均使用年数14.1年: 内閣府 消費動向調査 令和6年3月. URL: https://www.esri.cao.go.jp/jp/stat/shouhi/honbun202403.pdf</p>
+<p class="note-item">[注53] クリーニング料金8,000-15,000円: くらしのマーケット 2026年料金相場. URL: https://curama.jp/aircon/wall/magazine/226/</p>
+<p class="note-item">[注54] 消臭芳香剤市場約936億円: 日用品化粧品新聞（hpc-news）報道。富士経済調査では約784億円。分類範囲の違いにより数値が異なる</p>
+<p class="note-item">[注55] 設備合計50年で500-1,000万円: 各設備の年間コスト積み上げによる試算。家族構成・生活習慣・設備選択により大きく異なる</p>
+</div>
+</details>
+</article>
+
+<div class="content-sep"></div>
+
+<article class="section">
+<span class="section-number">暴露 08</span>
+<h3 class="section-title">断熱等級7は、元が取れない</h3>
+<p class="body-text">住宅の断熱性能は「等級」で表されます。最高は等級7。</p>
+<p class="body-text">数字が大きい方がいい——そう思うのは自然です。</p>
+<p class="body-text">でも、コストで見ると話が変わります。</p>
+
+<table>
+<tr><th>項目</th><th>等級6→7にすると</th></tr>
+<tr><td>追加費用</td><td>100〜200万円</td></tr>
+<tr><td>年間光熱費の削減</td><td>1〜3万円※</td></tr>
+<tr><td><strong>投資回収期間</strong></td><td><strong>50〜200年</strong></td></tr>
+</table>
+<p class="table-note">※推定値（公的機関の定量データは未特定）。付加断熱で壁厚が増し、室内が狭くなるデメリットもある。</p>
+
+<p class="body-text">なぜそんなにかかるのか。壁を厚くする「付加断熱」が必要になるからです。</p>
+<p class="body-text">壁の中だけでなく、壁の外側にもう1層断熱材を追加します。窓も高性能サッシへの変更が必要になります。これらの積み上げで100〜200万円です。</p>
+<p class="body-text">等級7にはデメリットもあります。</p>
+<p class="body-text">付加断熱で壁が厚くなるため、都市部の狭小地では室内が狭くなります。</p>
+<p class="body-text">保温性が高すぎて、夏に日射熱がこもり、逆に冷房費が上がるリスクもあります。</p>
+<p class="body-text">ここまでは断熱等級の「数字」の話でした。では、その数字は信頼できるのか。</p>
+<p class="body-text">断熱性能を表すUA値は、設計図面からの計算値です。</p>
+<p class="body-text">計算値なので、実際の施工に隙間や不備があっても数字は変わりません。</p>
+<p class="body-text">一方、C値（気密性能）は家が完成したあとに送風機で実測する数字です（JIS A 2201）。</p>
+<p class="body-text">施工不良があれば、そのまま数字に出ます。</p>
+<p class="body-text">なぜこの違いが重要か。</p>
+<p class="body-text">UA値は「完璧に施工されたらこうなるはず」。C値は「この家の実際の隙間量」。</p>
+<p class="body-text">C値がなぜそれほど大事なのか。具体的に見てみます。</p>
+<p class="body-text">まず換気。計画換気が正常に機能するためには、空気が「設計通りの経路」を流れる必要があります。隙間が多ければ、空気は給気口からではなく隙間から入り、排気口に届かずに隙間から出ていきます。日本住環境株式会社の技術コラムによると、高気密とされるC値1.0の家でさえ、室内外の温度差が30度あると隙間から空気が漏れます。隙間からの漏れが増えると、せっかくの熱交換換気の効果が半分以下に落ちます。つまり、気密が悪ければ、いくら高性能な換気設備を入れても性能が出ません。</p>
+<p class="body-text">次に光熱費。C値5.0（旧基準レベル）の家は、延床面積132m2で隙間面積が660cm2——ハガキ約4.5枚分の隙間が空いているのと同じです。真冬にハガキ4.5枚分の穴が壁に空いている家を想像してください。そこから暖気が逃げ、夏は熱気が入ります。</p>
+<p class="body-text">そして結露とカビ。気密が低い家では、壁の中に湿った空気が入り込み、壁体内結露が発生します。これが断熱材を濡らして性能を劣化させ、構造材を腐食させます。見えない場所で家の寿命を縮めていくのです。</p>
+<p class="body-text">多くの大手ハウスメーカーはC値を公式に公表していません。理由は3つあります。鉄骨プレハブ住宅はC値2.0以上が多く数値を出せない。職人の腕によるバラつきが露呈する。年間何千棟規模では測定のコスト・工期増が許容できない。</p>
+<p class="body-text">セキスイハイムは公表していますが、その数値は鉄骨で2.0以下、木造で0.99以下です。高気密基準の1.0を鉄骨では満たしていません。</p>
+<p class="body-text">一条工務店は全棟気密測定の平均C値0.59を公表していますが、これは全棟保証値ではなく平均値です（保証基準は0.7以下）。</p>
+<p class="body-text">等級の数字を追いかけるよりも、C値を全棟で実測して公表している会社の方が、「この家は本当に性能が出ている」と言える根拠を持っています。</p>
+
+<div class="conclusion-box"><p>結論：断熱等級7は投資回収に数十年〜百年以上かかる。しかも性能を表すUA値は計算値であり、施工品質は反映されない。C値（実測値）を公表しているかどうかの方が、実際の住み心地にとっては重要。C値が悪ければ、換気も断熱も本来の性能を発揮できない。</p></div>
+
+<details class="source">
+<summary style="font-family:var(--font-sans);font-size:11px;color:var(--color-text-tertiary);cursor:pointer;letter-spacing:0.05em;padding:4px 0;">出典・注釈</summary>
+<div style="margin-top:8px;">
+<p class="note-item">[注56] 断熱等級6→7追加費用100-200万円: 複数の建築系メディア・工務店データ。等級5→7の差額として引用する情報源もあり、起点の等級によって数字が異なる</p>
+<p class="note-item">[注57] 等級6と7の年間光熱費差1-3万円: 工務店・ブロガーの試算に基づく推定値。公的機関の定量データは未特定</p>
+<p class="note-item">[注58] セキスイハイムC値: 鉄骨2.0以下/木造0.99以下. 公式: https://www.sekisuiheim.com/smart/smartheim/zeh/</p>
+<p class="note-item">[注59] 一条工務店C値: 全棟平均0.59. 公式: https://www.ichijo.co.jp/technology/element/airproof/ （保証基準0.7以下は施主情報）</p>
+<p class="note-item">[注60] ハガキ面積148cm2: 100mm x 148mm（郵便法規定サイズ）。C値5.0 x 132m2 = 660cm2 ÷ 148 = 約4.5枚</p>
+</div>
+</details>
+</article>
+
+<div class="content-sep"></div>
+
+<article class="section">
+<span class="section-number">暴露 09</span>
+<h3 class="section-title">構造計算していない家</h3>
+<p class="body-text">どれだけ良い素材を使い、どれだけ断熱を良くしても、地震で倒れたら全てが無意味です。</p>
+<p class="body-text">家の資産価値を決める最後の要素——構造の話です。</p>
+<p class="body-text">2025年の法改正前まで、日本の木造住宅の大多数は構造計算をしていませんでした。</p>
+<p class="body-text">なぜか。</p>
+<p class="body-text">「4号特例」という制度があったからです。</p>
+<p class="body-text">木造2階建て以下・500m2以下の住宅は、構造計算書を提出しなくても建築確認が通りました。</p>
+<p class="body-text">壁の量を簡易チェックするだけで建てられます。</p>
+<p class="body-text">簡易チェックで検証されないものは何か。</p>
+<p class="body-text">柱1本1本の強さ。梁の耐力。基礎の設計。全ての接合部の強度。</p>
+<p class="body-text">そして偏心率——建物がねじれやすいかどうか。</p>
+<p class="body-text">これらは全て、簡易チェックでは検証されません。</p>
+<p class="body-text">2025年4月に法改正がありました。</p>
+<p class="body-text">ただし、構造関連図書の提出が義務化されただけです。構造計算（許容応力度計算）の義務化ではありません。仕様規定（壁量計算等）を満たしている図書の提出で足ります。</p>
+<p class="body-text">「耐震等級3」にも2種類あります。</p>
+<p class="body-text">1つは簡易計算（壁量計算）による等級3。壁の量をチェックするだけ。</p>
+<p class="body-text">もう1つは許容応力度計算による等級3。柱・梁・基礎・接合部・偏心率を全て検証します。</p>
+<p class="body-text">中身が全然違うのに、どちらも同じ「等級3」と表示されます。</p>
+<p class="body-text">なぜ構造が「資産」の話になるのか。</p>
+<p class="body-text">2016年の熊本地震で、その答えが出ています。</p>
+<p class="body-text">震度7が2回来ました。</p>
+<p class="body-text">旧耐震基準（1981年以前）の家は約28%が倒壊。</p>
+<p class="body-text">2000年基準以降の家でも約2%が倒壊しました。</p>
+<p class="body-text">耐震等級3の家は、益城町中心部の調査対象16棟のうち倒壊ゼロ。無被害が87.5%でした。</p>
+<p class="body-text">等級3は、消防署や警察署と同じ強度です。</p>
+<p class="body-text">家が壊れたら、資産はゼロです。</p>
+<p class="body-text">家が無傷で残れば、資産は維持されます。</p>
+<p class="body-text">実際、日本の中古木造住宅の価格は驚くほど早く下がります。</p>
+
+<table>
+<tr><th>築年数</th><th>建物評価額</th></tr>
+<tr><td>新築</td><td>100%</td></tr>
+<tr><td>築10年</td><td>約50%</td></tr>
+<tr><td>築15年</td><td>約25%</td></tr>
+<tr><td><strong>築22年〜</strong></td><td><strong>ほぼ0%</strong></td></tr>
+</table>
+
+<p class="body-text">今35年ローンを組んで家を建てた場合、ローンの支払いが終わる頃には、建物の価値はゼロになっている——これが、日本の住宅市場の現実です。</p>
+<p class="body-text">2014年に国交省が価格査定マニュアルを改訂し、個々の住宅の維持管理状態を反映した査定が可能になりました。長期優良住宅の認定を取得していれば、建物評価額が一般住宅より高くなる傾向があります。制度は改善されつつありますが、実態としては「築20年超で大幅に減価」という慣行が依然として支配的です。</p>
+<p class="body-text">ドイツでは、家を売るときに「エネルギー性能証明書（Energieausweis）」の提示が法律で義務付けられています。</p>
+<p class="body-text">わかりやすく言えば、「家の燃費表示」です。</p>
+<p class="body-text">車に燃費ランク（リッター何キロ）があるように、家にもA+からHまで9段階のランクがつきます。ランクが高いほど、冷暖房にかかるエネルギーが少ない家です。平均的なドイツの住宅はDランクです。</p>
+<p class="body-text">不動産調査会社Wuest Partner社が138万件の取引データを分析した結果、このランクが1段階下がるごとに、購入価格が1m2あたり107〜118ユーロ（約1.7〜1.9万円）下落することがわかっています。</p>
+<p class="body-text">具体的に言うと、100m2の家の場合：</p>
+
+<table>
+<tr><th>燃費ランクの差</th><th>100m2の家の価格差</th></tr>
+<tr><td>2ランク差（A vs C）</td><td>約365万円</td></tr>
+<tr><td>5ランク差（A vs F）</td><td>約913万円</td></tr>
+<tr><td><strong>最大8ランク差（A+ vs H）</strong></td><td><strong>約1,080万円（36%下落）</strong></td></tr>
+</table>
+
+<p class="body-text">なぜこうなるのか。ドイツでは買い手が「燃費ランク」を見て家を選べるからです。ランクが低い家は、将来の光熱費が高いことが数字で見えてしまう。だから安くしないと売れない。</p>
+<p class="body-text">日本には、この制度がありません。どれだけ断熱や気密にお金をかけても、売るときにその性能が価格に反映される仕組みがない。だから「性能が良い家も悪い家も同じ築年数なら同じ値段」になってしまう。</p>
+<p class="body-text">住宅の性能が価格に直結する時代が、海外ではすでに来ています。</p>
+<p class="body-text">そして、日本でもその流れは始まっています。</p>
+<p class="body-text">2024年4月、新築住宅の広告に「省エネ性能ラベル」の表示が始まりました。断熱等級、エネルギー消費等級、年間光熱費の目安——消費者が「性能で家を比較できる」時代の入口です。</p>
+<p class="body-text">2025年4月には、全ての新築住宅に省エネ基準への適合が義務化されました。基準を満たさなければ建築確認が下りません。</p>
+<p class="body-text">これは何を意味するか。今後、省エネ基準を満たしていない中古住宅は「今の最低基準以下の家」として扱われるということです。</p>
+<p class="body-text">思い出してください。1981年に新耐震基準ができたとき、それ以前の建物は「旧耐震」と呼ばれ、市場での評価が明確に下がりました。同じことが、省エネ性能でも起きつつあります。</p>
+<p class="body-text">日本では、住宅取引に占める中古住宅の比率はわずか14.5%（2018年時点。アメリカ81.0%、イギリス85.9%）。近年は上昇傾向にありますが、それでも欧米とは桁が違います。</p>
+<p class="body-text">しかし、性能で家の価値が決まる仕組みが整えば、この数字は変わっていきます。性能が良い家は売れる。悪い家は売れない。その当たり前の市場が、日本にも来ようとしています。</p>
+<p class="body-text">湿度を管理できる内装材、許容応力度計算による構造設計、数字で証明された施工品質——この3つが揃った家は、時間が経っても価値を失いにくい。そういう家を建てている国では、家は消耗品ではなく、資産になっています。</p>
+<p class="body-text">では、日本で「売れる家」とはどんな家か。</p>
+<p class="body-text">不動産の査定で建物の価値を決めるのは、大きく分けて5つの要素です。</p>
+<p class="body-text" style="text-indent:0;">1つ目、構造躯体の耐久性。許容応力度計算で耐震等級3を取得しているか。</p>
+<p class="body-text" style="text-indent:0;">2つ目、断熱・気密性能。C値が実測されているか。UA値だけでなく、実際の隙間量がわかるか。</p>
+<p class="body-text" style="text-indent:0;">3つ目、メンテナンス履歴。定期点検の記録が残っているか。施工中の写真記録があるか。</p>
+<p class="body-text" style="text-indent:0;">4つ目、長期優良住宅の認定。国土交通省は2014年に建物評価改善指針を出し、長期優良住宅の躯体は耐用年数を100年超に設定できるとしました。認定があれば、築22年でゼロ評価にはなりません。</p>
+<p class="body-text" style="text-indent:0;">5つ目、素材の耐久性。壁や床の素材が経年で劣化しにくいか。結露やカビで構造材が傷んでいないか。</p>
+<p class="body-text">この5つを、この資料で見てきた内容と照らし合わせてみてください。</p>
+<p class="body-text">壁と天井がビニールクロスの家は、10年で可塑剤が抜けてパリパリになり、張り替えが必要です（暴露01）。</p>
+<p class="body-text">湿度を管理できない家は、壁の中で結露が起き、構造材が腐食します（暴露04-05）。</p>
+<p class="body-text">設備に頼る家は、設備が壊れるたびに修繕費がかかり、メンテナンス履歴が途切れやすい（暴露06-07）。</p>
+<p class="body-text">簡易計算だけの耐震等級3は、査定時に「どの等級3か」を問われたとき不利になります（暴露09）。</p>
+<p class="body-text">逆に言えば、次のような家は価値が残ります。</p>
+<p class="body-text" style="text-indent:0;">調湿できる素材で壁・床・天井が仕上げられ、結露が起きにくい。</p>
+<p class="body-text" style="text-indent:0;">構造計算（許容応力度計算）で耐震等級3を取得している。</p>
+<p class="body-text" style="text-indent:0;">C値を全棟実測し、数字で施工品質を証明できる。</p>
+<p class="body-text" style="text-indent:0;">設備に頼らず、素材の性能で快適さを維持できるから、メンテナンスコストが低い。</p>
+<p class="body-text" style="text-indent:0;">長期優良住宅の認定を取得している。</p>
+<p class="body-text">家を「消耗品」にするか「資産」にするかは、建てる前に決まっています。</p>
+
+<div class="conclusion-box"><p>結論：日本の木造住宅の大多数は、構造計算をせずに建てられてきた。「耐震等級3」にも中身が全く異なる2種類がある。そして築22年で資産価値がゼロになるのは、性能が維持されていない家だからだ。性能を維持できる家は、30年後も価値が残る。家を資産にするか、消耗品にするか——それは建てる前に決まっている。</p></div>
+
+<details class="source">
+<summary style="font-family:var(--font-sans);font-size:11px;color:var(--color-text-tertiary);cursor:pointer;letter-spacing:0.05em;padding:4px 0;">出典・注釈</summary>
+<div style="margin-top:8px;">
+<p class="note-item">[注61] 2025年4月法改正: 国交省. URL: https://www.mlit.go.jp/common/001576404.pdf（構造関連図書提出義務化。許容応力度計算の義務化ではない）</p>
+<p class="note-item">[注62] 熊本地震データ: 国交省報告書. URL: https://www.mlit.go.jp/common/001155088.pdf（旧耐震28.2%倒壊/2000年基準2.2%倒壊/等級3 16棟中倒壊ゼロ無被害87.5%）</p>
+<p class="note-item">[注63] 築年数別価格推移: 国交省「中古住宅流通・リフォーム市場の現状」. URL: https://www.mlit.go.jp/common/000135252.pdf</p>
+<p class="note-item">[注64] 国交省建物評価改善指針(2014年3月): 長期優良住宅の躯体は100年超の耐用年数として評価可能. URL: https://www.mlit.go.jp/common/001033817.pdf</p>
+<p class="note-item">[注65] Wuest Partner社: 138万件のドイツ不動産取引データ分析（2023Q3-2025Q2）。1段階差で購入価格107ユーロ/m2（分譲）/118ユーロ/m2（集合住宅）下落。ドイツ市場のデータであり日本市場に直接適用できるものではない。Source: REFIRE</p>
+<p class="note-item">[注66] 中古住宅比率14.5%: 国交省資料(2018年時点). 米国81.0%/英国85.9%</p>
+<p class="note-item">[注67] 100棟構造エラー: 池田住建企画ブログ(2021年6月). URL: https://haruno-ie.com/blog/15605（同社独自調査。第三者検証なし）</p>
+<p class="note-item">[注68] 省エネ性能ラベル(2024年4月): 国交省. URL: https://www.mlit.go.jp/shoene-label/</p>
+<p class="note-item">[注69] 省エネ基準適合義務化(2025年4月): 国交省. URL: https://www.mlit.go.jp/report/press/content/001519931.pdf</p>
+</div>
+</details>
+</article>
+
+<div class="cta-section">
+<a href="ch3b.html" class="cta-button">第3章後半を読む →</a>
+</div>
+</div>
+
+<footer class="footer">
+<p class="disclaimer">本資料は消費者への情報提供を目的としています。各数字の出典・条件・限界は各セクション末尾の注釈に記載しています。個別の住宅選択に関する判断は専門家にご相談ください。</p>
+<p class="disclaimer">2026年5月時点の情報に基づいています。</p>
+</footer>
+
+<script>
+window.addEventListener('scroll', function() {
+    var h = document.documentElement;
+    var st = h.scrollTop || document.body.scrollTop;
+    var sh = h.scrollHeight - h.clientHeight;
+    var pct = (st / sh) * 100;
+    document.getElementById('progressBar').style.width = pct + '%';
+});
+</script>
+</body>
+</html>

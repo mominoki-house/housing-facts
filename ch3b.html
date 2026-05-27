@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>聞かれなければ言わない | 第3章後半</title>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+    --color-bg: #faf9f7;
+    --color-surface: #ffffff;
+    --color-text: #1d1d1f;
+    --color-text-secondary: #6e6e73;
+    --color-text-tertiary: #aeaeb2;
+    --color-accent: #3d5a80;
+    --color-border: #e5e5e7;
+    --color-conclusion-bg: #f5f4f0;
+    --color-table-head: #f0f0f0;
+    --color-table-stripe: #f9f9f9;
+    --font-serif: "YuMincho", "Hiragino Mincho Pro", "Hiragino Mincho ProN", serif;
+    --font-sans: "Hiragino Kaku Gothic ProN", "Hiragino Sans", -apple-system, sans-serif;
+    --max-w: 640px;
+}
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body {
+    font-family: var(--font-serif);
+    font-size: 16px;
+    line-height: 1.9;
+    color: var(--color-text);
+    background: var(--color-bg);
+    -webkit-font-smoothing: antialiased;
+}
+
+/* ===== Progress Bar ===== */
+.progress-bar {
+    position: fixed; top: 0; left: 0; width: 0%; height: 3px;
+    background: var(--color-accent); z-index: 1000; transition: width 0.1s linear;
+}
+
+/* ===== Sticky Nav ===== */
+.nav {
+    position: sticky; top: 3px; background: var(--color-surface);
+    border-bottom: 1px solid var(--color-border); z-index: 999;
+    padding: 12px 0; text-align: center;
+}
+.nav a {
+    font-family: var(--font-sans); font-size: 13px; color: var(--color-text-secondary);
+    text-decoration: none; padding: 12px 14px; margin: 0 2px; display: inline-block;
+    min-height: 44px; line-height: 20px;
+}
+.nav a.active { color: var(--color-accent); border-bottom: 2px solid var(--color-accent); font-weight: 600; }
+
+/* ===== Layout ===== */
+.container { max-width: var(--max-w); margin: 0 auto; padding: 0 24px; }
+
+/* ===== Chapter Heading ===== */
+.chapter-heading {
+    font-family: var(--font-serif); font-size: 18px; font-weight: 600;
+    text-align: center; margin: 64px 0 48px; padding: 24px 0;
+    border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border);
+}
+
+/* ===== Section ===== */
+.section { margin-bottom: 64px; }
+.section-number {
+    font-family: var(--font-sans); font-size: 11px; color: var(--color-text-tertiary);
+    letter-spacing: 0.1em; display: block; margin-bottom: 8px;
+}
+.section-title {
+    font-family: var(--font-serif); font-size: 20px; font-weight: 600;
+    margin-bottom: 8px; padding-bottom: 12px; border-bottom: 1px solid var(--color-border);
+}
+
+/* ===== Body Text ===== */
+.body-text { text-indent: 1em; margin-bottom: 24px; }
+.content-section p { text-indent: 1em; margin-bottom: 0.6em; font-size: 16px; line-height: 1.9; }
+
+/* ===== Lists ===== */
+.section ul { margin: 12px 0 12px 1.5em; padding: 0; }
+.section li { font-size: 15px; margin-bottom: 6px; text-indent: 0; line-height: 1.8; }
+
+/* ===== Conclusion Box ===== */
+.conclusion-box {
+    border-radius: 8px; box-shadow: inset 3px 0 0 var(--color-text);
+    background: var(--color-conclusion-bg); padding: 20px 24px; margin: 32px 0;
+}
+.conclusion-box p { text-indent: 0; font-size: 15px; line-height: 1.8; }
+
+/* ===== Source Toggle ===== */
+.source-toggle { margin: 16px 0 32px; }
+.source-toggle summary {
+    font-family: var(--font-sans); font-size: 11px; color: var(--color-text-tertiary);
+    cursor: pointer; letter-spacing: 0.05em; padding: 4px 0;
+}
+.source-toggle summary:hover { color: var(--color-accent); }
+.source-text {
+    font-family: var(--font-sans); font-size: 11px; color: var(--color-text-tertiary);
+    line-height: 1.6; text-indent: 0 !important; margin-top: 8px; word-break: break-all;
+}
+
+/* ===== Content Separator ===== */
+.content-sep {
+    text-align: center; margin: 32px 0;
+    color: var(--color-text-tertiary); font-size: 14px; letter-spacing: 0.5em;
+}
+.content-sep::after { content: "* * *"; }
+
+/* ===== Tables ===== */
+table { border-collapse: collapse; width: 100%; margin: 24px 0; font-size: 14px; font-family: var(--font-sans); }
+th, td { border: 1px solid var(--color-border); padding: 8px 12px; text-align: left; }
+th { background: var(--color-table-head); font-weight: 500; font-size: 13px; }
+tr:nth-child(even) { background: var(--color-table-stripe); }
+.table-note {
+    font-family: var(--font-sans); font-size: 12px; color: var(--color-text-secondary);
+    text-indent: 0; margin: 8px 0 24px; line-height: 1.6;
+}
+.sub-table-heading { text-indent: 0; font-weight: 600; margin: 24px 0 8px; }
+
+/* ===== Owari Heading ===== */
+.owari-heading {
+    text-align: center; border-bottom: none; font-size: 20px; font-weight: 600;
+    margin-top: 32px; margin-bottom: 32px; padding-bottom: 12px;
+}
+
+/* ===== Final CTA ===== */
+.final-cta {
+    border-top: 1px solid var(--color-border);
+    padding: 56px 0 64px;
+    margin-top: 48px;
+}
+.final-cta-lead {
+    font-family: var(--font-sans); font-size: 13px; color: var(--color-text-secondary);
+    text-align: center; margin-bottom: 8px; letter-spacing: 0.03em;
+}
+.final-cta-heading {
+    font-family: var(--font-serif); font-size: 20px; font-weight: 600;
+    text-align: center; margin-bottom: 40px; color: var(--color-text);
+}
+.cta-row {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 16px 0; border-bottom: 1px solid var(--color-border); gap: 16px;
+}
+.cta-row:first-of-type { border-top: 1px solid var(--color-border); }
+.cta-region {
+    font-family: var(--font-sans); font-size: 15px; font-weight: 500;
+    color: var(--color-text); white-space: nowrap;
+}
+.cta-btn {
+    display: inline-block; font-family: var(--font-sans); font-size: 14px;
+    font-weight: 500; color: var(--color-surface);
+    background: var(--color-accent); padding: 12px 28px;
+    border-radius: 8px; text-decoration: none; white-space: nowrap;
+    transition: transform 0.2s;
+}
+.cta-btn:hover { transform: translateY(-1px); }
+.final-cta-note {
+    font-family: var(--font-sans); font-size: 11px; color: var(--color-text-tertiary);
+    text-align: center; margin-top: 28px; line-height: 1.7;
+}
+
+/* ===== Footer ===== */
+.footer {
+    padding: 32px 24px; max-width: var(--max-w); margin: 0 auto;
+    border-top: 1px solid var(--color-border);
+}
+.disclaimer {
+    font-family: var(--font-sans); font-size: 11px; color: var(--color-text-tertiary);
+    line-height: 1.7; margin-bottom: 16px;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 480px) {
+    .container { padding: 0 20px; }
+    .section-title { font-size: 18px; }
+    .chapter-heading { font-size: 16px; }
+    .nav a { padding: 12px 10px; margin: 0 1px; font-size: 11px; }
+    table { font-size: 12px; }
+    th, td { padding: 6px 8px; }
+    .owari-heading { font-size: 18px; }
+}
+</style>
+</head>
+<body>
+<div class="progress-bar" id="progressBar"></div>
+<nav class="nav">
+<a href="ch1.html">第1章</a>
+<a href="ch2.html">第2章</a>
+<a href="ch3a.html">第3章前半</a>
+<a href="ch3b.html" class="active">第3章後半</a>
+</nav>
+<div class="container">
+<h2 class="chapter-heading">第3章後半　資産になる家、ならない家（続き）</h2>
+
+<!-- ===== 暴露10 ===== -->
+<article class="section" id="section-10">
+<span class="section-number">暴露 10</span>
+<h3 class="section-title">保証が長い＝安心、ではない</h3>
+
+<p class="body-text">「うちは保証30年です」「60年保証です」。</p>
+<p class="body-text">この言葉を聞くと安心します。</p>
+<p class="body-text">でも、保証の中身を見たことはありますか。</p>
+
+<p class="body-text">住宅の瑕疵保険の事故率は0.05%です。</p>
+<p class="body-text">2,000棟に1棟。これだけ聞くと「ほとんど問題ない」と思えます。</p>
+<p class="body-text">事故の内容を分析すると、95%が雨漏りです。</p>
+
+<p class="body-text">ただし、この「0.05%」には大きな落とし穴があります。</p>
+<p class="body-text">瑕疵保険がカバーするのは「構造の重大な欠陥」と「雨水の浸入」の2つだけです。</p>
+<p class="body-text">つまり、保険事故として報告されるのは、この2つの問題が起きたときだけ。</p>
+<p class="body-text">それ以外の施工不良——例えば断熱材の隙間、気密シートの施工ミス、配管の不備——は、保証の対象外です。施工不良があっても、保険事故にはカウントされません。</p>
+<p class="body-text">「事故率0.05%」は、「保険がカバーする範囲での事故率」であって、「施工不良が起きる確率」ではないのです。</p>
+
+<p class="body-text">では、実際の施工不良はどのくらいの頻度で起きているのか。</p>
+<p class="body-text">第三者検査機関のさくら事務所が2024年に265件の新築注文住宅を第三者検査した結果、全検査項目で不具合指摘率が50%を超えていました。</p>
+<p class="body-text">特に構造（耐震）、防水（雨漏り）、断熱（省エネ）の3項目は60%超です。</p>
+<p class="body-text">（ただし、これは同社に依頼があった物件のサンプルであり、全国の新築住宅を代表する統計ではありません。）</p>
+<p class="body-text">原因は、業界の人手不足、DX遅れ、工期短縮圧力、建築技術の複雑化です。</p>
+
+<p class="body-text">これが何を意味するか。</p>
+<p class="body-text">あなたの家の断熱材に隙間が空いていても、保険事故にはなりません。</p>
+<p class="body-text">気密シートに穴が空いていて、壁の中で結露が始まっていても、保険事故にはなりません。</p>
+<p class="body-text">5年後、壁の中でカビが広がり、構造材が腐り始めていても——それが「構造耐力上主要な部分の重大な欠陥」と認定されない限り、保険は1円も出ません。</p>
+<p class="body-text">「事故率0.05%」とは、「この狭い枠に入った事故だけの率」です。枠の外にある施工不良は、数字に現れません。</p>
+
+<p class="body-text">そして仮に保険が適用されたとしても、それは問題が「起きたあと」の話です。</p>
+<p class="body-text">壁を剥がし、カビた断熱材を撤去し、構造材を補修し、新しい断熱材を入れ直す。その間、家族はどこに住むのか。</p>
+<p class="body-text">仮住まいの家賃は月15〜20万円。工期が3〜6ヶ月なら、仮住まいだけで45〜120万円です。引越し費用、荷物の保管費用、子どもの通学・通園の問題。</p>
+<p class="body-text">これらは保険の対象外です。全て自己負担です。</p>
+<p class="body-text">問題が起きてから対応するのと、問題が起きない家を建てるのと。どちらが安いかは明らかです。</p>
+
+<p class="body-text">保証期間が長いことと、問題が起きないことは別の話です。</p>
+<p class="body-text">保証は「問題が起きたあとの対応」。</p>
+<p class="body-text">本当に大事なのは「問題を起こさない施工品質」です。</p>
+
+<p class="body-text">では、施工品質をどう見極めるか。</p>
+<p class="body-text">これから家を建てようとしている会社に、次の質問をしてみてください。</p>
+
+<p class="body-text" style="text-indent:0;">気密・断熱について：</p>
+<ul>
+<li>「C値を全棟測定していますか？平均C値はいくつですか？」</li>
+<li>「気密測定は中間時と完成時の2回行いますか？」</li>
+<li>「断熱材の施工は第三者がチェックしていますか？」</li>
+</ul>
+
+<p class="body-text">ここで1つ、正直に書きます。</p>
+<p class="body-text">気密測定（C値の実測）を全棟で行っている工務店は、実は少数派です。私たちのグループでも、全棟で気密測定を実施していない会社があります。</p>
+
+<p class="body-text">ただし、「気密測定」と「気密処理」は別のものです。</p>
+<p class="body-text">気密測定は「完成した家の隙間量を測る検査」。</p>
+<p class="body-text">気密処理は「隙間をなくすための施工そのもの」——気密シートの張り方、テープ処理、配管まわりの処理、サッシまわりの納め方。</p>
+
+<p class="body-text">私たちのグループでは、全社で同じ気密処理を徹底しています。施工手順はルール化されており、現場でのチェック体制も統一されています。</p>
+<p class="body-text">実際に測定した結果もあります。新潟ではC値0.1（最高値）、平均でも0.3を記録しています。兵庫でもC値0.1を計測しています。</p>
+<p class="body-text">一条工務店が公式に公表している全棟平均C値は0.59です。</p>
+
+<p class="body-text">気密測定をしていなくても、気密処理を徹底している会社はあります。</p>
+<p class="body-text">逆に、気密測定で良い数字を出しても、経年で隙間が広がる施工をしている会社もあります。</p>
+
+<p class="body-text">大手ハウスメーカーの多くは、C値を公式に公表していません。暴露08で書いた通り、鉄骨プレハブではC値2.0以上が多く、数字を出せない事情があります。</p>
+<p class="body-text">数字を出せないのか、出さないのか。その違いは大きい。</p>
+
+<p class="body-text">理想は、気密処理を徹底した上で、気密測定でその結果を数字で証明すること。</p>
+<p class="body-text">どちらか片方だけでは不十分です。</p>
+<p class="body-text">「測定していますか？」と聞くのは大事です。でも、もっと大事なのは「気密処理は具体的にどうやっていますか？見せてもらえますか？」と聞くことです。</p>
+<p class="body-text">施工の写真や動画を見せてくれる会社は、隠すことがない会社です。</p>
+
+<p class="body-text" style="text-indent:0;">構造について：</p>
+<ul>
+<li>「構造計算は許容応力度計算ですか？それとも壁量計算（仕様規定）だけですか？」</li>
+<li>「耐震等級3は許容応力度計算で取得していますか？」</li>
+</ul>
+
+<p class="body-text">この質問をすると、2つの反応に分かれます。</p>
+
+<p class="body-text">許容応力度計算をしている会社は、即答します。「はい、全棟やっています」と。計算書を見せてくれることもあります。</p>
+
+<p class="body-text">していない会社は、言い回しが変わります。</p>
+<p class="body-text">「建築基準法の基準は満たしています」——これは「最低限」という意味です。</p>
+<p class="body-text">「耐震等級3"相当"です」——「相当」は、第三者機関に申請していないという意味です。認定と相当は全く別物です。</p>
+<p class="body-text">「壁量は基準の1.5倍あります」——壁の"量"だけ見ても、壁の配置バランス（偏心率）や梁の強度は未検証です。</p>
+
+<p class="body-text">ある建築士が、無作為に抽出した100棟の木造住宅の図面を許容応力度計算で検証したところ、100棟全てに構造上のエラーが見つかりました。最も多かったのは耐力壁の不足（70%超）でした。壁量計算では「基準を満たしている」のに、許容応力度計算では足りない——そういう家が建っているのです。</p>
+
+<p class="body-text" style="text-indent:0;">施工管理について：</p>
+<ul>
+<li>「第三者検査機関の検査を受け入れていますか？」</li>
+<li>「基礎配筋検査は誰が行いますか？」</li>
+<li>「施工中の写真記録は残していますか？見せてもらえますか？」</li>
+</ul>
+
+<p class="body-text">第三者検査について聞くと、こんな返事が返ってくることがあります。</p>
+<p class="body-text">「うちの現場監督がしっかり見ていますから大丈夫です」——自社の人間が自社の施工をチェックして、不備を報告するでしょうか。</p>
+<p class="body-text">「工期が遅れてしまいます」——検査日程の調整で1〜2日の話です。それを嫌がる理由は何でしょうか。</p>
+
+<p class="body-text">施工中の写真記録を求めると、「現場が忙しくて撮れません」と言われることもあります。</p>
+<p class="body-text">逆に、記録をきちんと残している会社は、基礎配筋から断熱材の施工、気密シートの処理まで、全工程の写真をファイルにまとめて引き渡してくれます。</p>
+<p class="body-text">何も隠す必要がないから、見せられるのです。</p>
+
+<p class="body-text">これらの質問に明確に答えられる会社は、施工品質に自信があります。</p>
+<p class="body-text">答えをはぐらかす会社は、数字を出せない理由があります。</p>
+
+<p class="body-text">家の資産価値を決めるのは、湿度を管理できる内装材、構造設計、施工品質の3つです。</p>
+
+<div class="conclusion-box"><p>結論：保証期間の長さは、施工品質を証明しない。本当に大事なのは「問題を起こさない施工品質」だ。C値を全棟測定しているか。構造計算は許容応力度計算か。施工中の写真記録を見せてくれるか。この3つの質問に明確に答えられる会社は、施工品質に自信がある。</p></div>
+
+<details class="source-toggle">
+<summary>出典・注釈を表示</summary>
+<p class="source-text">国土交通省 2008-2016年度 保険事故発生状況 / さくら事務所 プレスリリース 2025年4月（265件第三者検査結果）/ 新建ハウジング報道（さくら事務所調べ）/ 住宅瑕疵担保責任保険協会 / 住まいるダイヤル / 池田住建（100棟構造エラー検証）/ クオホーム・ニケンハウジング（耐震等級の2種類）/ JIO 住宅瑕疵保険の対象範囲</p>
+</details>
+</article>
+
+<div class="content-sep"></div>
+
+<!-- ===== 暴露11 ===== -->
+<article class="section" id="section-11">
+<span class="section-number">暴露 11</span>
+<h3 class="section-title">坪単価のトリック</h3>
+
+<p class="body-text">誰もが見る数字の中に、トリックがあります。</p>
+<p class="body-text">坪単価です。</p>
+<p class="body-text">住宅展示場で提示される坪単価には、実は含まれていないものがたくさんあります。</p>
+<p class="body-text">外構工事、カーテン、照明、植栽、地盤改良費、水道引込み工事——これらは「別途」です。</p>
+<p class="body-text">打ち合わせを重ねるたびにオプションが積み上がり、当初の見積もりから300〜500万円以上増えた、という話は珍しくありません。</p>
+
+<p class="body-text">しかし、大手ハウスメーカーの坪単価は、2024年度の決算データでこうなっています。</p>
+
+<table>
+<tr><th>メーカー</th><th>表示坪単価（※本体工事費のみ）</th></tr>
+<tr><td>ヘーベルハウス</td><td>120〜140万円（大手最高水準）</td></tr>
+<tr><td>積水ハウス</td><td>100〜150万円</td></tr>
+<tr><td>住友林業</td><td>110〜130万円</td></tr>
+<tr><td>三井ホーム</td><td>130万円〜</td></tr>
+<tr><td>パナソニックホームズ</td><td>100〜155万円</td></tr>
+<tr><td>ダイワハウス</td><td>100〜135万円</td></tr>
+<tr><td>一条工務店</td><td>80〜105万円</td></tr>
+</table>
+
+<p class="body-text">これは全て「本体工事費のみ」の坪単価です。しかもこれは標準仕様の価格であり、打ち合わせでオプションを追加すれば、ここから上がります。</p>
+<p class="body-text">しかも、ここに含まれていない費用があります。外構工事（100〜300万円）、地盤改良（50〜200万円）、照明（30〜80万円）、カーテン（20〜50万円）、植栽、登記費用、住宅ローン手数料——これら全てが「別途」です。</p>
+<p class="body-text">業界の目安では、実際の建築総額は「表示坪単価 x 坪数 x 1.3〜1.4」になります。つまり、表示坪単価100万円の大手で30坪を建てると、総額は3,900〜4,200万円です。</p>
+
+<p class="body-text">一方で、最初の見積もり段階から外構・カーテン・照明・植栽まで全て含めた「コミコミ」の価格を提示する会社もあります。坪単価は約100万円（地域や仕様により異なります）。一見すると大手と同じか高く見えるかもしれません。</p>
+<p class="body-text">しかし、大手の「総額坪単価」は130〜180万円です。コミコミで100万円の方が、実は安い。</p>
+
+<p class="body-text">違いは「見せ方」ではなく「仕組み」です。</p>
+<p class="body-text">最初から全て含んだ見積もりを出す会社は、打ち合わせの途中でオプションが積み上がって予算を超える、ということが構造的に起きません。</p>
+<p class="body-text">「建てた後にいくらかかるか」まで含めて比較すること——それが、本当の意味での「坪単価」の比べ方です。</p>
+
+<p class="body-text">ここで、3,500万円の家を2棟建てたと想像してみてください。</p>
+
+<p class="sub-table-heading">仕様の違い</p>
+
+<table>
+<tr><th></th><th>A：一般的な大手</th><th>B：高性能住宅</th></tr>
+<tr><td>内装</td><td>ビニールクロス</td><td>調湿できる素材</td></tr>
+<tr><td>耐震等級3</td><td>壁量計算（簡易）</td><td>許容応力度計算</td></tr>
+<tr><td>断熱・気密</td><td>等級4</td><td>C値0.5以下</td></tr>
+<tr><td>長期優良住宅</td><td>なし</td><td>あり</td></tr>
+</table>
+
+<p class="sub-table-heading">30年間の金額差</p>
+
+<table>
+<tr><th></th><th>A：大手の家</th><th>B：高性能住宅</th><th>Bの優位</th></tr>
+<tr><td>修繕費</td><td>800〜1,000万円</td><td>500〜600万円</td><td>+200〜400万円</td></tr>
+<tr><td>光熱費</td><td>約720万円</td><td>約432万円</td><td>+約288万円</td></tr>
+<tr><td><strong>30年後の資産価値</strong></td><td><strong>ほぼゼロ</strong></td><td><strong>250〜500万円</strong></td><td><strong>+250〜500万円</strong></td></tr>
+</table>
+
+<p class="body-text">では、100年——3世代で考えるとどうなるか。</p>
+
+<table>
+<tr><th>3世代・100年比較</th><th>A：一般的な家</th><th>B：高性能住宅</th></tr>
+<tr><td>1世代目</td><td>建築3,500万円 + ローン</td><td>建築3,500万円 + ローン</td></tr>
+<tr><td>2世代目</td><td>解体約200万 + 仮住まい150〜200万 + 建替3,500万</td><td>メンテナンス500〜800万円のみ</td></tr>
+<tr><td>3世代目</td><td>同上（3回目の建替え）</td><td>都度補修で継続居住</td></tr>
+<tr><td><strong>100年間の住居費総額</strong></td><td><strong>約1億3,500万円</strong></td><td><strong>約5,500〜6,100万円</strong></td></tr>
+<tr><td><strong>差額</strong></td><td></td><td><strong>Bの方が約7,000〜8,000万円安い</strong></td></tr>
+</table>
+
+<p class="body-text">この差額は「家の性能の差」が生んだ数字です。</p>
+<p class="body-text">長期優良住宅の劣化対策等級3は「75〜90年間、大規模改修不要」が設計基準です。調湿素材が壁体内結露を防ぎ、構造材を腐朽菌やシロアリから守り続ける。</p>
+
+<table>
+<tr><th>30年間でBが得する金額</th><th>差額</th></tr>
+<tr><td>建物の資産価値</td><td>250〜500万円</td></tr>
+<tr><td>修繕費の節約</td><td>200〜400万円</td></tr>
+<tr><td>光熱費の節約</td><td>約288万円</td></tr>
+<tr><td><strong>合計</strong></td><td><strong>740〜1,190万円</strong></td></tr>
+</table>
+
+<p class="body-text">Bの家の方が30年間で<strong>700万円以上安い</strong>。しかも建物の資産価値が残っている。</p>
+<p class="body-text">（この試算は一定の前提に基づく概算です。建物の規模、地域、選ぶ設備によって数字は変わります。ただし、方向性——高性能住宅の方がトータルコストが安くなる——は変わりません。）</p>
+
+<p class="body-text">初期費用が多少高くても、「維持費が安い家」の方が、30年後のトータルコストは安い。</p>
+<p class="body-text">これが「資産になる家」と「消耗品になる家」の正体です。</p>
+
+<div class="conclusion-box"><p>結論：家は「建てる費用」で選ぶのではない。「住み続ける費用」で選ぶものだ。坪単価の見え方に惑わされず、含まれる項目を確認し、30年後のトータルコストで比較すること——それが、本当の意味での家の値段の比べ方です。</p></div>
+
+<details class="source-toggle">
+<summary>出典・注釈を表示</summary>
+<p class="source-text">[注70] 大手坪単価: 住宅産業新聞 大手9社2024年度決算データ. URL: https://www.housenews.jp/house/32301（有料記事。各社別の詳細値は会員限定）<br>[注71] 坪単価に含まれない費用: SUUMO坪単価解説（一級建築士監修）/ ダイワハウス公式コラム / 業界の目安として「表示坪単価 x 坪数 x 1.3-1.4」が総額目安とされる<br>[注72] さくら事務所 30年修繕費1,193万円(2026年版): PR TIMES. URL: https://prtimes.jp/main/html/rd/p/000000111.000002667.html（木造2階建て延床約35坪の試算）<br>[注73] A vs B 30年/100年比較: 一定の前提条件（建築費3,500万円/木造2階建て/4人家族/2026年物価基準）に基づく概算。建物規模・地域・設備選択・物価変動により大きく異なる。将来の資産価値を保証するものではない<br>[注74] 長期優良住宅 劣化対策等級3「75-90年間大規模改修不要」: 住宅性能表示制度の公式定義</p>
+</details>
+</article>
+
+<div class="content-sep"></div>
+
+<!-- ===== 暴露12 ===== -->
+<article class="section" id="section-12">
+<span class="section-number">暴露 12</span>
+<h3 class="section-title">太陽光パネルという「設備投資」の正体</h3>
+
+<p class="body-text">暴露07で「設備に頼る暮らしは50年で500〜1,000万円かかる」と書きました。</p>
+<p class="body-text">その最大版が、太陽光パネルです。</p>
+
+<p class="body-text">まず、費用の話をします。</p>
+<p class="body-text">太陽光パネル（4〜5kW）の設置費用は120〜160万円。</p>
+<p class="body-text">蓄電池をセットにすると180〜350万円です。</p>
+
+<p class="body-text">「元が取れる」と営業マンは言います。</p>
+<p class="body-text">確かに、FIT（固定価格買取制度）の買取価格はこう推移しています。</p>
+
+<table>
+<tr><th>時期</th><th>FIT買取価格</th></tr>
+<tr><td>2012年（制度開始）</td><td>42円/kWh</td></tr>
+<tr><td><strong>2025年</strong></td><td><strong>15円/kWh（64%下落）</strong></td></tr>
+<tr><td>FIT終了後</td><td>7〜9円/kWh</td></tr>
+</table>
+
+<p class="body-text">投資回収にどのくらいかかるか。</p>
+<p class="body-text">好条件で8〜10年。蓄電池を入れて自家消費すると14〜17年です。</p>
+
+<p class="body-text">ここまでは営業マンも説明します。</p>
+<p class="body-text">ここからは、たぶん言いません。</p>
+
+<p class="body-text">パワーコンディショナー（パワコン）という、パネルの電気を家庭用に変換する装置があります。</p>
+<p class="body-text">寿命は10〜15年。交換費用は20〜40万円。50年住めば2回交換します。</p>
+<p class="body-text">パネル自体も永久ではありません。年に約0.5%ずつ発電効率が落ちていきます（NRELデータ）。劣悪な条件では1%近く低下するケースもあります。</p>
+<p class="body-text">25〜30年でパネル交換が必要になり、その費用は100〜150万円です。</p>
+<p class="body-text">撤去・廃棄に約30万円。メンテナンス費は年2万円、40年分で80万円。</p>
+
+<table>
+<tr><th>後からかかる費用</th><th>金額</th><th>タイミング</th></tr>
+<tr><td>パワコン交換（2回）</td><td>40〜80万円</td><td>15年目・30年目</td></tr>
+<tr><td>パネル交換</td><td>100〜150万円</td><td>25〜30年目</td></tr>
+<tr><td>撤去・廃棄</td><td>約30万円</td><td>撤去時</td></tr>
+<tr><td>メンテナンス</td><td>約80万円</td><td>40年分（年2万円）</td></tr>
+<tr><td><strong>合計（初期費用とほぼ同額）</strong></td><td><strong>約250〜340万円</strong></td><td>—</td></tr>
+</table>
+
+<p class="body-text">初期投資とほぼ同額の「隠れコスト」です。</p>
+<p class="body-text">（これは最悪ケースの試算です。標準的な運用なら、パワコン1回交換＋メンテナンスで150〜200万円程度に収まる可能性もあります。太陽光推進派は「自家消費なら10年で元が取れる」と主張しており、条件次第ではそれも現実的です。ここで問題にしているのは「元が取れるか」ではありません。）</p>
+
+<p class="body-text">「元が取れる」。この言葉には、見えていないコストがあります。</p>
+
+<p class="body-text">まず、「元が取れる」の前提条件を見てみます。</p>
+<p class="body-text">太陽光4.5kWシステムの年間売電収入は約6万円前後です（2025年FIT価格15円/kWhの場合）。</p>
+<p class="body-text">設置費用130万円なら、単純計算で回収に約22年。自家消費で電気代も削減すれば、好条件で8〜10年まで短縮できます。</p>
+<p class="body-text">ここまでは営業マンが見せてくれる数字です。</p>
+
+<p class="body-text">しかし、この計算には「後から来る費用」が入っていません。</p>
+<p class="body-text">パワコン交換（15年目に約30〜35万円）。定期点検（1回あたり2〜5万円、経産省調査では平均4.1万円）。パネルの発電効率は毎年0.5〜0.8%ずつ低下し、20年後には約85%まで落ちます。</p>
+<p class="body-text">さらに、2025年10月以降の新規認定では、FIT価格が段階制に変わります。1〜4年目は24円/kWhですが、5年目以降は8.3円/kWhに急落します。</p>
+
+<p class="body-text">もう1つ、見落とされがちなのが「ローンの利息」です。</p>
+<p class="body-text">太陽光130万円を住宅ローン（35年、金利0.5%）に組み込むと、利息だけで約12〜15万円が追加されます。月々のローン増額分は約3,400円。売電収入と光熱費削減で月約8,000〜10,000円のプラスになるので、一見お得に見えます。</p>
+<p class="body-text">でもこれは最初の10年間の話です。FIT終了後は売電収入が半分以下に落ち、ローンの支払いだけが残ります。</p>
+
+<p class="body-text">「元が取れるか」を正しく計算するなら、初期費用だけでなく、パワコン交換・メンテナンス累計・ローン利息・発電効率低下・FIT終了後の収入減をすべて足し合わせる必要があります。</p>
+<p class="body-text">それでも「元が取れる」ケースはあります。しかし、営業マンが見せるシミュレーションとは、前提が全く違います。</p>
+
+<p class="body-text">次に、屋根の話です。</p>
+<p class="body-text">パネル1枚は15〜20kgあります。4kWシステムで約20枚。架台を含めると240〜470kgです。</p>
+<p class="body-text">100kgの大人4〜5人が、屋根の上に365日、30年間乗り続けている状態です。</p>
+
+<p class="body-text">この荷重が何を引き起こすか。</p>
+<p class="body-text">まず、雨漏りのリスクです。多くの施工方法では、パネルを固定するビスが屋根の防水シートを貫通します。施工不良があれば、そこから雨水が入ります。2018年の台風21号では、大阪で住宅用パネル約28,000枚中約13,780枚が被害を受けた事例が報告されています。</p>
+<p class="body-text">次に、屋根材そのものへの負荷です。新築時に太陽光を前提とした構造計算をしていれば、荷重は設計に織り込まれています。しかし後付けの場合、当初の設計荷重に余裕がなければ、屋根の垂木や野地板に想定外の負荷がかかり続けます。</p>
+<p class="body-text">そして見落とされがちなのが、金具まわりの経年劣化です。ビスの周囲のシーリング材は10〜15年で劣化します。パネルの下は日光が当たらず、結露しやすい環境になります。パネルがある限り、屋根の点検も補修もパネルを外さなければできません。</p>
+
+<p class="body-text">屋根材の寿命（20〜50年）とパネルの寿命（25〜30年）にはずれがあります。</p>
+<p class="body-text">屋根が先に寿命を迎えると、パネルを外して、屋根を葺き替えて、またパネルを戻す。</p>
+<p class="body-text">脱着だけで25〜35万円。葺き替えを含めると100万円を超えます。</p>
+
+<p class="body-text">火災のリスクもあります。</p>
+<p class="body-text">独立行政法人NITE（製品評価技術基盤機構）が2025年3月に発表したデータによると、住宅用太陽光発電の事故は2014〜2023年度の10年間で約200件に上ります。</p>
+<p class="body-text">原因の約70%がパワコン、約20%がパネルです。</p>
+<p class="body-text">パネルの一部が影や汚れで発電できなくなると、そこだけが異常に高温になる「ホットスポット現象」が起きます。</p>
+
+<p class="body-text">「太陽光があれば停電でも安心」と聞いたことがあるかもしれません。</p>
+<p class="body-text">条件付きの話です。</p>
+<p class="body-text">パワーコンディショナの仕様上、停電時の自立運転は100V・1500Wが上限です。大型エアコンやIHは動きません。</p>
+<p class="body-text">夜は発電ゼロです。蓄電池がなければ完全に使えません。</p>
+<p class="body-text">曇りや雨の日は1500Wにも届かないことがあります。</p>
+
+<p class="body-text">廃棄の問題も出てきています。</p>
+<p class="body-text">2030年代後半には、太陽光パネルの廃棄量が年間50〜80万トンに達すると予測されています。</p>
+<p class="body-text">パネルには鉛、セレン、カドミウムなどの有害物質が含まれています。</p>
+<p class="body-text">リサイクルの義務化は、まだ法律になっていません。</p>
+
+<p class="body-text">施工業界にも問題があります。</p>
+<p class="body-text">太陽光関連の消費者相談は、ピーク時の2013年にはPIO-NETで年間4,747件に達しました（太陽光発電トラブル解決支援センター調べ）。</p>
+<p class="body-text">「パネルの点検をしましょう」と訪問してくる点検商法の相談件数は、2024年度で613件。2023年度の304件から倍増し、7年前の約10倍を超えています。「点検が義務化された」と虚偽説明で不安を煽り、高額な蓄電池契約を迫る手口が急増しています。消費者庁は2024年2月、太陽光発電業者3社に景品表示法違反（優良誤認）で措置命令を出しました。</p>
+<p class="body-text">太陽光関連企業の倒産は、帝国データバンクの調査で累計約580件を超えています（2021年時点）。</p>
+<p class="body-text">施工会社が倒産すれば、10〜25年の施工保証は消えます。</p>
+
+<p class="body-text">ここまでは、太陽光パネルを自分で買った場合の話です。</p>
+<p class="body-text">では、「実質ゼロ円で設置できます」という広告はどうなのか。</p>
+
+<p class="body-text">大手ハウスメーカーは「ZEH（ネット・ゼロ・エネルギー・ハウス）」を競うように推進しています。一条工務店のZEH普及率は99%です。</p>
+<p class="body-text">しかし、ZEHは「エネルギー収支ゼロ」であって「光熱費ゼロ」ではありません。</p>
+<p class="body-text">売電収入で電気代を相殺する計算であり、実際の電気料金は毎月発生します。</p>
+<p class="body-text">「ゼロ」という言葉のイメージと実態には、大きなギャップがあります。</p>
+
+<p class="body-text">国土交通省の試算（東京23区）によると、ZEH水準の断熱性能に太陽光パネルを載せた場合でも、年間の光熱費は約15.3万円（月約1.3万円）かかります。太陽光なしのZEH水準では約19.3万円。現行省エネ基準の家（年約23.9万円）より下がりますが、「ゼロ」には程遠い。</p>
+<p class="body-text">本当にゼロに近づけるには、太陽光13kW超＋蓄電池2台という大規模設備が必要です。標準的なZEH（太陽光4〜5kW）では到底達成できません。</p>
+
+<p class="body-text">「実質ゼロ円」の設置にも裏があります。</p>
+<p class="body-text">PPA（第三者所有モデル）は、設置費用を業者が負担する代わりに、10〜20年の長期契約で以下の自由が制限されます。</p>
+<p class="body-text">引っ越しの自由。電力会社選択の自由。設備撤去の自由。売電収入（業者が受け取る）。住宅売却の自由。</p>
+<p class="body-text">中途解約すると、解約金が数十万〜100万円以上になるケースもあります。</p>
+
+<p class="body-text">リース型は15年契約で月額約1万円を支払います。自費購入と比べるとどうなるか。</p>
+
+<table>
+<tr><th>取得方法</th><th>15年の総支出</th><th>売電収入は？</th></tr>
+<tr><td><strong>リース（15年契約）</strong></td><td><strong>174〜210万円</strong></td><td><strong>リース会社が受け取る</strong></td></tr>
+<tr><td>自費購入</td><td>約120万円</td><td>自分が受け取る</td></tr>
+<tr><td>ローン購入（金利3.5%）</td><td>約154万円</td><td>自分が受け取る</td></tr>
+<tr><td><strong>リースは自費より</strong></td><td><strong>20〜56万円 割高</strong></td><td><strong>しかも売電収入ゼロ</strong></td></tr>
+</table>
+
+<p class="body-text">では、「実質ゼロ円」を資産の観点で見てみます。</p>
+
+<p class="body-text">PPA（第三者所有モデル）で設置した太陽光パネルは、契約期間中、あなたの所有物ではありません。屋根の上に他社の設備が載っている状態です。</p>
+<p class="body-text">この家を売ろうとしたとき、何が起きるか。</p>
+<p class="body-text">PPA契約が残っている住宅は、同条件の物件より100〜150万円程度の減額傾向があると不動産業界では報告されています。3,000万円の家なら、2,850〜2,900万円です。買主候補が減り、交渉で解約金の負担を求められるケースもあります。</p>
+
+<p class="body-text">中途解約の違約金は、契約初期で100万円以上、半分経過後でも数十万円が発生する可能性があります。</p>
+<p class="body-text">契約満了後にパネルが「無償譲渡」されるケースでは、その後のメンテナンス費・パワコン交換費・最終的な撤去費（10〜40万円）はすべて施主の負担です。</p>
+<p class="body-text">「ゼロ円で始まった」設備が、契約満了後に数十万円の撤去費を残していくのです。</p>
+
+<p class="body-text">住宅ローンの審査にも影響があります。PPA・リースは長期債務とみなされる可能性があり、借入可能額が減ることがあります。</p>
+
+<p class="body-text">「実質ゼロ円」は、初期費用がゼロなだけです。</p>
+<p class="body-text">自由がゼロになり、資産価値がゼロに近づく。その代償を、契約書の裏側に書いてあります。</p>
+
+<p class="body-text">太陽光パネルを否定しているわけではありません。</p>
+<p class="body-text">ただ、太陽光パネルは「設備」です。</p>
+<p class="body-text">設備は電気代を「収入で相殺する」アプローチです。</p>
+<p class="body-text">もし断熱と気密の性能が低い家に太陽光を載せたら、漏れるバケツに水を注ぎ続けているのと同じです。</p>
+<p class="body-text">まず光熱費そのものを最小にする家を建てる。</p>
+<p class="body-text">その上で太陽光が必要なら、それはオプションとして選べばいい。</p>
+<p class="body-text">順番の問題です。</p>
+
+<div class="conclusion-box"><p>結論：太陽光パネルは、初期投資に加えて250〜340万円の隠れコストが発生する設備投資である。「光熱費ゼロ」「実質ゼロ円」の裏には長期契約と自由の制限がある。「元が取れるか」の前に、「そもそも電気代を最小にする家を建てているか」を問うべきである。</p></div>
+
+<details class="source-toggle">
+<summary>出典・注釈を表示</summary>
+<p class="source-text">[注75] FIT買取価格: 資源エネルギー庁. URL: https://www.enecho.meti.go.jp/category/saving_and_new/saiene/kaitori/kakaku.html（2012年42円→2025年15円）<br>[注76] 2025年10月FIT段階制: 経産省プレスリリース. URL: https://www.meti.go.jp/press/2024/03/20250321006/20250321006.html（1-4年目24円/5-10年目8.3円）<br>[注77] NITE太陽光事故約200件: 製品安全情報マガジンVol.473(2025年3月). URL: https://www.nite.go.jp/jiko/chuikanki/mailmagazin/2024fy/vol473_250325.html<br>[注78] 点検商法613件: 国民生活センター(2025年6月4日). URL: https://www.kokusen.go.jp/news/data/n-20250604_1.html（前年304件の約2倍）<br>[注79] 消費者庁措置命令: 2024年2月27日2社+2月29日1社=計3社. URL: https://www.caa.go.jp/notice/entry/036478/ / https://www.caa.go.jp/notice/entry/036495/<br>[注80] 太陽光関連倒産累計約580件: 帝国データバンク(2021年時点). URL: https://www.tdb.co.jp/report/industry/s7mc3m44-w7/<br>[注81] パネル廃棄量50-80万トン: 環境省試算. URL: https://www.env.go.jp/council/content/03recycle03/000183808.pdf<br>[注82] 太陽光相談件数ピーク4,747件(2013年): PIO-NETデータ（太陽光発電トラブル解決支援センター調べ）<br>[注83] パネル劣化率年約0.5%: NRELデータ。劣悪条件では1%近くの場合もある<br>[注84] ZEH光熱費15.3万円: 国交省試算（東京23区、ZEH水準+太陽光パネル付き）. URL: https://www.mlit.go.jp/shoene-jutaku/economic-benefits/energy-bills/index.html（太陽光なしZEH水準は19.3万円）<br>[注85] 台風21号被害: 日経xTECH報道（経産省公表データ）。正確には28,160枚中約13,780枚<br>[注86] PPA減額傾向100-150万円: 不動産業界の報告。公的統計による定量データは未確認</p>
+</details>
+</article>
+
+<div class="content-sep"></div>
+
+<!-- ===== おわりに ===== -->
+<article class="section" id="owari">
+<h3 class="owari-heading">おわりに</h3>
+
+<p class="body-text">この資料に書いたことは、全部調べれば出てくる情報です。</p>
+<p class="body-text">でも、家を建てる前にこれを全部調べる人はほとんどいません。</p>
+<p class="body-text">営業マンは、聞かれなければ言いません。</p>
+
+<p class="body-text">第1章では、壁紙の可塑剤と自然素材の限界。</p>
+<p class="body-text">第2章では、湿度がカビ・ダニ・構造劣化を決めること、換気だけでは足りないこと、設備には代償があること。</p>
+<p class="body-text">第3章では、設備のコスト、断熱の数字の裏側、構造計算の実態、保証の中身、坪単価のトリック、太陽光パネルの正体。</p>
+
+<p class="body-text">ここまで読んだあなたは、もう「知らなかった」とは言えない側にいます。</p>
+<p class="body-text">知った上で、何を選ぶか。その判断は、あなた自身のものです。</p>
+
+<p class="body-text">この資料に書いたことが本当かどうか、確かめる方法があります。</p>
+<p class="body-text">この文章をそのままAIチャット（ChatGPTやGeminiなど）に貼り付けて、「この内容は事実ですか？出典を確認してください」と聞いてみてください。AIは出典をたどって検証できます。</p>
+
+<p class="body-text">——</p>
+
+<p class="body-text">この資料を読んだあなたが、今日からできることが3つあります。</p>
+
+<p class="body-text">1つ目。家の壁紙を確認してください。ビニールクロスかどうか。触ってみれば、なんとなくわかります。裏面に「PVC」と書いてあるかもしれません。</p>
+
+<p class="body-text">2つ目。湿度計を1つ買ってください。1,000円前後で買えます。リビング、寝室、クローゼットの中。それぞれに置いて、1週間記録してみてください。40〜60%の範囲に収まっていますか？</p>
+
+<p class="body-text">3つ目。これから家を建てる予定があるなら、住宅会社にこの3つの質問をしてください。</p>
+<p class="body-text">「C値を全棟測定していますか？」</p>
+<p class="body-text">「構造計算は許容応力度計算ですか？」</p>
+<p class="body-text">「施工中の写真記録を見せてもらえますか？」</p>
+<p class="body-text">答えをはぐらかされたら、この資料を思い出してください。</p>
+
+<p class="body-text">——</p>
+
+<p class="body-text">ここからは、一言だけ意見を書かせてください。</p>
+
+<p class="body-text">「あなたが建てようとしている家は、家族の健康を守れますか？」</p>
+<p class="body-text">「その会社は、この資料に書かれた全ての問いに答えを持っていますか？」</p>
+
+<p class="body-text">私たちは、答えを持っています。</p>
+<p class="body-text">答えを確かめたい方は、直接聞いてください。</p>
+</article>
+
+<!-- ===== 最終CTA ===== -->
+<div class="final-cta">
+    <p class="final-cta-lead">あなたの地域の会社に</p>
+    <h2 class="final-cta-heading">直接聞いてみてください</h2>
+
+    <div class="cta-row">
+        <span class="cta-region">新潟の方</span>
+        <a class="cta-btn" href="https://momi-house.com/contact/" target="_blank" rel="noopener">この会社に直接聞く</a>
+    </div>
+    <div class="cta-row">
+        <span class="cta-region">大阪の方</span>
+        <a class="cta-btn" href="https://momi-osaka.com/contact/" target="_blank" rel="noopener">この会社に直接聞く</a>
+    </div>
+    <div class="cta-row">
+        <span class="cta-region">兵庫の方</span>
+        <a class="cta-btn" href="https://momi-hyogo.com/contact/" target="_blank" rel="noopener">この会社に直接聞く</a>
+    </div>
+    <div class="cta-row">
+        <span class="cta-region">和歌山の方</span>
+        <a class="cta-btn" href="https://wakayama-koyama.com/contact/" target="_blank" rel="noopener">この会社に直接聞く</a>
+    </div>
+
+    <p class="final-cta-note">フォームからお問い合わせいただきます。返信まで数日かかる場合があります。</p>
+</div>
+
+</div>
+
+<footer class="footer">
+<p class="disclaimer">本資料は消費者への情報提供を目的としています。各数字の出典・条件・限界は各セクション末尾の注釈に記載しています。個別の住宅選択に関する判断は専門家にご相談ください。</p>
+<p class="disclaimer">2026年5月時点の情報に基づいています。</p>
+</footer>
+
+<script>
+window.addEventListener('scroll', function() {
+    var h = document.documentElement, b = document.body;
+    var st = h.scrollTop || b.scrollTop;
+    var sh = (h.scrollHeight || b.scrollHeight) - h.clientHeight;
+    document.getElementById('progressBar').style.width = (st / sh * 100) + '%';
+});
+</script>
+</body>
+</html>

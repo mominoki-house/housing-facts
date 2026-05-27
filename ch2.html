@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>聞かれなければ言わない | 第2章</title>
+<style>
+/* ===== Reset & Base ===== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+    --color-bg: #faf9f7;
+    --color-surface: #ffffff;
+    --color-text: #1d1d1f;
+    --color-text-secondary: #6e6e73;
+    --color-text-tertiary: #aeaeb2;
+    --color-accent: #3d5a80;
+    --color-accent-soft: rgba(61,90,128,0.08);
+    --color-border: #e5e5e7;
+    --color-conclusion-bg: #f5f4f0;
+    --color-on-accent: #ffffff;
+    --font-serif: "YuMincho", "Hiragino Mincho Pro", "Hiragino Mincho ProN", serif;
+    --font-sans: "Hiragino Kaku Gothic ProN", "Hiragino Sans", -apple-system, sans-serif;
+    --max-w: 640px;
+}
+
+html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    font-family: var(--font-serif);
+    font-size: 16px;
+    line-height: 1.9;
+    color: var(--color-text);
+    background: var(--color-bg);
+    -webkit-font-smoothing: antialiased;
+}
+
+/* ===== Progress Bar ===== */
+.progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 3px;
+    background: var(--color-accent);
+    z-index: 1000;
+    transition: width 0.1s linear;
+}
+
+/* ===== Layout ===== */
+.container {
+    max-width: var(--max-w);
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+/* ===== Sticky Nav ===== */
+.nav {
+    position: sticky;
+    top: 3px;
+    background: var(--color-surface);
+    border-bottom: 1px solid var(--color-border);
+    z-index: 999;
+    padding: 12px 0;
+    text-align: center;
+}
+.nav a {
+    font-family: var(--font-sans);
+    font-size: 13px;
+    color: var(--color-text-secondary);
+    text-decoration: none;
+    padding: 12px 14px;
+    margin: 0 2px;
+    display: inline-block;
+    min-height: 44px;
+    line-height: 20px;
+}
+.nav a.active {
+    color: var(--color-accent);
+    border-bottom: 2px solid var(--color-accent);
+    font-weight: 600;
+}
+
+/* ===== Chapter Divider ===== */
+.chapter-divider {
+    max-width: var(--max-w);
+    margin: 64px auto 48px;
+    padding: 48px 24px;
+    text-align: center;
+    border-top: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--color-border);
+}
+.chapter-num {
+    font-family: var(--font-sans);
+    font-size: 11px;
+    letter-spacing: 0.3em;
+    color: var(--color-text-tertiary);
+    display: block;
+    margin-bottom: 12px;
+}
+.chapter-name {
+    font-family: var(--font-serif);
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    color: var(--color-text);
+    display: block;
+}
+
+/* ===== Content Section ===== */
+.content-section {
+    max-width: var(--max-w);
+    margin: 0 auto 56px;
+    padding: 0 24px;
+}
+
+/* ===== Section Heading ===== */
+.section-heading {
+    margin-bottom: 32px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--color-border);
+}
+.sh-num {
+    font-family: var(--font-sans);
+    font-size: 11px;
+    color: var(--color-text-tertiary);
+    letter-spacing: 0.15em;
+    display: block;
+    margin-bottom: 8px;
+}
+.sh-title {
+    font-family: var(--font-serif);
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    color: var(--color-text);
+    display: block;
+}
+
+/* ===== Body Text ===== */
+.content-section p {
+    text-indent: 1em;
+    margin-bottom: 0.6em;
+    font-size: 16px;
+    line-height: 1.9;
+}
+
+.content-section strong {
+    font-weight: 600;
+}
+
+/* ===== Conclusion Box ===== */
+.conclusion-box {
+    margin: 24px 0;
+    padding: 20px 24px;
+    background: var(--color-conclusion-bg);
+    border-left: 3px solid var(--color-text);
+    border-radius: 0 4px 4px 0;
+}
+.conclusion-box p {
+    text-indent: 0;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.8;
+    color: var(--color-text);
+    margin: 0;
+}
+
+/* ===== Source Toggle ===== */
+.source-toggle {
+    margin: 16px 0 32px;
+}
+.source-toggle summary {
+    font-family: var(--font-sans);
+    font-size: 11px;
+    color: var(--color-text-tertiary);
+    cursor: pointer;
+    letter-spacing: 0.05em;
+    padding: 4px 0;
+}
+.source-toggle summary:hover {
+    color: var(--color-accent);
+}
+.source-text {
+    font-family: var(--font-sans);
+    font-size: 11px;
+    color: var(--color-text-tertiary);
+    line-height: 1.6;
+    text-indent: 0 !important;
+    margin-top: 8px;
+    word-break: break-all;
+}
+
+/* ===== Content Separator ===== */
+.content-sep {
+    text-align: center;
+    margin: 32px 0;
+    color: var(--color-text-tertiary);
+    font-size: 14px;
+    letter-spacing: 0.5em;
+}
+.content-sep::after {
+    content: "* * *";
+}
+
+/* ===== Table ===== */
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 24px 0;
+    font-size: 14px;
+    font-family: var(--font-sans);
+}
+th, td {
+    border: 1px solid var(--color-border);
+    padding: 8px 12px;
+    text-align: left;
+}
+th {
+    background: var(--color-conclusion-bg);
+    font-weight: 500;
+    font-size: 13px;
+}
+tr:nth-child(even) {
+    background: var(--color-bg);
+}
+.table-note {
+    text-indent: 0;
+    font-size: 13px;
+    color: var(--color-text-secondary);
+    margin: 8px 0 24px;
+}
+
+/* ===== Inline CTA ===== */
+.inline-cta {
+    margin: 40px 0;
+    padding: 24px;
+    text-align: center;
+    background: var(--color-accent-soft);
+    border-radius: 8px;
+    max-width: var(--max-w);
+    margin-left: auto;
+    margin-right: auto;
+}
+.cta-text {
+    font-family: var(--font-sans);
+    font-size: 13px;
+    color: var(--color-text-secondary);
+    text-indent: 0;
+    margin-bottom: 12px;
+}
+.cta-button {
+    display: inline-block;
+    font-family: var(--font-sans);
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--color-on-accent);
+    background: var(--color-accent);
+    padding: 12px 32px;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: opacity 0.2s;
+}
+.cta-button:hover {
+    opacity: 0.85;
+}
+
+/* ===== Footer ===== */
+.page-footer {
+    max-width: var(--max-w);
+    margin: 64px auto 0;
+    padding: 32px 24px 64px;
+    border-top: 1px solid var(--color-border);
+    text-align: center;
+}
+.footer-cta {
+    margin-bottom: 24px;
+}
+.footer-cta a {
+    display: inline-block;
+    font-family: var(--font-sans);
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--color-on-accent);
+    background: var(--color-accent);
+    padding: 16px 48px;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: opacity 0.2s;
+}
+.footer-cta a:hover {
+    opacity: 0.85;
+}
+.footer-note {
+    font-family: var(--font-sans);
+    font-size: 12px;
+    color: var(--color-text-tertiary);
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 480px) {
+    .content-section p { font-size: 15px; }
+    .sh-title { font-size: 18px; }
+    .chapter-name { font-size: 18px; }
+    .content-section { padding: 0 20px; }
+    .chapter-divider { padding: 32px 20px; margin: 48px auto 32px; }
+    .nav a { padding: 12px 10px; margin: 0 1px; font-size: 11px; }
+}
+</style>
+</head>
+<body>
+
+<div class="progress-bar" id="progressBar"></div>
+
+<nav class="nav">
+    <a href="ch1.html">第1章</a>
+    <a href="ch2.html" class="active">第2章</a>
+    <a href="ch3a.html">第3章前半</a>
+    <a href="ch3b.html">第3章後半</a>
+</nav>
+
+<div class="chapter-divider">
+    <span class="chapter-num">第2章</span>
+    <span class="chapter-name">あなたの家の湿度問題</span>
+</div>
+
+<!-- ===== 暴露04 ===== -->
+<section class="content-section" id="section-4">
+<h3 class="section-heading"><span class="sh-num">暴露04</span><span class="sh-title">カビとダニは、湿度で決まる</span></h3>
+
+<p>梅雨時、窓を閉めた部屋の中がじっとりする——あの感覚を思い出してください。</p>
+<p>肌がべたつく。洗濯物が乾かない。押入れの奥からかすかにカビの匂いがする。</p>
+<p>あれが、湿度です。</p>
+
+<p>第1章では素材の話をしました。第2章のテーマは、この湿度です。</p>
+<p>なぜ湿度がそれほど重要なのか。</p>
+
+<p>カビが生えるには温度・湿度・栄養源の3条件が必要です。しかし日本の住宅では、温度20〜30度という条件は年間の大半で満たされています。栄養源（ホコリ・皮脂など）もどの家にもあります。つまり、3条件のうち変動するのは湿度だけです。だからこそ、カビが生えるかどうかを左右する最大の要因は湿度なのです。</p>
+<p>文部科学省のカビ対策マニュアルによると、相対湿度80%以上が続くとカビが発生しやすくなり、90%を超えると短期間で広がります。80%以下では発芽しにくくなりますが、菌種や条件によっては65〜70%程度でも時間をかけて発芽する場合があります。</p>
+
+<p>では、家の中の湿度はどのくらいまで上がるのか。</p>
+<p>4人家族が普通に暮らすだけで、1日に約6〜10kgの水蒸気が発生するとされています。2Lペットボトル3〜5本分の水が、目に見えない水蒸気として部屋の中に放出されている計算です。</p>
+<p>料理、入浴、室内干し、人の呼吸。全部合わせた量です。</p>
+<p>この水蒸気を壁や天井が吸ってくれなければ、室内湿度は上がり続けます。</p>
+<p>梅雨時、外気の湿度が80%を超える日に窓を閉めてビニールクロスの部屋で過ごすと、室内湿度は70〜80%に達することもあります。カビが生える条件（65%以上）を、簡単に超えてしまうのです。</p>
+<p>ビニールクロスの壁は湿気を吸いも吐きもしません。</p>
+
+<p>同じ広さ、同じ間取りの部屋でも、壁の素材が違えば湿度は変わります。</p>
+<p>ドイツのフラウンホーファー建築物理研究所が、3棟の実験住宅で実測しました。無塗装の木の内装の家と、塗装した石膏ボードの家。同じ条件で暮らしたとき、木の内装の家は室内湿度の上がりすぎ・下がりすぎを最大63%抑えていました。</p>
+<p>たとえば、ビニールクロスの部屋で湿度が40%から80%まで揺れる日でも、木の内装の部屋なら50%〜65%程度に収まる——そういう差です。</p>
+<p>つまり、壁がビニールなら湿気は部屋の中に溜まり続け、床や壁、天井が木なら木が吸って調整してくれる。同じ家でも、内装の素材だけで湿度環境がまったく変わるのです。</p>
+
+<p>湿度はカビだけの問題ではありません。</p>
+<p>カビはダニの餌になります。カビが増えるとダニも増える。この2つは連動しています。</p>
+<p>ダニの繁殖が始まるのは湿度60%。カビの発生条件（80%）よりさらに低い湿度で、ダニは増え始めます。</p>
+
+<p>なぜダニが問題なのか。</p>
+<p>小児喘息の70〜90%はアトピー型（アレルギー型）であり、その中でダニは最も主要なアレルゲンです。</p>
+<p>環境省が主導する日本最大規模の出生コホート「エコチル調査」で、74,950人の子どもを追跡した結果、硬質フローリングの家が最も喘息リスクが低く、畳のある住宅（特に築10年以上）ではリスクが有意に上昇する結果が出ています。</p>
+<p>逆に、スウェーデンのカールスタード大学の研究チームが4,779人の子どもを10年間追跡した結果、ビニールクロスと同じポリ塩化ビニル（PVC）でできた床材の家では、喘息リスクが約1.5倍に上がっています。</p>
+
+<p>湿度50%以下を維持できれば、活動期のダニは6〜11日で脱水死します。</p>
+<p>なぜか。ダニは体の外から水分を吸収する生き物だからです。空気が乾燥すると水分を補給できず、脱水で死にます。</p>
+<p>米国ライト州立大学の研究チームによる2つの研究があります。23軒の住宅で17ヶ月間50%以下を維持した実地研究（2001年）では、生きたダニとアレルゲンが有意に減少しました。また、実験室での湿度制御実験（1999年）では、ダニの個体群増殖が98%抑制されたと報告されています。</p>
+
+<div class="conclusion-box">
+<p>結論：カビもダニも、決定要因は湿度である。湿度を50〜60%に維持できれば、カビは生えにくく、ダニは減少する。素材選びの本当の基準は「その家は湿度を管理できるか」だ。</p>
+</div>
+
+<details class="source-toggle"><summary>出典・注釈を見る</summary>
+<p class="source-text">[注19] 文部科学省カビ対策マニュアル基礎編(2008). URL: https://www.mext.go.jp/b_menu/shingi/chousa/sonota/003/houkoku/08111918/002.htm<br>
+[注20] Kunzel HM et al., Fraunhofer IBP Report HTB-04/2004/e. URL: https://www.ibp.fraunhofer.de/content/dam/ibp/en/documents/oeVB_eng_3_tcm1021-30995.pdf（木質内装で湿度変動を最大63%抑制）<br>
+[注21] 環境省エコチル調査 Iwata H et al., PLoS One 2024;19(7):e0305957. DOI:10.1371/journal.pone.0305957. PMC:11290634（最終分析対象74,950人。畳のOR=1.09, 95%CI:1.01-1.17。効果量は小さい）<br>
+[注22] Arlian LG et al., J Allergy Clin Immunol 2001;107:99-104. DOI:10.1067/mai.2001.112119. PubMed:11149998（23軒17ヶ月のフィールド研究。生きたダニとアレルゲンが有意に減少）<br>
+[注23] Arlian LG et al., J Allergy Clin Immunol 1999;104(4):852-856. DOI:10.1016/s0091-6749(99)70298-8. PubMed:10518832（実験室研究。ダニ個体群増殖98.2%抑制）<br>
+[注24] 水蒸気発生量6-10kg/日: BS 5250:2021 / TenWolde &amp; Walker, ASHRAE/DOE Conference 2001 / University of Otago研究。4人家族の呼吸+家事活動で約7-10kg/日が標準的目安<br>
+[注25] Sterling EM, Arundel A, Sterling TD, ASHRAE Transactions 1985, Vol.91, Part 1B（Sterlingチャート。湿度40-60%で9つの健康リスク指標が相対的に低い値を示す）</p>
+</details>
+</section>
+
+<div class="content-sep"></div>
+
+<!-- ===== 暴露05 ===== -->
+<section class="content-section" id="section-5">
+<h3 class="section-heading"><span class="sh-num">暴露05</span><span class="sh-title">換気だけでは湿度は管理できない</span></h3>
+
+<p>暴露04で、湿度がカビとダニを決めることを見ました。</p>
+<p>では、湿度はどうすれば管理できるのか。</p>
+
+<p>「24時間換気があるから大丈夫」——そう思っている方は多いと思います。</p>
+<p>確かに、今の住宅には24時間換気が義務付けられています。</p>
+
+<p>でも、こんな経験はありませんか。</p>
+<p>クローゼットの奥にしまっていた革のカバンに、白いカビが生えていた。</p>
+<p>タンスの裏の壁紙が、うっすら黒ずんでいた。</p>
+<p>24時間換気がついている家でも、こういうことが起きます。</p>
+<p>なぜか。換気と調湿は原理が違うからです。</p>
+
+<p>換気は「空気の流れ」で湿気を運び出す仕組みです。</p>
+<p>給気口から新しい空気を入れ、排気口から古い空気を出す。</p>
+<p>この「道筋」の上にある空気は入れ替わります。</p>
+
+<p>問題は、道筋から外れた場所です。</p>
+<p>クローゼットの奥。家具の裏。押入れの角。</p>
+<p>換気の気流が届かない場所では、湿気がそのまま溜まります。</p>
+
+<p>例えば冬場、断熱性能が低い壁の表面温度はリビングより10〜15度低くなることがあります。</p>
+<p>リビングの湿度計が50%でも、その壁面付近の空気は湿度78%に達します。</p>
+<p>カビの条件が、部屋の片隅で成立しているということです。</p>
+
+<p>一方、調湿は「素材が直接」湿気を吸ったり吐いたりする仕組みです。</p>
+<p>その場所に素材があれば、気流に関係なく機能します。</p>
+<p>換気の死角を、素材がカバーする。原理が違うから、両方必要です。</p>
+
+<p>ここで「うちは第一種換気だから大丈夫」と思う方もいるかもしれません。</p>
+<p>第一種換気は、給気も排気も機械で行う高性能な方式です。特に「全熱交換型」は、排気から温度と湿度を回収して省エネになると説明されます。</p>
+<p>そのため「第一種換気を入れれば、湿度も管理できる」と思っている方が少なくありません。</p>
+<p>しかし、全熱交換が行うのは「室内外の湿度差を緩和する」ことだけです。室内の湿度を能動的に下げたり上げたりする機能ではありません。湿度交換率は高性能機種でも約67%程度（製品により異なる）で、夏の高湿度を完全に排除することも、冬の過乾燥を完全に防ぐこともできません。</p>
+<p>本当の意味で換気と調湿を一体化するには、ダイキンの「デシカホームエア」のような専用機器（定価100万円超）が必要になります。標準的な第一種換気に「調湿機能」を期待するのは、根本的な誤解です。</p>
+
+<p>そして、第一種換気には別のリスクがあります。</p>
+<p>第一種換気は天井や壁の中にダクト（管）が通っています。</p>
+
+<p>日本住環境株式会社が報告した実測事例があります。</p>
+<p>20年間メンテナンスしなかった第一種換気で、室外からの吸込量が必要換気量のわずか11%まで低下していました。</p>
+<p>89%足りていないのに、住人は気づいていませんでした。換気は音も見た目も変わらないからです。</p>
+<p>フィルターは元の色がわからないほど真っ黒でした。</p>
+<p>ダクトの中にカビが生えていれば、換気するたびにカビの胞子を家中に送り込んでいたことになります。</p>
+
+<p>ダクト清掃の費用は、住宅用で1回1〜5万円が相場です。全館空調の全系統を清掃する場合、10万円以上になることもあります。</p>
+<p>スウェーデンでは1992年から、集合住宅等の換気システムの定期機能検査が法律で義務化されています。検査に先立ちダクト清掃が実質的に必要になります。</p>
+<p>日本にはこのような制度はありません。やるかどうかは施主任せです。</p>
+
+<p>一方、第三種換気という方式もあります。</p>
+<p>排気だけを機械で行い、給気は自然に任せる。第一種に比べて構造がシンプルです。</p>
+<p>例えば第三種換気の代表的な機種では、日常のメンテナンスは給気フィルターの清掃程度。大きな交換部品はモーター（ファンユニット）だけで、交換周期は約15年に1回、費用は約10万円です。</p>
+<p>第一種換気のダクト清掃が数万〜10万円を数年おきに繰り返すのに対して、日常の手間は圧倒的に少ない。</p>
+<p>第三種換気にもダクトを使う機種はありますが、排気専用のため、第一種換気のように「カビた空気を室内に送り込む」リスクは構造的に低くなります。</p>
+
+<table>
+<tr><th></th><th>第一種換気</th><th>第三種換気</th></tr>
+<tr><td>初期費用</td><td>50〜150万円</td><td>10〜30万円</td></tr>
+<tr><td><strong>カビを室内に送るリスク</strong></td><td><strong>あり</strong></td><td>低い</td></tr>
+<tr><td>メンテナンス</td><td>ダクト清掃 数万円/数年毎</td><td>モーター交換 約10万円/15年毎</td></tr>
+<tr><td><strong>50年間の維持費</strong></td><td><strong>100〜200万円</strong></td><td><strong>約30〜50万円</strong></td></tr>
+</table>
+<p class="table-note">（ダクト構造の違い：第一種は給気・排気ともにダクトあり、第三種は排気のみ。調湿機能はどちらもなし。）</p>
+
+<p>「高性能な換気を入れれば安心」というのは、半分だけ正しい。</p>
+<p>高性能でも、ダクトの中が汚れれば汚れた空気を送り続けます。</p>
+<p>構造がシンプルで壊れにくく、メンテナンスが少ない方が、50年間の実質コストは安い。</p>
+<p>ただし、第三種換気は調湿機能を持ちません。だからこそ、壁・床・天井の素材そのものが調湿できるかどうかが、家の快適性を決めます。</p>
+
+<div class="conclusion-box">
+<p>結論：換気は空気の「道筋」しか換えられない。湿気は道筋の外にも溜まる。換気と調湿は原理が違う。第一種換気の全熱交換も調湿ではない。換気だけでは湿度は管理できない。</p>
+</div>
+
+<p>「じゃあ、設備で湿度を管理すればいいのでは？」</p>
+<p>そう思うかもしれません。次の暴露06で、その落とし穴を見ていきます。</p>
+
+<details class="source-toggle"><summary>出典・注釈を見る</summary>
+<p class="source-text">[注45] 日本住環境 実測データ: 20年間メンテナンスなし第一種換気。必要換気量123m3/hに対し実測14m3/h（約11%）. URL: https://www.njkk.co.jp/blog/?itemid=128&amp;dispmid=764<br>
+[注46] スウェーデンOVK制度 SFS 1991:1273. Boverket: https://www.boverket.se/en/start/laws-and-regulations/national-regulations/obligatory-ventilation-control/<br>
+[注47] 全熱交換湿度交換率約67%: ロイヤル電機SE200Rの製品仕様値。全熱交換器一般の数値ではなく特定製品の値<br>
+[注48] ダイキン デシカホームエア: 標準仕様990,000円（税別）→税込1,089,000円. URL: https://www.ac.daikin.co.jp/kanki_home/desica_home/lineup_spec<br>
+[注49] 第三種換気モーター交換約10万円/15年: もみの木ハウス新潟の実績値。メーカー公式には価格非公開<br>
+[注50] 換気比較表の50年間維持費: 各年のランニングコスト差からの推計値。包括的な公的統計による裏付けはなし</p>
+</details>
+</section>
+
+<div class="content-sep"></div>
+
+<!-- ===== 暴露06 ===== -->
+<section class="content-section" id="section-6">
+<h3 class="section-heading"><span class="sh-num">暴露06</span><span class="sh-title">設備に頼る暮らしの代償</span></h3>
+
+<p>湿度を管理するために、設備を使うという選択肢があります。</p>
+<p>除湿機、加湿器、エアコン、空気清浄機。</p>
+<p>どれも「空気をきれいにする」「快適にする」ための道具です。</p>
+
+<p>でも、全ての設備には共通点があります。</p>
+<p>メンテナンスが途切れると、健康リスクの発生源になり得るということです。</p>
+
+<p>エアコンの内部は、使い始めてひと夏でカビが発生します。</p>
+<p>カビが生える条件は3つ。温度20〜30度、湿度70%以上、栄養源（ホコリ・皮脂）です。</p>
+<p>冷房運転中、エアコン内部の熱交換器では結露が常時発生しています。真夏の高湿度環境では、1時間あたり数リットルの結露水が生成されます（日建連/ダイキン工業技術資料では6畳用エアコンの設計最大値で4.8L/h）。運転を止めると、エアコン内部は密閉状態のまま高湿度（相対湿度90%以上）が維持され、残留ホコリを栄養源にカビが急速に繁殖します。</p>
+<p>NITE（製品評価技術基盤機構）の調査では、家庭のエアコンからクロカビ、コウジカビ、アオカビなど複数種のカビが検出されています。</p>
+<p>また、住宅内の湿った環境で繁殖するトリコスポロンというカビが原因で「夏型過敏性肺臓炎」との関連が報告されています。</p>
+<p>カビた状態で運転すると、送風口からカビの胞子を部屋中に撒くことになります。</p>
+<p>神戸元町呼吸器内科の医師は「年1回のプロクリーニングは治療の一部」と述べています。</p>
+<p>プロクリーニングは1台8,000〜15,000円。4台あれば年3.2〜6万円。10年で30〜60万円です。</p>
+
+<p>加湿器はもっと深刻です。</p>
+<p>タンクの水を毎日交換しなければ、菌が繁殖します。</p>
+<p>なぜか。水は静置すると数時間で細菌が増殖を始めるからです。超音波式の加湿器は水を加熱せず、超音波振動で物理的に霧化するため、水中の菌もそのまま部屋に撒かれます。</p>
+<p>2017年12月〜2018年1月、大分県の老人福祉施設で加湿器のタンクに繁殖したレジオネラ菌が原因で、3名が発症し1名が死亡しています。</p>
+<p>タンクからは38万個/100mL（380,000 cfu/100mL）のレジオネラ菌が検出されました。</p>
+
+<p>空気清浄機のフィルターにもカビは生えます。</p>
+<p>どのくらいの期間で生えるか。査読済みの学術論文（Kim et al., Mycobiology 2014年）によると、アトピー性皮膚炎の子どもがいる家庭で使用された空気清浄機のHEPAフィルターから合計2,494株の真菌が分離されました。しかも、室温22〜26度、湿度38〜42%という比較的低湿度の環境でもカビは発生しています。</p>
+<p>さらに、病院・商業施設のHEPAフィルターを8年間追跡した研究（Price, Simmons, Crow &amp; Ahearn, 2005年）では、防カビ処理なしのフィルターは4〜6週間で目視確認可能なカビが定着し、菌糸がフィルター全体を貫通した事例も報告されています。</p>
+<p>これはどういうことかと言うと、フィルターが「カビの繁殖基地」になっているということです。空気清浄機を動かせば動かすほど、カビの胞子を部屋中にまき散らしている——そんな状態です。</p>
+<p>フィルターの役割は空気中の粒子を捕まえることです。捕まえた粒子に湿気が加わると、フィルター自体がカビの培地になります。</p>
+<p>カビが生えたフィルターを通った空気は、清浄ではなく汚染です。</p>
+
+<p>設備は全て、メンテナンスを前提に設計されています。</p>
+<p>前提が崩れたとき、守るはずの装置が害をなす装置に変わります。</p>
+
+<p>ここで立ち止まって考えてみてください。</p>
+<p>湿度が管理できない家に住み続けるとどうなるか。</p>
+<p>影響を受けるのは、人の体だけではありません。設備が止まったり、メンテナンスが行き届かなくなったとき、湿度が管理できなくなった家で何が起きるか。</p>
+
+<p>あなたの家の壁を、半分に切ってみてください。</p>
+<p>壁紙の裏には、石膏ボード、断熱材、構造材（柱や梁）が重なっています。</p>
+<p>普段は見えない。だから気づかない。</p>
+<p>でも、その「見えない場所」で、今この瞬間も、家は静かに壊れ始めているかもしれません。</p>
+<p>そのプロセスを、順を追って見てみます。</p>
+
+<p>まず、壁の中で結露が起きます。室内の暖かく湿った空気が、気密施工の不備箇所——コンセント周り、配管貫通部——から壁の内部に侵入します。壁の外側に近づくほど温度が下がり、水蒸気が水滴に変わる温度（露点温度）を下回った瞬間、結露が発生します。これが「壁体内結露」です。</p>
+
+<p>次に、結露水がグラスウール等の断熱材に吸収されます。水を吸った断熱材は断熱性能が半分以下に落ち、さらに結露を助長する悪循環に入ります。</p>
+
+<p>そして、カビが生えます。壁の中は温度20〜30度、湿度70%以上、有機物あり——カビにとって理想的な環境です。木材の含水率が20%を超えると、数日〜数週間で繁殖が始まります。しかし壁の中なので、住んでいる人は気づきません。</p>
+
+<p>カビの次に来るのが腐朽菌です。カビが木材の表面だけを食べるのに対し、腐朽菌は木材の主成分を直接分解します。木材の内部を壊していくのです。</p>
+<p>質量がわずか5%減少しただけで、圧縮強度は45%低下します。家族の体重を支えている柱の強度が、半分近くになっているということです。しかも見た目では判断できません。</p>
+
+<p>腐朽で軟化した木材は、シロアリの侵入条件を揃えます。腐朽菌とシロアリの複合被害で、木材の空洞化が急速に進みます。</p>
+<p>1995年の阪神大震災で倒壊した建物の多くが、事前に木材腐朽菌やシロアリによる強度低下を受けていたことが、京都大学生存圏研究所の調査で明らかになっています。</p>
+
+<p>あるリフォーム実務者が、築30年以上の住宅500棟超のリノベーション現場で壁を開けた経験として、約70%に壁内結露の痕跡があり、約40%で断熱材にカビが発生し、約20%で構造材に腐朽の兆候が見つかったと報告しています（全国統計ではなく、リノベーション対象物件の実務経験値）。</p>
+
+<p>これは健康の問題であると同時に、家そのものの寿命——つまり資産の問題です。</p>
+
+<p>海外ではこの関係がはっきり数字に出ています。</p>
+<p>アメリカでは、不動産鑑定の学術誌（The Appraisal Journal, 2005年）に掲載された訴訟事例分析で、カビが発見された住宅は再販価格が20〜37%下落したと報告されています。壁体内部まで侵食したカビの修復費用は、アメリカで平均50〜60万円、重度なら225万円以上。日本でも壁内結露の修復は数十万〜100万円超になります。しかも修復後でも約3%の価値減少が残り、カビの履歴が判明した時点で購入希望者の約50%が取引から撤退するという結果でした。</p>
+<p>イギリスでは、不動産業界の推定として、湿気問題により住宅価値が約10%下落、深刻な場合は30〜50%の下落があるとされています（業界推定値であり、RICS等の公式統計ではありません。BREの報告では、湿気・カビ住宅による社会的コストは年間154億ポンドに上るとされています）。</p>
+
+<p>つまり、湿度を管理できない家は、住んでいる人の健康を害するだけでなく、家そのものの価値を壊していきます。</p>
+
+<p>ここで、大手・中堅ハウスメーカー14社の湿度対策を改めて見てみます。</p>
+
+<p>大手ハウスメーカーの多くは、「内装材の調湿性能」を標準仕様にしていません。</p>
+
+<p>積水ハウスは「エアキス」という換気システムで化学物質対策をしていますが、調湿は全館空調のオプション（200〜300万円）です。一条工務店は熱交換換気システム「ロスガード90」に湿度交換機能を搭載していますが、壁はビニールクロスです。住友林業は唯一、1階の床に無垢材を標準採用していますが、壁と天井はビニールクロスが標準です。</p>
+
+<p>14社全社が「湿度は設備で管理するもの」という前提で家を建てています。</p>
+<p>「素材そのものが湿度を調整する」という発想を持っている大手ハウスメーカーは、確認できませんでした。</p>
+<p>設備が壊れたら、湿度管理もそこで終わります。</p>
+
+<p>設備で対応するなら、メンテナンスとコストが永遠について回ります。</p>
+
+<p>次の第3章では、このコストの問題と、家の資産価値を決める条件を見ていきます。</p>
+
+<div class="conclusion-box">
+<p>結論：設備はメンテナンスが途切れると健康リスクの発生源になり得る。湿度を管理できない家は、健康被害だけでなく、構造劣化と資産価値の毀損を招く。米国ではカビ住宅の再販価格が20〜37%下落、英国でも深刻な場合30〜50%の下落が報告されている。湿度管理は健康の問題であり、資産の問題である。</p>
+</div>
+
+<details class="source-toggle"><summary>出典・注釈を見る</summary>
+<p class="source-text">（出典・注釈は本暴露末尾に記載）</p>
+</details>
+</section>
+
+<!-- ===== CTA to ch3a ===== -->
+<div class="inline-cta">
+    <p class="cta-text">第3章では、このコストの問題と、家の資産価値を決める条件を見ていきます。</p>
+    <a href="ch3a.html" class="cta-button">第3章前半を読む</a>
+</div>
+
+<!-- ===== Footer ===== -->
+<footer class="page-footer">
+    <div class="footer-cta">
+        <a href="ch1.html">第1章に戻る</a>
+    </div>
+    <p class="footer-note">まだ相談するほどではない方は、まず3つの質問を試してみてください。</p>
+</footer>
+
+<script>
+// Progress bar
+window.addEventListener('scroll', function() {
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const scrolled = window.scrollY;
+    const progress = (scrolled / docHeight) * 100;
+    document.getElementById('progressBar').style.width = progress + '%';
+});
+</script>
+
+</body>
+</html>

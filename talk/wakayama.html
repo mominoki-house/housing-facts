@@ -14,481 +14,106 @@
 <meta name="robots" content="noindex, nofollow">
 <title>家づくり本音トーク | もみの木ハウス・わかやま</title>
 <style>
-/* ===== Reset & Base ===== */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-:root {
-    --color-bg: #faf9f7;
-    --color-surface: #ffffff;
-    --color-text: #1d1d1f;
-    --color-text-secondary: #6e6e73;
-    --color-text-tertiary: #aeaeb2;
-    --color-accent: #3d5a80;
-    --color-accent-soft: rgba(61,90,128,0.08);
-    --color-border: #e5e5e7;
-    --color-conclusion-bg: #f5f4f0;
-    --color-white: #ffffff;
-    --color-warm: #f0ebe3;
-    --font-serif: "Helvetica Neue", "Hiragino Sans", "Hiragino Kaku Gothic ProN", Arial, "Noto Sans JP", Meiryo, sans-serif;
-    --font-sans: "Hiragino Kaku Gothic ProN", "Hiragino Sans", -apple-system, sans-serif;
-    --max-w: 620px;
-}
-
-html {
-    scroll-behavior: smooth;
-    -webkit-text-size-adjust: 100%;
-}
-
-body {
-    font-family: var(--font-serif);
-    font-size: 18px;
-    line-height: 1.7;
-    color: var(--color-text);
-    background: var(--color-bg);
-    -webkit-font-smoothing: antialiased;
-}
-
-/* ===== Layout ===== */
-.container {
-    max-width: var(--max-w);
-    margin: 0 auto;
-    padding: 0 24px;
-}
-
-/* ===== Hero / FV ===== */
-.hero {
-    text-align: center;
-    padding: 64px 24px 48px;
-    max-width: var(--max-w);
-    margin: 0 auto;
-}
-.hero-lead {
-    font-family: var(--font-sans);
-    font-size: 13px;
-    font-weight: 500;
-    color: var(--color-accent);
-    letter-spacing: 0.08em;
-    margin-bottom: 16px;
-}
-.hero-title {
-    font-family: var(--font-serif);
-    font-size: 26px;
-    font-weight: 600;
-    letter-spacing: 0.06em;
-    line-height: 1.6;
-    color: var(--color-text);
-    margin-bottom: 24px;
-}
-.hero-sub {
-    font-size: 15px;
-    line-height: 2.0;
-    color: var(--color-text-secondary);
-    margin-bottom: 32px;
-}
-.cta-button {
-    display: inline-block;
-    font-family: var(--font-sans);
-    font-size: 16px;
-    font-weight: 600;
-    color: var(--color-white);
-    background: var(--color-accent);
-    padding: 16px 40px;
-    border-radius: 6px;
-    text-decoration: none;
-    transition: opacity 0.2s;
-    letter-spacing: 0.04em;
-}
-.cta-button:hover {
-    opacity: 0.85;
-}
-.cta-micro {
-    font-family: var(--font-sans);
-    font-size: 12px;
-    color: var(--color-text-tertiary);
-    margin-top: 12px;
-    letter-spacing: 0.04em;
-}
-
-/* ===== Section ===== */
-.section {
-    max-width: var(--max-w);
-    margin: 0 auto 56px;
-    padding: 0 24px;
-}
-.section-title {
-    font-family: var(--font-serif);
-    font-size: 20px;
-    font-weight: 600;
-    letter-spacing: 0.04em;
-    color: var(--color-text);
-    margin-bottom: 20px;
-    padding-bottom: 12px;
-    border-bottom: 1px solid var(--color-border);
-}
-.section p {
-    font-size: 16px;
-    line-height: 1.9;
-    margin-bottom: 1.2em;
-    color: var(--color-text);
-}
-
-/* ===== Connection ===== */
-.connection {
-    max-width: var(--max-w);
-    margin: 0 auto 56px;
-    padding: 32px 24px;
-    background: var(--color-conclusion-bg);
-    border-left: 3px solid var(--color-accent);
-    border-radius: 0 4px 4px 0;
-}
-.connection p {
-    font-size: 16px;
-    line-height: 1.9;
-    color: var(--color-text);
-    margin-bottom: 0.8em;
-}
-.connection p:last-child {
-    margin-bottom: 0;
-}
-
-/* ===== Theme Comparison ===== */
-.themes {
-    max-width: var(--max-w);
-    margin: 0 auto 56px;
-    padding: 0 24px;
-}
-.theme-intro {
-    font-size: 16px;
-    line-height: 1.9;
-    color: var(--color-text-secondary);
-    margin-bottom: 28px;
-}
-.theme-card {
-    background: var(--color-surface);
-    border: 1px solid var(--color-border);
-    border-radius: 8px;
-    padding: 28px 24px;
-    margin-bottom: 16px;
-}
-.theme-card:last-child {
-    margin-bottom: 0;
-}
-.theme-num {
-    font-family: var(--font-sans);
-    font-size: 12px;
-    font-weight: 600;
-    color: var(--color-accent);
-    letter-spacing: 0.1em;
-    margin-bottom: 8px;
-}
-.theme-heading {
-    font-family: var(--font-serif);
-    font-size: 18px;
-    font-weight: 600;
-    color: var(--color-text);
-    margin-bottom: 16px;
-    line-height: 1.5;
-}
-.theme-compare {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
-    margin-bottom: 16px;
-}
-.theme-side {
-    padding: 16px;
-    border-radius: 6px;
-}
-.theme-side--general {
-    background: var(--color-warm);
-}
-.theme-side--mominoki {
-    background: var(--color-accent-soft);
-}
-.theme-side-label {
-    font-family: var(--font-sans);
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 0.08em;
-    margin-bottom: 8px;
-}
-.theme-side--general .theme-side-label {
-    color: var(--color-text-tertiary);
-}
-.theme-side--mominoki .theme-side-label {
-    color: var(--color-accent);
-}
-.theme-side p {
-    font-size: 14px;
-    line-height: 1.7;
-    color: var(--color-text);
-    margin: 0;
-}
-.theme-note {
-    font-size: 14px;
-    line-height: 1.8;
-    color: var(--color-text-secondary);
-    margin: 0;
-    font-style: normal;
-}
-
-/* ===== Message ===== */
-.message {
-    max-width: var(--max-w);
-    margin: 0 auto 56px;
-    padding: 0 24px;
-}
-.message-card {
-    background: var(--color-surface);
-    border: 1px solid var(--color-border);
-    border-radius: 8px;
-    padding: 32px 24px;
-}
-.message-photo {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    background: var(--color-conclusion-bg);
-    margin: 0 auto 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.message-photo-placeholder {
-    font-family: var(--font-sans);
-    font-size: 11px;
-    color: var(--color-text-tertiary);
-    text-align: center;
-    line-height: 1.4;
-}
-.message-name {
-    font-family: var(--font-sans);
-    font-size: 13px;
-    font-weight: 500;
-    color: var(--color-text-secondary);
-    text-align: center;
-    margin-bottom: 16px;
-}
-.message-body {
-    font-size: 16px;
-    line-height: 2.0;
-    color: var(--color-text);
-}
-.message-body p {
-    margin-bottom: 1em;
-}
-.message-body p:last-child {
-    margin-bottom: 0;
-}
-
-/* ===== Q&A ===== */
-.qa {
-    max-width: var(--max-w);
-    margin: 0 auto 56px;
-    padding: 0 24px;
-}
-.qa-item {
-    margin-bottom: 24px;
-    padding-bottom: 24px;
-    border-bottom: 1px solid var(--color-border);
-}
-.qa-item:last-child {
-    border-bottom: none;
-    padding-bottom: 0;
-}
-.qa-q {
-    font-family: var(--font-sans);
-    font-size: 15px;
-    font-weight: 500;
-    color: var(--color-text);
-    margin-bottom: 8px;
-    display: flex;
-    gap: 8px;
-}
-.qa-a {
-    font-size: 15px;
-    line-height: 1.8;
-    color: var(--color-text-secondary);
-    display: flex;
-    gap: 8px;
-}
-.qa-label {
-    flex-shrink: 0;
-    font-family: var(--font-sans);
-    font-weight: 600;
-    color: var(--color-accent);
-}
-
-/* ===== Final CTA ===== */
-.final-cta {
-    max-width: var(--max-w);
-    margin: 0 auto 0;
-    padding: 48px 24px;
-    text-align: center;
-    background: var(--color-accent-soft);
-    border-radius: 8px;
-}
-.final-cta-lead {
-    font-size: 15px;
-    line-height: 1.8;
-    color: var(--color-text-secondary);
-    margin-bottom: 24px;
-}
-
-/* ===== Footer ===== */
-.page-footer {
-    max-width: var(--max-w);
-    margin: 48px auto 0;
-    padding: 32px 24px 64px;
-    border-top: 1px solid var(--color-border);
-    text-align: center;
-}
-.footer-note {
-    font-family: var(--font-sans);
-    font-size: 12px;
-    color: var(--color-text-tertiary);
-    margin-bottom: 4px;
-}
-.footer-tel {
-    font-family: var(--font-sans);
-    font-size: 13px;
-    color: var(--color-text-secondary);
-}
-.footer-tel a {
-    color: var(--color-text-secondary);
-    text-decoration: none;
-}
-
-/* ===== Divider ===== */
-.divider {
-    max-width: var(--max-w);
-    margin: 0 auto;
-    border: none;
-    border-top: 1px solid var(--color-border);
-    margin-bottom: 56px;
-}
-
-/* ===== Responsive ===== */
-@media (max-width: 480px) {
-    .hero { padding: 48px 20px 40px; }
-    .hero-title { font-size: 22px; }
-    .section { padding: 0 20px; }
-    .section p { font-size: 15px; }
-    .section-title { font-size: 18px; }
-    .connection { margin-left: 20px; margin-right: 20px; padding: 24px 20px; }
-    .connection p { font-size: 15px; }
-    .themes { padding: 0 20px; }
-    .theme-compare { grid-template-columns: 1fr; gap: 8px; }
-    .theme-card { padding: 24px 20px; }
-    .message { padding: 0 20px; }
-    .qa { padding: 0 20px; }
-    .final-cta { margin-left: 20px; margin-right: 20px; padding: 40px 20px; }
-    .cta-button { font-size: 15px; padding: 14px 32px; }
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--color-bg:#faf9f7;--color-surface:#fff;--color-text:#1d1d1f;--color-text-secondary:#6e6e73;--color-text-tertiary:#aeaeb2;--color-accent:#3d5a80;--color-accent-soft:rgba(61,90,128,.08);--color-border:#e5e5e7;--color-conclusion-bg:#f5f4f0;--color-white:#fff;--font-serif:"Helvetica Neue","Hiragino Sans","Hiragino Kaku Gothic ProN",Arial,"Noto Sans JP",Meiryo,sans-serif;--font-sans:"Hiragino Kaku Gothic ProN","Hiragino Sans",-apple-system,sans-serif;--max-w:620px}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:var(--font-serif);font-size:18px;line-height:1.7;color:var(--color-text);background:var(--color-bg);-webkit-font-smoothing:antialiased}
+.container{max-width:var(--max-w);margin:0 auto;padding:0 24px}
+.hero{text-align:center;padding:64px 24px 48px;max-width:var(--max-w);margin:0 auto}
+.hero-title{font-family:var(--font-serif);font-size:26px;font-weight:600;letter-spacing:.06em;line-height:1.6;color:var(--color-text);margin-bottom:24px}
+.hero-sub{font-size:15px;line-height:2;color:var(--color-text-secondary);margin-bottom:32px}
+.cta-button{display:inline-block;font-family:var(--font-sans);font-size:16px;font-weight:600;color:var(--color-white);background:var(--color-accent);padding:16px 40px;border-radius:6px;text-decoration:none;transition:opacity .2s;letter-spacing:.04em}
+.cta-button:hover{opacity:.85}
+.cta-micro{font-family:var(--font-sans);font-size:12px;color:var(--color-text-tertiary);margin-top:12px;letter-spacing:.04em}
+.section-title{font-family:var(--font-serif);font-size:20px;font-weight:600;letter-spacing:.04em;color:var(--color-text);margin-bottom:20px;padding-bottom:12px;border-bottom:1px solid var(--color-border)}
+.message{max-width:var(--max-w);margin:0 auto 56px;padding:0 24px}
+.message-card{background:var(--color-surface);border:1px solid var(--color-border);border-radius:8px;padding:32px 24px}
+.message-photo{width:80px;height:80px;border-radius:50%;background:var(--color-conclusion-bg);margin:0 auto 20px;display:flex;align-items:center;justify-content:center}
+.message-photo-placeholder{font-family:var(--font-sans);font-size:11px;color:var(--color-text-tertiary);text-align:center;line-height:1.4}
+.message-name{font-family:var(--font-sans);font-size:13px;font-weight:500;color:var(--color-text-secondary);text-align:center;margin-bottom:16px}
+.message-body{font-size:16px;line-height:2;color:var(--color-text)}
+.message-body p{margin-bottom:1em}
+.message-body p:last-child{margin-bottom:0}
+.topics{max-width:var(--max-w);margin:0 auto 56px;padding:0 24px}
+.topic-list{list-style:none}
+.topic-item{display:flex;gap:16px;margin-bottom:20px;align-items:flex-start}
+.topic-item:last-child{margin-bottom:0}
+.topic-icon{flex-shrink:0;width:40px;height:40px;border-radius:50%;background:var(--color-accent-soft);display:flex;align-items:center;justify-content:center;font-family:var(--font-sans);font-size:14px;font-weight:600;color:var(--color-accent)}
+.topic-text{padding-top:8px;font-size:15px;line-height:1.7;color:var(--color-text)}
+.qa{max-width:var(--max-w);margin:0 auto 56px;padding:0 24px}
+.qa-item{margin-bottom:24px;padding-bottom:24px;border-bottom:1px solid var(--color-border)}
+.qa-item:last-child{border-bottom:none;padding-bottom:0}
+.qa-q{font-family:var(--font-sans);font-size:15px;font-weight:500;color:var(--color-text);margin-bottom:8px;display:flex;gap:8px}
+.qa-a{font-size:15px;line-height:1.8;color:var(--color-text-secondary);display:flex;gap:8px}
+.qa-label{flex-shrink:0;font-family:var(--font-sans);font-weight:600;color:var(--color-accent)}
+.final-cta{max-width:var(--max-w);margin:0 auto 0;padding:48px 24px;text-align:center;background:var(--color-accent-soft);border-radius:8px}
+.final-cta-lead{font-size:15px;line-height:1.8;color:var(--color-text-secondary);margin-bottom:24px}
+.bakuro-link{max-width:var(--max-w);margin:40px auto 0;padding:24px;text-align:center;background:var(--color-conclusion-bg);border-radius:8px}
+.bakuro-link p{font-size:14px;line-height:1.8;color:var(--color-text-secondary);margin-bottom:8px}
+.bakuro-link a{font-family:var(--font-sans);font-size:14px;font-weight:500;color:var(--color-accent);text-decoration:none}
+.bakuro-link a:hover{text-decoration:underline}
+.page-footer{max-width:var(--max-w);margin:48px auto 0;padding:32px 24px 64px;border-top:1px solid var(--color-border);text-align:center}
+.footer-note{font-family:var(--font-sans);font-size:12px;color:var(--color-text-tertiary);margin-bottom:4px}
+.footer-tel{font-family:var(--font-sans);font-size:13px;color:var(--color-text-secondary)}
+.footer-tel a{color:var(--color-text-secondary);text-decoration:none}
+.divider{max-width:var(--max-w);margin:0 auto;border:none;border-top:1px solid var(--color-border);margin-bottom:56px}
+@media(max-width:480px){
+.hero{padding:48px 20px 40px}.hero-title{font-size:22px}.section-title{font-size:18px}
+.message,.topics,.qa{padding:0 20px}
+.final-cta,.bakuro-link{margin-left:20px;margin-right:20px}
+.final-cta{padding:40px 20px}.cta-button{font-size:15px;padding:14px 32px}
 }
 </style>
 </head>
 <body>
-
 <div class="container">
 
-<!-- ===== 1. FV ===== -->
 <header class="hero">
-    <p class="hero-lead">「聞かれなければ言わない」を読んだ方へ</p>
-    <h1 class="hero-title">あの話の続き、<br>直接しませんか。</h1>
-    <p class="hero-sub">本に書いたことは、すべて事実です。<br>気になったことがあれば、何でも聞いてください。<br>売り込みはしません。ただ、正直に話します。</p>
+    <h1 class="hero-title">家のこと、<br>本音で話しませんか。</h1>
+    <p class="hero-sub">プランも見積もりも出しません。<br>聞きたいことだけ聞いて、帰ってください。<br>それくらいの気持ちで来てもらえたら。</p>
     <a href="https://wakayama-koyama.com/contact/?utm_source=line&utm_medium=richmenu&utm_campaign=honnetalk&utm_content=wakayama" class="cta-button">話だけ聞いてみる</a>
     <p class="cta-micro">入力1分 / 無料 / 売り込みなし</p>
 </header>
 
-<!-- ===== 2. 暴露本との接続 ===== -->
-<div class="connection">
-    <p>住宅会社が話さない3つのこと。</p>
-    <p>健康のこと、お金のこと、家の寿命のこと。<br>本に書いた内容を、もう少し詳しくお伝えします。</p>
-</div>
-
-<!-- ===== 3. 3テーマ比較 ===== -->
-<div class="themes">
-    <h2 class="section-title">本に書いた3つのテーマ</h2>
-    <p class="theme-intro">住宅選びで見落とされがちな3つの視点。<br>一般的な住宅と、もみの木の家の違いをまとめました。</p>
-
-    <!-- Theme 1: 健康 -->
-    <div class="theme-card">
-        <p class="theme-num">THEME 01</p>
-        <h3 class="theme-heading">空気と健康のこと</h3>
-        <div class="theme-compare">
-            <div class="theme-side theme-side--general">
-                <p class="theme-side-label">一般的な住宅</p>
-                <p>壁紙や合板から出る化学物質。換気だけでは追いつかないことも。カビやダニの温床になりやすい構造。</p>
-            </div>
-            <div class="theme-side theme-side--mominoki">
-                <p class="theme-side-label">もみの木の家</p>
-                <p>天然の調湿・消臭作用で、室内の空気環境を素材そのものが整える。機械に頼らない空気づくり。</p>
-            </div>
-        </div>
-        <p class="theme-note">新築なのに咳が止まらない、という話は珍しくありません。素材の選び方で、空気は変わります。</p>
-    </div>
-
-    <!-- Theme 2: コスト -->
-    <div class="theme-card">
-        <p class="theme-num">THEME 02</p>
-        <h3 class="theme-heading">住んでからのお金のこと</h3>
-        <div class="theme-compare">
-            <div class="theme-side theme-side--general">
-                <p class="theme-side-label">一般的な住宅</p>
-                <p>設備に頼る快適さは、維持費とセット。10年ごとの交換・修繕が積み重なり、想定外の出費に。</p>
-            </div>
-            <div class="theme-side theme-side--mominoki">
-                <p class="theme-side-label">もみの木の家</p>
-                <p>素材に働かせることで、設備への依存を減らす。壊れる設備が少ない分、維持費の構造が変わる。</p>
-            </div>
-        </div>
-        <p class="theme-note">家の価格だけで比較すると、30年後のトータルコストを見誤ることがあります。</p>
-    </div>
-
-    <!-- Theme 3: 資産価値 -->
-    <div class="theme-card">
-        <p class="theme-num">THEME 03</p>
-        <h3 class="theme-heading">家の寿命と資産価値のこと</h3>
-        <div class="theme-compare">
-            <div class="theme-side theme-side--general">
-                <p class="theme-side-label">一般的な住宅</p>
-                <p>築20年で建物の評価はほぼゼロ。「消耗品としての家」が日本の住宅の現実。</p>
-            </div>
-            <div class="theme-side theme-side--mominoki">
-                <p class="theme-side-label">もみの木の家</p>
-                <p>100年持つ家は、素材の選択で決まる。経年で味が出る無垢材は、劣化ではなく変化する。</p>
-            </div>
-        </div>
-        <p class="theme-note">「建てた瞬間が一番いい家」と「住むほど馴染む家」。どちらを選ぶかは、知ってから決めてほしいのです。</p>
-    </div>
-</div>
-
-<hr class="divider">
-
-<!-- ===== 4. 社長メッセージ ===== -->
 <div class="message">
-    <h2 class="section-title">小山健からひとこと</h2>
     <div class="message-card">
-        <div class="message-photo">
-            <span class="message-photo-placeholder">写真</span>
-        </div>
+        <div class="message-photo"><span class="message-photo-placeholder">写真</span></div>
         <p class="message-name">もみの木ハウス・わかやま 代表 小山健</p>
         <div class="message-body">
-            <p>あの本に書いたことは、住宅業界では「言わないほうがいい」とされていることばかりです。でも、知らないまま家を建てて後悔する人を何人も見てきました。</p>
-            <p>だから書きました。そして、読んでくれた方には、もう少し踏み込んだ話をしたいと思っています。</p>
-            <p>聞いたうえで「うちには合わないな」と思ったら、それでいいんです。判断材料を持って帰ってください。</p>
+            <p>小山健です。家づくりって、調べれば調べるほど何が正しいのかわからなくなりませんか。</p>
+            <p>住宅会社はそれぞれ「うちが一番」と言います。でも、判断するための情報が足りないまま決めてしまう人が多いんです。</p>
+            <p>だから、まずは話を聞きに来てほしい。聞いたうえで「合わないな」と思ったら、それでいいんです。判断材料を持って帰ってください。</p>
         </div>
     </div>
 </div>
 
 <hr class="divider">
 
-<!-- ===== 5. Q&A ===== -->
+<div class="topics">
+    <h2 class="section-title">こんな話ができます</h2>
+    <ul class="topic-list">
+        <li class="topic-item">
+            <span class="topic-icon">1</span>
+            <p class="topic-text">壁紙や床材で、家の空気環境はどれくらい変わるのか。子どもの健康に関わる素材の話。</p>
+        </li>
+        <li class="topic-item">
+            <span class="topic-icon">2</span>
+            <p class="topic-text">建てた後にかかるお金のこと。設備の維持費やメンテナンスで、30年後にどれくらい差が出るか。</p>
+        </li>
+        <li class="topic-item">
+            <span class="topic-icon">3</span>
+            <p class="topic-text">家の寿命と資産価値のこと。築20年でゼロ評価になる家と、100年持つ家の違いは何か。</p>
+        </li>
+    </ul>
+</div>
+
+<hr class="divider">
+
 <div class="qa">
     <h2 class="section-title">よくある質問</h2>
     <div class="qa-item">
         <p class="qa-q"><span class="qa-label">Q.</span><span>売り込みはありますか？</span></p>
-        <p class="qa-a"><span class="qa-label">A.</span><span>ありません。プランも見積もりも出しません。話を聞いて、気になったら次のステップを考える。それだけです。</span></p>
+        <p class="qa-a"><span class="qa-label">A.</span><span>ありません。プランも見積もりも出しません。話を聞いて、気になったら次を考える。それだけです。</span></p>
     </div>
     <div class="qa-item">
         <p class="qa-q"><span class="qa-label">Q.</span><span>相談後に電話がかかってきますか？</span></p>
@@ -496,7 +121,7 @@ body {
     </div>
     <div class="qa-item">
         <p class="qa-q"><span class="qa-label">Q.</span><span>何を聞けばいいかわかりません。</span></p>
-        <p class="qa-a"><span class="qa-label">A.</span><span>本の中で気になった箇所を教えてもらえれば、そこから話を始めます。「健康のところが気になった」くらいで大丈夫です。</span></p>
+        <p class="qa-a"><span class="qa-label">A.</span><span>「健康のことが気になった」「お金の話をもう少し聞きたい」くらいで大丈夫です。そこから話を始めます。</span></p>
     </div>
     <div class="qa-item">
         <p class="qa-q"><span class="qa-label">Q.</span><span>まだ土地も決まっていないのですが。</span></p>
@@ -504,19 +129,22 @@ body {
     </div>
 </div>
 
-<!-- ===== 6. 最終CTA ===== -->
 <div class="final-cta">
-    <p class="final-cta-lead">本に書けなかったことも、直接なら話せます。</p>
+    <p class="final-cta-lead">気軽に来てください。<br>それくらいがちょうどいいと思っています。</p>
     <a href="https://wakayama-koyama.com/contact/?utm_source=line&utm_medium=richmenu&utm_campaign=honnetalk&utm_content=wakayama" class="cta-button">話だけ聞いてみる</a>
     <p class="cta-micro">入力1分 / 無料 / 売り込みなし</p>
 </div>
 
 </div>
 
+<div class="bakuro-link">
+    <p>住宅会社が話さない12の事実、まだ読んでいない方はこちら。</p>
+    <a href="https://mominoki-house.github.io/housing-facts/ch1.html?utm_source=line&utm_medium=talk_lp&utm_campaign=housing_facts&utm_content=wakayama">無料で読む</a>
+</div>
+
 <footer class="page-footer">
     <p class="footer-note">もみの木ハウス・わかやま</p>
     <p class="footer-tel"><a href="tel:0739-24-8128">0739-24-8128</a></p>
-    <p class="footer-note">定休日: なし（要相談）</p>
 </footer>
 
 </body>

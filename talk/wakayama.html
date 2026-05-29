@@ -28,6 +28,7 @@
     --color-border: #e5e5e7;
     --color-conclusion-bg: #f5f4f0;
     --color-white: #ffffff;
+    --color-warm: #f0ebe3;
     --font-serif: "Helvetica Neue", "Hiragino Sans", "Hiragino Kaku Gothic ProN", Arial, "Noto Sans JP", Meiryo, sans-serif;
     --font-sans: "Hiragino Kaku Gothic ProN", "Hiragino Sans", -apple-system, sans-serif;
     --max-w: 620px;
@@ -60,6 +61,14 @@ body {
     padding: 64px 24px 48px;
     max-width: var(--max-w);
     margin: 0 auto;
+}
+.hero-lead {
+    font-family: var(--font-sans);
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--color-accent);
+    letter-spacing: 0.08em;
+    margin-bottom: 16px;
 }
 .hero-title {
     font-family: var(--font-serif);
@@ -129,7 +138,7 @@ body {
     margin: 0 auto 56px;
     padding: 32px 24px;
     background: var(--color-conclusion-bg);
-    border-left: 3px solid var(--color-text);
+    border-left: 3px solid var(--color-accent);
     border-radius: 0 4px 4px 0;
 }
 .connection p {
@@ -142,96 +151,85 @@ body {
     margin-bottom: 0;
 }
 
-/* ===== 3 Assurances ===== */
-.assurances {
+/* ===== Theme Comparison ===== */
+.themes {
     max-width: var(--max-w);
     margin: 0 auto 56px;
     padding: 0 24px;
 }
-.assurance-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 16px;
+.theme-intro {
+    font-size: 16px;
+    line-height: 1.9;
+    color: var(--color-text-secondary);
+    margin-bottom: 28px;
 }
-.assurance-item {
+.theme-card {
     background: var(--color-surface);
     border: 1px solid var(--color-border);
     border-radius: 8px;
-    padding: 24px;
-    text-align: center;
+    padding: 28px 24px;
+    margin-bottom: 16px;
 }
-.assurance-icon {
-    width: 48px;
-    height: 48px;
-    border-radius: 50%;
-    background: var(--color-accent-soft);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto 16px;
+.theme-card:last-child {
+    margin-bottom: 0;
 }
-.assurance-icon::before {
+.theme-num {
     font-family: var(--font-sans);
-    font-size: 20px;
+    font-size: 12px;
     font-weight: 600;
     color: var(--color-accent);
+    letter-spacing: 0.1em;
+    margin-bottom: 8px;
 }
-.assurance-item:nth-child(1) .assurance-icon::before { content: "1"; }
-.assurance-item:nth-child(2) .assurance-icon::before { content: "2"; }
-.assurance-item:nth-child(3) .assurance-icon::before { content: "3"; }
-.assurance-text {
-    font-family: var(--font-sans);
-    font-size: 15px;
-    font-weight: 500;
-    color: var(--color-text);
-    line-height: 1.6;
-}
-
-/* ===== Steps ===== */
-.steps {
-    max-width: var(--max-w);
-    margin: 0 auto 56px;
-    padding: 0 24px;
-}
-.step-list {
-    list-style: none;
-}
-.step-item {
-    display: flex;
-    gap: 16px;
-    margin-bottom: 24px;
-    align-items: flex-start;
-}
-.step-num {
-    flex-shrink: 0;
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    background: var(--color-accent);
-    color: var(--color-white);
-    font-family: var(--font-sans);
-    font-size: 14px;
+.theme-heading {
+    font-family: var(--font-serif);
+    font-size: 18px;
     font-weight: 600;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    color: var(--color-text);
+    margin-bottom: 16px;
+    line-height: 1.5;
 }
-.step-content {
-    padding-top: 6px;
+.theme-compare {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 16px;
 }
-.step-label {
+.theme-side {
+    padding: 16px;
+    border-radius: 6px;
+}
+.theme-side--general {
+    background: var(--color-warm);
+}
+.theme-side--mominoki {
+    background: var(--color-accent-soft);
+}
+.theme-side-label {
     font-family: var(--font-sans);
     font-size: 11px;
-    font-weight: 500;
-    color: var(--color-text-tertiary);
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    margin-bottom: 4px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    margin-bottom: 8px;
 }
-.step-text {
-    font-size: 15px;
+.theme-side--general .theme-side-label {
+    color: var(--color-text-tertiary);
+}
+.theme-side--mominoki .theme-side-label {
+    color: var(--color-accent);
+}
+.theme-side p {
+    font-size: 14px;
     line-height: 1.7;
     color: var(--color-text);
+    margin: 0;
+}
+.theme-note {
+    font-size: 14px;
+    line-height: 1.8;
+    color: var(--color-text-secondary);
+    margin: 0;
+    font-style: normal;
 }
 
 /* ===== Message ===== */
@@ -275,6 +273,12 @@ body {
     font-size: 16px;
     line-height: 2.0;
     color: var(--color-text);
+}
+.message-body p {
+    margin-bottom: 1em;
+}
+.message-body p:last-child {
+    margin-bottom: 0;
 }
 
 /* ===== Q&A ===== */
@@ -324,6 +328,12 @@ body {
     background: var(--color-accent-soft);
     border-radius: 8px;
 }
+.final-cta-lead {
+    font-size: 15px;
+    line-height: 1.8;
+    color: var(--color-text-secondary);
+    margin-bottom: 24px;
+}
 
 /* ===== Footer ===== */
 .page-footer {
@@ -367,8 +377,9 @@ body {
     .section-title { font-size: 18px; }
     .connection { margin-left: 20px; margin-right: 20px; padding: 24px 20px; }
     .connection p { font-size: 15px; }
-    .assurances { padding: 0 20px; }
-    .steps { padding: 0 20px; }
+    .themes { padding: 0 20px; }
+    .theme-compare { grid-template-columns: 1fr; gap: 8px; }
+    .theme-card { padding: 24px 20px; }
     .message { padding: 0 20px; }
     .qa { padding: 0 20px; }
     .final-cta { margin-left: 20px; margin-right: 20px; padding: 40px 20px; }
@@ -382,109 +393,120 @@ body {
 
 <!-- ===== 1. FV ===== -->
 <header class="hero">
-    <h1 class="hero-title">話だけ聞いてみませんか？</h1>
-    <p class="hero-sub">暴露本を読んでくれた方限定。<br>プランも見積もりも出しません。<br>ただ、本音で話します。</p>
+    <p class="hero-lead">「聞かれなければ言わない」を読んだ方へ</p>
+    <h1 class="hero-title">あの話の続き、<br>直接しませんか。</h1>
+    <p class="hero-sub">本に書いたことは、すべて事実です。<br>気になったことがあれば、何でも聞いてください。<br>売り込みはしません。ただ、正直に話します。</p>
     <a href="https://wakayama-koyama.com/contact/?utm_source=line&utm_medium=richmenu&utm_campaign=honnetalk&utm_content=wakayama" class="cta-button">話だけ聞いてみる</a>
     <p class="cta-micro">入力1分 / 無料 / 売り込みなし</p>
 </header>
 
 <!-- ===== 2. 暴露本との接続 ===== -->
 <div class="connection">
-    <p>「聞かれなければ言わない」の話の続きを、直接します。</p>
-    <p>暴露本を読んで気になったこと、答え合わせしませんか？</p>
+    <p>住宅会社が話さない3つのこと。</p>
+    <p>健康のこと、お金のこと、家の寿命のこと。<br>本に書いた内容を、もう少し詳しくお伝えします。</p>
 </div>
 
-<!-- ===== 3. 3つの安心 ===== -->
-<div class="assurances">
-    <h2 class="section-title">3つの安心</h2>
-    <div class="assurance-grid">
-        <div class="assurance-item">
-            <div class="assurance-icon"></div>
-            <p class="assurance-text">売り込みは一切しません</p>
+<!-- ===== 3. 3テーマ比較 ===== -->
+<div class="themes">
+    <h2 class="section-title">本に書いた3つのテーマ</h2>
+    <p class="theme-intro">住宅選びで見落とされがちな3つの視点。<br>一般的な住宅と、もみの木の家の違いをまとめました。</p>
+
+    <!-- Theme 1: 健康 -->
+    <div class="theme-card">
+        <p class="theme-num">THEME 01</p>
+        <h3 class="theme-heading">空気と健康のこと</h3>
+        <div class="theme-compare">
+            <div class="theme-side theme-side--general">
+                <p class="theme-side-label">一般的な住宅</p>
+                <p>壁紙や合板から出る化学物質。換気だけでは追いつかないことも。カビやダニの温床になりやすい構造。</p>
+            </div>
+            <div class="theme-side theme-side--mominoki">
+                <p class="theme-side-label">もみの木の家</p>
+                <p>天然の調湿・消臭作用で、室内の空気環境を素材そのものが整える。機械に頼らない空気づくり。</p>
+            </div>
         </div>
-        <div class="assurance-item">
-            <div class="assurance-icon"></div>
-            <p class="assurance-text">45分で終わります</p>
+        <p class="theme-note">新築なのに咳が止まらない、という話は珍しくありません。素材の選び方で、空気は変わります。</p>
+    </div>
+
+    <!-- Theme 2: コスト -->
+    <div class="theme-card">
+        <p class="theme-num">THEME 02</p>
+        <h3 class="theme-heading">住んでからのお金のこと</h3>
+        <div class="theme-compare">
+            <div class="theme-side theme-side--general">
+                <p class="theme-side-label">一般的な住宅</p>
+                <p>設備に頼る快適さは、維持費とセット。10年ごとの交換・修繕が積み重なり、想定外の出費に。</p>
+            </div>
+            <div class="theme-side theme-side--mominoki">
+                <p class="theme-side-label">もみの木の家</p>
+                <p>素材に働かせることで、設備への依存を減らす。壊れる設備が少ない分、維持費の構造が変わる。</p>
+            </div>
         </div>
-        <div class="assurance-item">
-            <div class="assurance-icon"></div>
-            <p class="assurance-text">断ってOK。その後の営業電話もしません</p>
+        <p class="theme-note">家の価格だけで比較すると、30年後のトータルコストを見誤ることがあります。</p>
+    </div>
+
+    <!-- Theme 3: 資産価値 -->
+    <div class="theme-card">
+        <p class="theme-num">THEME 03</p>
+        <h3 class="theme-heading">家の寿命と資産価値のこと</h3>
+        <div class="theme-compare">
+            <div class="theme-side theme-side--general">
+                <p class="theme-side-label">一般的な住宅</p>
+                <p>築20年で建物の評価はほぼゼロ。「消耗品としての家」が日本の住宅の現実。</p>
+            </div>
+            <div class="theme-side theme-side--mominoki">
+                <p class="theme-side-label">もみの木の家</p>
+                <p>100年持つ家は、素材の選択で決まる。経年で味が出る無垢材は、劣化ではなく変化する。</p>
+            </div>
         </div>
+        <p class="theme-note">「建てた瞬間が一番いい家」と「住むほど馴染む家」。どちらを選ぶかは、知ってから決めてほしいのです。</p>
     </div>
 </div>
 
 <hr class="divider">
 
-<!-- ===== 4. 相談の流れ ===== -->
-<div class="steps">
-    <h2 class="section-title">相談の流れ</h2>
-    <ul class="step-list">
-        <li class="step-item">
-            <span class="step-num">1</span>
-            <div class="step-content">
-                <div class="step-label">STEP 1</div>
-                <p class="step-text">下のボタンからお申し込み</p>
-            </div>
-        </li>
-        <li class="step-item">
-            <span class="step-num">2</span>
-            <div class="step-content">
-                <div class="step-label">STEP 2</div>
-                <p class="step-text">日時を調整（メール or LINE）</p>
-            </div>
-        </li>
-        <li class="step-item">
-            <span class="step-num">3</span>
-            <div class="step-content">
-                <div class="step-label">STEP 3</div>
-                <p class="step-text">対面 or オンラインで本音トーク（45分）</p>
-            </div>
-        </li>
-        <li class="step-item">
-            <span class="step-num">4</span>
-            <div class="step-content">
-                <div class="step-label">STEP 4</div>
-                <p class="step-text">気になったら見学会へ。気にならなければそれでOK</p>
-            </div>
-        </li>
-    </ul>
-</div>
-
-<hr class="divider">
-
-<!-- ===== 5. 社長メッセージ ===== -->
+<!-- ===== 4. 社長メッセージ ===== -->
 <div class="message">
-    <h2 class="section-title">社長メッセージ</h2>
+    <h2 class="section-title">小山健からひとこと</h2>
     <div class="message-card">
         <div class="message-photo">
             <span class="message-photo-placeholder">写真</span>
         </div>
         <p class="message-name">もみの木ハウス・わかやま 代表 小山健</p>
-        <p class="message-body">小山健です。暴露本に書いた内容は、すべて本当のことです。読んで気になった話があれば、何でも聞いてください。家づくりの本音を話せる場所は、意外と少ないんです。</p>
+        <div class="message-body">
+            <p>あの本に書いたことは、住宅業界では「言わないほうがいい」とされていることばかりです。でも、知らないまま家を建てて後悔する人を何人も見てきました。</p>
+            <p>だから書きました。そして、読んでくれた方には、もう少し踏み込んだ話をしたいと思っています。</p>
+            <p>聞いたうえで「うちには合わないな」と思ったら、それでいいんです。判断材料を持って帰ってください。</p>
+        </div>
     </div>
 </div>
 
 <hr class="divider">
 
-<!-- ===== 6. Q&A ===== -->
+<!-- ===== 5. Q&A ===== -->
 <div class="qa">
     <h2 class="section-title">よくある質問</h2>
     <div class="qa-item">
-        <p class="qa-q"><span class="qa-label">Q.</span><span>しつこい営業はありますか？</span></p>
-        <p class="qa-a"><span class="qa-label">A.</span><span>ありません。相談後にこちらから電話することもありません。</span></p>
+        <p class="qa-q"><span class="qa-label">Q.</span><span>売り込みはありますか？</span></p>
+        <p class="qa-a"><span class="qa-label">A.</span><span>ありません。プランも見積もりも出しません。話を聞いて、気になったら次のステップを考える。それだけです。</span></p>
     </div>
     <div class="qa-item">
-        <p class="qa-q"><span class="qa-label">Q.</span><span>オンラインでも相談できますか？</span></p>
-        <p class="qa-a"><span class="qa-label">A.</span><span>はい。Zoom or LINEビデオ通話で対応しています。</span></p>
+        <p class="qa-q"><span class="qa-label">Q.</span><span>相談後に電話がかかってきますか？</span></p>
+        <p class="qa-a"><span class="qa-label">A.</span><span>こちらから電話やメールで追いかけることはしません。次に連絡するかどうかは、あなたが決めてください。</span></p>
     </div>
     <div class="qa-item">
-        <p class="qa-q"><span class="qa-label">Q.</span><span>何を聞けばいいかわからないのですが...</span></p>
-        <p class="qa-a"><span class="qa-label">A.</span><span>暴露本で気になった章を教えてください。そこから話を始めます。</span></p>
+        <p class="qa-q"><span class="qa-label">Q.</span><span>何を聞けばいいかわかりません。</span></p>
+        <p class="qa-a"><span class="qa-label">A.</span><span>本の中で気になった箇所を教えてもらえれば、そこから話を始めます。「健康のところが気になった」くらいで大丈夫です。</span></p>
+    </div>
+    <div class="qa-item">
+        <p class="qa-q"><span class="qa-label">Q.</span><span>まだ土地も決まっていないのですが。</span></p>
+        <p class="qa-a"><span class="qa-label">A.</span><span>全く問題ありません。土地探しの前に「どんな家にするか」の判断軸を持っておくほうが、遠回りしません。</span></p>
     </div>
 </div>
 
-<!-- ===== 7. 最終CTA ===== -->
+<!-- ===== 6. 最終CTA ===== -->
 <div class="final-cta">
+    <p class="final-cta-lead">本に書けなかったことも、直接なら話せます。</p>
     <a href="https://wakayama-koyama.com/contact/?utm_source=line&utm_medium=richmenu&utm_campaign=honnetalk&utm_content=wakayama" class="cta-button">話だけ聞いてみる</a>
     <p class="cta-micro">入力1分 / 無料 / 売り込みなし</p>
 </div>

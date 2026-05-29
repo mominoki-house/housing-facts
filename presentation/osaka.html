@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>集客動線のご説明 | もみの木ハウス・おおさか</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#f9f7f3;--surface:#fff;--text:#3a3630;--text2:#6b6560;--text3:#9a9490;
+  --accent:#5a7a60;--accent-soft:rgba(107,143,113,.08);--border:#e8e4de;
+  --green:#6b8f71;--green-soft:rgba(107,143,113,.12);
+  --font:"Hiragino Sans","Hiragino Kaku Gothic ProN",-apple-system,sans-serif;
+  --max-w:800px;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--font);font-size:16px;line-height:1.8;color:var(--text);background:var(--bg)}
+.wrap{max-width:var(--max-w);margin:0 auto;padding:0 24px}
+
+/* Hero */
+.hero{text-align:center;padding:64px 24px 48px;max-width:var(--max-w);margin:0 auto}
+.hero-badge{display:inline-block;font-size:12px;font-weight:600;color:var(--accent);background:var(--accent-soft);padding:6px 16px;border-radius:20px;margin-bottom:20px;letter-spacing:.08em}
+.hero h1{font-size:28px;font-weight:600;line-height:1.5;margin-bottom:16px;letter-spacing:.04em}
+.hero p{font-size:15px;color:var(--text2);line-height:1.9}
+.hero-pf{width:120px;height:120px;border-radius:50%;overflow:hidden;margin:24px auto 12px}
+.hero-pf img{width:100%;height:100%;object-fit:cover}
+.hero-name{font-size:14px;color:var(--text2);font-weight:500}
+
+/* Section */
+.section{max-width:var(--max-w);margin:0 auto 64px;padding:0 24px}
+.section-num{font-size:12px;font-weight:600;color:var(--accent);letter-spacing:.1em;margin-bottom:8px}
+.section-title{font-size:22px;font-weight:600;margin-bottom:8px;letter-spacing:.04em}
+.section-sub{font-size:14px;color:var(--text2);margin-bottom:32px;line-height:1.8}
+.section-desc{font-size:15px;color:var(--text);line-height:1.9;margin-bottom:24px}
+
+/* Card Grid */
+.card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;margin-bottom:24px}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:12px;overflow:hidden}
+.card img{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:top}
+.card-body{padding:16px}
+.card-label{font-size:11px;font-weight:600;color:var(--accent);letter-spacing:.08em;margin-bottom:4px}
+.card-title{font-size:15px;font-weight:600;margin-bottom:6px}
+.card-text{font-size:13px;color:var(--text2);line-height:1.7}
+
+/* Funnel */
+.funnel{max-width:var(--max-w);margin:0 auto 64px;padding:0 24px}
+.funnel-flow{display:flex;flex-direction:column;gap:0;align-items:center;margin-bottom:32px}
+.funnel-step{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:20px 24px;width:100%;display:flex;align-items:center;gap:16px}
+.funnel-arrow{font-size:20px;color:var(--green);padding:8px 0;text-align:center}
+.funnel-icon{flex-shrink:0;width:44px;height:44px;border-radius:50%;background:var(--green-soft);display:flex;align-items:center;justify-content:center;font-size:18px}
+.funnel-label{font-size:11px;font-weight:600;color:var(--accent);letter-spacing:.08em}
+.funnel-name{font-size:15px;font-weight:600}
+.funnel-detail{font-size:13px;color:var(--text2)}
+
+/* Image Row */
+.img-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin-bottom:24px}
+.img-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;overflow:hidden}
+.img-card img{width:100%;display:block}
+.img-card-caption{padding:12px 16px;font-size:13px;font-weight:500;color:var(--text)}
+
+/* Stats Table */
+.stats-table{width:100%;border-collapse:collapse;margin-bottom:24px;font-size:14px}
+.stats-table th{background:var(--green);color:#fff;padding:12px 16px;text-align:left;font-weight:500;font-size:13px}
+.stats-table td{padding:12px 16px;border-bottom:1px solid var(--border)}
+.stats-table tr:nth-child(even){background:var(--accent-soft)}
+.stats-highlight{font-weight:600;color:var(--accent)}
+
+/* Timeline */
+.timeline{position:relative;padding-left:32px;margin-bottom:32px}
+.timeline::before{content:"";position:absolute;left:11px;top:8px;bottom:8px;width:2px;background:var(--green)}
+.timeline-item{position:relative;margin-bottom:28px}
+.timeline-item:last-child{margin-bottom:0}
+.timeline-dot{position:absolute;left:-32px;top:4px;width:24px;height:24px;border-radius:50%;background:var(--green);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:600;color:#fff}
+.timeline-period{font-size:13px;font-weight:600;color:var(--accent);margin-bottom:4px}
+.timeline-text{font-size:14px;color:var(--text);line-height:1.7}
+.timeline-metric{font-size:13px;color:var(--text2);margin-top:4px}
+
+/* Benchmark */
+.bench{background:var(--green-soft);border-radius:12px;padding:24px;margin-bottom:24px}
+.bench-title{font-size:14px;font-weight:600;color:var(--accent);margin-bottom:12px}
+.bench-row{display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid rgba(107,143,113,.15)}
+.bench-row:last-child{border-bottom:none}
+.bench-label{font-size:13px;color:var(--text)}
+.bench-value{font-size:14px;font-weight:600;color:var(--accent)}
+
+/* Note */
+.note{background:var(--surface);border-left:3px solid var(--green);padding:20px 24px;border-radius:0 8px 8px 0;margin-bottom:24px}
+.note p{font-size:14px;color:var(--text2);line-height:1.8;margin-bottom:8px}
+.note p:last-child{margin-bottom:0}
+
+/* Footer */
+.page-footer{max-width:var(--max-w);margin:48px auto 0;padding:32px 24px 64px;border-top:1px solid var(--border);text-align:center;font-size:12px;color:var(--text3)}
+
+/* Divider */
+.divider{max-width:var(--max-w);margin:0 auto;border:none;border-top:1px solid var(--border);margin-bottom:64px}
+
+@media(max-width:600px){
+  .hero h1{font-size:22px}
+  .section-title{font-size:19px}
+  .card-grid{grid-template-columns:1fr 1fr}
+  .card img{aspect-ratio:1/1}
+  .img-row{grid-template-columns:1fr}
+  .funnel-step{padding:16px}
+}
+</style>
+</head>
+<body>
+
+<!-- ===== HERO ===== -->
+<header class="hero">
+    <span class="hero-badge">SNS集客動線のご説明</span>
+    <h1>もみの木ハウス・おおさかの<br>集客動線をご説明します</h1>
+    <p>現在構築しているSNS・LINE・Webの動線と、<br>今後の成長スケジュールをまとめました。</p>
+    <div class="hero-pf"><img src="img/pf_osaka.jpg" alt="濱本健太"></div>
+    <p class="hero-name">担当: 水信建太（もみの木ハウス新潟）</p>
+</header>
+
+<hr class="divider">
+
+<!-- ===== 1. 全体像 ===== -->
+<div class="section">
+    <p class="section-num">SECTION 01</p>
+    <h2 class="section-title">集客動線の全体像</h2>
+    <p class="section-sub">SNSで知ってもらい、LINEに登録してもらい、暴露本を読んでもらい、来場予約につなげます。</p>
+
+    <div class="funnel-flow">
+        <div class="funnel-step">
+            <div class="funnel-icon">1</div>
+            <div>
+                <p class="funnel-label">認知</p>
+                <p class="funnel-name">Instagram / YouTube / Shorts</p>
+                <p class="funnel-detail">もみの木の家の暮らし方を発信。興味を持ってもらう</p>
+            </div>
+        </div>
+        <div class="funnel-arrow">↓</div>
+        <div class="funnel-step">
+            <div class="funnel-icon">2</div>
+            <div>
+                <p class="funnel-label">登録</p>
+                <p class="funnel-name">LINE友だち追加</p>
+                <p class="funnel-detail">プロフィールや概要欄からLINEに登録してもらう</p>
+            </div>
+        </div>
+        <div class="funnel-arrow">↓</div>
+        <div class="funnel-step" style="border-color:var(--green);border-width:2px">
+            <div class="funnel-icon" style="background:var(--green);color:#fff">3</div>
+            <div>
+                <p class="funnel-label">先行ゴール</p>
+                <p class="funnel-name">暴露本「聞かれなければ言わない」を読む</p>
+                <p class="funnel-detail">住宅業界の12の事実。読んだ人の来場率が大幅に上がる</p>
+            </div>
+        </div>
+        <div class="funnel-arrow">↓</div>
+        <div class="funnel-step" style="border-color:var(--green);border-width:2px">
+            <div class="funnel-icon" style="background:var(--green);color:#fff">4</div>
+            <div>
+                <p class="funnel-label">最終ゴール</p>
+                <p class="funnel-name">来場予約 / お問い合わせ</p>
+                <p class="funnel-detail">暴露本を読んだ方は「確認作業」として来場するため成約率が高い</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="note">
+        <p><strong>核心:</strong> 暴露本を読んだ人は「確認作業」として来場します。</p>
+        <p>新潟の実績では、来場者の成約率は42.3%。これは暴露本とYouTubeで事前に判断材料を持った状態で来場するため、「冷やかし」がほとんどいないからです。</p>
+    </div>
+</div>
+
+<hr class="divider">
+
+<!-- ===== 2. Instagram ===== -->
+<div class="section">
+    <p class="section-num">SECTION 02</p>
+    <h2 class="section-title">Instagram投稿</h2>
+    <p class="section-sub">ブログの内容を6枚のスライドに変換して投稿。最後のページ（P6）でLINE登録に誘導します。</p>
+
+    <div class="img-row">
+        <div class="img-card">
+            <img src="img/ig_osaka.png" alt="Instagram投稿サンプル">
+            <p class="img-card-caption">P1: 表紙（タイトル+社長写真）</p>
+        </div>
+        <div class="img-card">
+            <img src="img/ig_p6_cta.jpg" alt="P6 CTA">
+            <p class="img-card-caption">P6: LINE登録CTA（全社共通）</p>
+        </div>
+    </div>
+
+    <p class="section-desc">P1〜P5でブログの内容を伝え、P6で「続きはLINEで」と誘導します。P6のデザインは全社共通で、暴露本への導線を組み込んでいます。</p>
+
+    <div class="bench">
+        <p class="bench-title">大阪の現在の数値</p>
+        <div class="bench-row"><span class="bench-label">フォロワー数</span><span class="bench-value">911人</span></div>
+        <div class="bench-row"><span class="bench-label">投稿数</span><span class="bench-value">1,580本</span></div>
+        <div class="bench-row"><span class="bench-label">月間フォロワー増</span><span class="bench-value">+24人/月</span></div>
+    </div>
+</div>
+
+<hr class="divider">
+
+<!-- ===== 3. YouTube / Shorts ===== -->
+<div class="section">
+    <p class="section-num">SECTION 03</p>
+    <h2 class="section-title">YouTube / Shorts動画</h2>
+    <p class="section-sub">長尺動画で信頼を構築し、Shortsで認知を広げます。概要欄とコメント欄にLINE登録リンクを設置。</p>
+
+    <div class="img-row">
+        <div class="img-card">
+            <img src="img/shorts_osaka.jpg" alt="Shorts動画" style="aspect-ratio:9/16;object-fit:cover;max-height:400px">
+            <p class="img-card-caption">Shorts: 60秒以内の縦型動画</p>
+        </div>
+    </div>
+
+    <div class="bench">
+        <p class="bench-title">大阪の現在の数値</p>
+        <div class="bench-row"><span class="bench-label">チャンネル登録者</span><span class="bench-value">423人</span></div>
+        <div class="bench-row"><span class="bench-label">月間視聴回数</span><span class="bench-value">約9,300回</span></div>
+        <div class="bench-row"><span class="bench-label">動画本数</span><span class="bench-value">207本</span></div>
+        <div class="bench-row"><span class="bench-label">月間登録者増</span><span class="bench-value">+10人/月</span></div>
+    </div>
+
+    <div class="note">
+        <p><strong>参考: 新潟（モデルケース）</strong></p>
+        <p>登録者5,070人 / 月間53,000回視聴 / 動画286本（Shorts 256本+長尺30本）。7年間の蓄積で、Shortsが月間41,000回以上の視聴を稼いでいます。</p>
+    </div>
+</div>
+
+<hr class="divider">
+
+<!-- ===== 4. LINE動線 ===== -->
+<div class="section">
+    <p class="section-num">SECTION 04</p>
+    <h2 class="section-title">LINE動線</h2>
+    <p class="section-sub">LINE登録した瞬間から、暴露本 → お問い合わせまでの動線が自動で動きます。</p>
+
+    <div class="img-row">
+        <div class="img-card">
+            <img src="img/line_osaka.jpg" alt="あいさつメッセージ" style="max-height:500px;object-fit:contain;background:var(--bg)">
+            <p class="img-card-caption">あいさつメッセージ（登録直後に自動送信）</p>
+        </div>
+        <div class="img-card">
+            <img src="img/richmenu_osaka.jpg" alt="リッチメニュー">
+            <p class="img-card-caption">リッチメニュー（常時表示）</p>
+        </div>
+    </div>
+
+    <p class="section-desc">LINE登録すると、すぐに暴露本のリンクが届きます。リッチメニューからはいつでも暴露本・YouTube・お客様の声・相談予約にアクセスできます。</p>
+
+    <div class="bench">
+        <p class="bench-title">LINE動線の構成</p>
+        <div class="bench-row"><span class="bench-label">あいさつメッセージ</span><span class="bench-value">暴露本を即配信</span></div>
+        <div class="bench-row"><span class="bench-label">リッチメニュー上段</span><span class="bench-value">暴露本（常設）</span></div>
+        <div class="bench-row"><span class="bench-label">リッチメニュー下段</span><span class="bench-value">YouTube / お客様の声 / 相談</span></div>
+        <div class="bench-row"><span class="bench-label">ステップ配信 D+3</span><span class="bench-value">お客様インタビュー動画</span></div>
+        <div class="bench-row"><span class="bench-label">ステップ配信 D+7</span><span class="bench-value">来場CTA</span></div>
+    </div>
+</div>
+
+<hr class="divider">
+
+<!-- ===== 5. 暴露本 & 本音トークLP ===== -->
+<div class="section">
+    <p class="section-num">SECTION 05</p>
+    <h2 class="section-title">暴露本 & 本音トークLP</h2>
+    <p class="section-sub">暴露本が「問題を知る」装置。本音トークLPが「直接聞く」導線です。</p>
+
+    <div class="card-grid">
+        <div class="card">
+            <div style="padding:24px;text-align:center;background:var(--green-soft)">
+                <p style="font-size:13px;font-weight:600;color:var(--accent);margin-bottom:8px">暴露本</p>
+                <p style="font-size:18px;font-weight:600">聞かれなければ言わない</p>
+                <p style="font-size:13px;color:var(--text2);margin-top:8px">住宅業界の12の事実<br>全63ページ / 出典明記</p>
+            </div>
+            <div class="card-body">
+                <p class="card-text">壁紙の化学物質、カビ・ダニ、設備コスト、坪単価のトリック、保証の抜け穴、太陽光のリスクなど、住宅会社が自分からは話さない12のテーマ。</p>
+            </div>
+        </div>
+        <div class="card">
+            <div style="padding:24px;text-align:center;background:var(--accent-soft)">
+                <p style="font-size:13px;font-weight:600;color:var(--accent);margin-bottom:8px">本音トークLP</p>
+                <p style="font-size:18px;font-weight:600">家のこと、本音で話しませんか？</p>
+                <p style="font-size:13px;color:var(--text2);margin-top:8px">電話 or フォームで予約</p>
+            </div>
+            <div class="card-body">
+                <p class="card-text">暴露本を読んだ方も、まだの方も。売り込みなし、プラン・見積もりなし。聞きたいことだけ聞いて帰ってください。</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<hr class="divider">
+
+<!-- ===== 6. 成長スケジュール ===== -->
+<div class="section">
+    <p class="section-num">SECTION 06</p>
+    <h2 class="section-title">成長スケジュール</h2>
+    <p class="section-sub">現在の数値から、誇張なく現実的なスケジュールを算出しています。</p>
+
+    <div class="bench">
+        <p class="bench-title">新潟（モデルケース）の実績</p>
+        <div class="bench-row"><span class="bench-label">YouTube登録者</span><span class="bench-value">5,070人（7年）</span></div>
+        <div class="bench-row"><span class="bench-label">月間視聴</span><span class="bench-value">53,000回</span></div>
+        <div class="bench-row"><span class="bench-label">ブログ記事</span><span class="bench-value">717記事（10年）</span></div>
+        <div class="bench-row"><span class="bench-label">来場者成約率</span><span class="bench-value">42.3%</span></div>
+        <div class="bench-row"><span class="bench-label">月平均来場</span><span class="bench-value">4.3人</span></div>
+    </div>
+
+    <h3 style="font-size:17px;font-weight:600;margin-bottom:20px">大阪の成長見通し</h3>
+
+    <table class="stats-table">
+        <tr>
+            <th>指標</th>
+            <th>現在</th>
+            <th>3ヶ月後</th>
+            <th>6ヶ月後</th>
+            <th>12ヶ月後</th>
+        </tr>
+        <tr>
+            <td>YT登録者</td>
+            <td>423</td>
+            <td>460</td>
+            <td>520</td>
+            <td>650</td>
+        </tr>
+        <tr>
+            <td>YT月間視聴</td>
+            <td>9,300</td>
+            <td>15,000</td>
+            <td>25,000</td>
+            <td>45,000</td>
+        </tr>
+        <tr>
+            <td>IGフォロワー</td>
+            <td>911</td>
+            <td>980</td>
+            <td>1,100</td>
+            <td>1,400</td>
+        </tr>
+        <tr>
+            <td>月間Imp合計</td>
+            <td class="stats-highlight">21,800</td>
+            <td class="stats-highlight">35,000</td>
+            <td class="stats-highlight">55,000</td>
+            <td class="stats-highlight">90,000</td>
+        </tr>
+        <tr>
+            <td>LINE月間純増</td>
+            <td>1人</td>
+            <td>5人</td>
+            <td>14人</td>
+            <td>27人</td>
+        </tr>
+        <tr>
+            <td>暴露本タップ</td>
+            <td>-</td>
+            <td>1.3人</td>
+            <td>3.5人</td>
+            <td>6.8人</td>
+        </tr>
+        <tr>
+            <td>月間来場予測</td>
+            <td class="stats-highlight">0.1人</td>
+            <td class="stats-highlight">0.3人</td>
+            <td class="stats-highlight">0.8人</td>
+            <td class="stats-highlight">1.5人</td>
+        </tr>
+    </table>
+
+    <div class="note">
+        <p><strong>算出根拠:</strong></p>
+        <p>SNS Imp → LINE登録: 転換率0.03〜0.05%（業界平均）</p>
+        <p>LINE登録 → 暴露本タップ: 25%（新潟実測値）</p>
+        <p>暴露本読了 → 来場: 3〜8%（住宅業界LINE→来場 30日以内の転換率）</p>
+        <p>上記は現在の投稿頻度（IG週3本、Shorts週2本）を維持した場合の推計です。</p>
+    </div>
+
+    <h3 style="font-size:17px;font-weight:600;margin:32px 0 20px">成長タイムライン</h3>
+
+    <div class="timeline">
+        <div class="timeline-item">
+            <div class="timeline-dot">1</div>
+            <p class="timeline-period">現在〜3ヶ月（基盤構築期）</p>
+            <p class="timeline-text">IG投稿の継続（P6暴露本CTA統一）、Shorts週2本投稿、LINE動線の自動化完了</p>
+            <p class="timeline-metric">目標: 月間Imp 35,000 / LINE純増 5人/月</p>
+        </div>
+        <div class="timeline-item">
+            <div class="timeline-dot">2</div>
+            <p class="timeline-period">3〜6ヶ月（認知拡大期）</p>
+            <p class="timeline-text">Shortsの再生数が積み上がり始める。暴露本読了者からの初回来場が発生</p>
+            <p class="timeline-metric">目標: 月間Imp 55,000 / LINE純増 14人/月 / 来場 0.8人/月</p>
+        </div>
+        <div class="timeline-item">
+            <div class="timeline-dot">3</div>
+            <p class="timeline-period">6〜12ヶ月（成果実感期）</p>
+            <p class="timeline-text">動画の蓄積効果で月間視聴が加速。ステップ配信+暴露本で来場予約が安定化</p>
+            <p class="timeline-metric">目標: 月間Imp 90,000 / LINE純増 27人/月 / 来場 1.5人/月</p>
+        </div>
+    </div>
+
+    <div class="bench">
+        <p class="bench-title">業界ベンチマーク（住宅・工務店）</p>
+        <div class="bench-row"><span class="bench-label">LINE→来場（30日）</span><span class="bench-value">3〜8%</span></div>
+        <div class="bench-row"><span class="bench-label">LINE→来場（90日）</span><span class="bench-value">8〜15%</span></div>
+        <div class="bench-row"><span class="bench-label">LINE→来場（180日）</span><span class="bench-value">12〜25%</span></div>
+        <div class="bench-row"><span class="bench-label">LINEブロック率平均</span><span class="bench-value">29.7%</span></div>
+        <div class="bench-row"><span class="bench-label">工務店YT登録中央値</span><span class="bench-value">300〜500人</span></div>
+        <div class="bench-row"><span class="bench-label">来場→成約（工務店平均）</span><span class="bench-value">20〜30%</span></div>
+        <div class="bench-row"><span class="bench-label">来場→成約（新潟実績）</span><span class="bench-value" style="color:var(--green)">42.3%</span></div>
+    </div>
+
+    <div class="note">
+        <p><strong>なぜ新潟の成約率は業界平均の2倍なのか？</strong></p>
+        <p>暴露本とYouTubeで事前に十分な判断材料を持った状態で来場するため、「比較検討中の冷やかし」がほとんどいません。来場者は「もみの木の家に決めたい。最後の確認をしに来た」という状態です。</p>
+        <p>この仕組みを大阪でも同じように構築しています。</p>
+    </div>
+</div>
+
+<footer class="page-footer">
+    <p>もみの木ハウス・おおさか 集客動線説明資料</p>
+    <p>作成: 2026年5月29日 / 担当: 水信建太</p>
+</footer>
+
+</body>
+</html>

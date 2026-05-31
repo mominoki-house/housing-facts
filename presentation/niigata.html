@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>集客動線のご説明 | もみの木ハウス新潟</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#f9f7f3;--surface:#fff;--text:#3a3630;--text2:#6b6560;--text3:#9a9490;
+  --accent:#5a7a60;--accent-soft:rgba(107,143,113,.08);--border:#e8e4de;
+  --green:#6b8f71;--green-soft:rgba(107,143,113,.12);
+  --font:"Hiragino Sans","Hiragino Kaku Gothic ProN",-apple-system,sans-serif;
+  --max-w:800px;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--font);font-size:16px;line-height:1.8;color:var(--text);background:var(--bg)}
+.wrap{max-width:var(--max-w);margin:0 auto;padding:0 24px}
+
+/* Hero */
+.hero{text-align:center;padding:64px 24px 48px;max-width:var(--max-w);margin:0 auto}
+.hero-badge{display:inline-block;font-size:12px;font-weight:600;color:var(--accent);background:var(--accent-soft);padding:6px 16px;border-radius:20px;margin-bottom:20px;letter-spacing:.08em}
+.hero h1{font-size:28px;font-weight:600;line-height:1.5;margin-bottom:16px;letter-spacing:.04em}
+.hero p{font-size:15px;color:var(--text2);line-height:1.9}
+.hero-pf{width:120px;height:120px;border-radius:50%;overflow:hidden;margin:24px auto 12px}
+.hero-pf img{width:100%;height:100%;object-fit:cover}
+.hero-name{font-size:14px;color:var(--text2);font-weight:500}
+
+/* Section */
+.section{max-width:var(--max-w);margin:0 auto 64px;padding:0 24px}
+.section-num{font-size:12px;font-weight:600;color:var(--accent);letter-spacing:.1em;margin-bottom:8px}
+.section-title{font-size:22px;font-weight:600;margin-bottom:8px;letter-spacing:.04em}
+.section-sub{font-size:14px;color:var(--text2);margin-bottom:32px;line-height:1.8}
+.section-desc{font-size:15px;color:var(--text);line-height:1.9;margin-bottom:24px}
+
+/* Card Grid */
+.card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;margin-bottom:24px}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:12px;overflow:hidden}
+.card img{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:top}
+.card-body{padding:16px}
+.card-label{font-size:11px;font-weight:600;color:var(--accent);letter-spacing:.08em;margin-bottom:4px}
+.card-title{font-size:15px;font-weight:600;margin-bottom:6px}
+.card-text{font-size:13px;color:var(--text2);line-height:1.7}
+
+/* Funnel */
+.funnel{max-width:var(--max-w);margin:0 auto 64px;padding:0 24px}
+.funnel-flow{display:flex;flex-direction:column;gap:0;align-items:center;margin-bottom:32px}
+.funnel-step{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:20px 24px;width:100%;display:flex;align-items:center;gap:16px}
+.funnel-arrow{font-size:20px;color:var(--green);padding:8px 0;text-align:center}
+.funnel-icon{flex-shrink:0;width:44px;height:44px;border-radius:50%;background:var(--green-soft);display:flex;align-items:center;justify-content:center;font-size:18px}
+.funnel-label{font-size:11px;font-weight:600;color:var(--accent);letter-spacing:.08em}
+.funnel-name{font-size:15px;font-weight:600}
+.funnel-detail{font-size:13px;color:var(--text2)}
+
+/* Image Row */
+.img-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin-bottom:24px}
+.img-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;overflow:hidden}
+.img-card img{width:100%;display:block}
+.img-card-caption{padding:12px 16px;font-size:13px;font-weight:500;color:var(--text)}
+
+/* Stats Table */
+.stats-table{width:100%;border-collapse:collapse;margin-bottom:24px;font-size:14px}
+.stats-table th{background:var(--green);color:#fff;padding:12px 16px;text-align:left;font-weight:500;font-size:13px}
+.stats-table td{padding:12px 16px;border-bottom:1px solid var(--border)}
+.stats-table tr:nth-child(even){background:var(--accent-soft)}
+.stats-highlight{font-weight:600;color:var(--accent)}
+
+/* Timeline */
+.timeline{position:relative;padding-left:32px;margin-bottom:32px}
+.timeline::before{content:"";position:absolute;left:11px;top:8px;bottom:8px;width:2px;background:var(--green)}
+.timeline-item{position:relative;margin-bottom:28px}
+.timeline-item:last-child{margin-bottom:0}
+.timeline-dot{position:absolute;left:-32px;top:4px;width:24px;height:24px;border-radius:50%;background:var(--green);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:600;color:#fff}
+.timeline-period{font-size:13px;font-weight:600;color:var(--accent);margin-bottom:4px}
+.timeline-text{font-size:14px;color:var(--text);line-height:1.7}
+.timeline-metric{font-size:13px;color:var(--text2);margin-top:4px}
+
+/* Benchmark */
+.bench{background:var(--green-soft);border-radius:12px;padding:24px;margin-bottom:24px}
+.bench-title{font-size:14px;font-weight:600;color:var(--accent);margin-bottom:12px}
+.bench-row{display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid rgba(107,143,113,.15)}
+.bench-row:last-child{border-bottom:none}
+.bench-label{font-size:13px;color:var(--text)}
+.bench-value{font-size:14px;font-weight:600;color:var(--accent)}
+
+/* Note */
+.note{background:var(--surface);border-left:3px solid var(--green);padding:20px 24px;border-radius:0 8px 8px 0;margin-bottom:24px}
+.note p{font-size:14px;color:var(--text2);line-height:1.8;margin-bottom:8px}
+.note p:last-child{margin-bottom:0}
+
+/* Footer */
+.page-footer{max-width:var(--max-w);margin:48px auto 0;padding:32px 24px 64px;border-top:1px solid var(--border);text-align:center;font-size:12px;color:var(--text3)}
+
+/* Divider */
+.divider{max-width:var(--max-w);margin:0 auto;border:none;border-top:1px solid var(--border);margin-bottom:64px}
+
+@media(max-width:600px){
+  .hero h1{font-size:22px}
+  .section-title{font-size:19px}
+  .card-grid{grid-template-columns:1fr 1fr}
+  .card img{aspect-ratio:1/1}
+  .img-row{grid-template-columns:1fr}
+  .funnel-step{padding:16px}
+}
+</style>
+</head>
+<body>
+
+<!-- ===== HERO ===== -->
+<header class="hero">
+    <span class="hero-badge">SNS集客動線のご説明</span>
+    <h1>もみの木ハウス新潟の<br>集客動線をご説明します</h1>
+    <p>現在運用しているSNS・LINE・Webの動線と、<br>実績データ・今後の成長計画をまとめました。</p>
+    <div class="hero-pf"><img src="img/pf_niigata.jpg" alt="山田雄一"></div>
+    <p class="hero-name">担当: 水信建太（もみの木ハウス新潟）</p>
+</header>
+
+<hr class="divider">
+
+<!-- ===== 1. 全体像 ===== -->
+<div class="section">
+    <p class="section-num">SECTION 01</p>
+    <h2 class="section-title">集客動線の全体像</h2>
+    <p class="section-sub">SNSで知ってもらい、LINEに登録してもらい、暴露本を読んでもらい、来場予約につなげます。</p>
+
+    <div class="funnel-flow">
+        <div class="funnel-step">
+            <div class="funnel-icon">1</div>
+            <div>
+                <p class="funnel-label">認知</p>
+                <p class="funnel-name">Instagram / YouTube / Shorts</p>
+                <p class="funnel-detail">もみの木の家の暮らし方を発信。興味を持ってもらう</p>
+            </div>
+        </div>
+        <div class="funnel-arrow">↓</div>
+        <div class="funnel-step">
+            <div class="funnel-icon">2</div>
+            <div>
+                <p class="funnel-label">登録</p>
+                <p class="funnel-name">LINE友だち追加</p>
+                <p class="funnel-detail">プロフィールや概要欄からLINEに登録してもらう</p>
+            </div>
+        </div>
+        <div class="funnel-arrow">↓</div>
+        <div class="funnel-step" style="border-color:var(--green);border-width:2px">
+            <div class="funnel-icon" style="background:var(--green);color:#fff">3</div>
+            <div>
+                <p class="funnel-label">先行ゴール</p>
+                <p class="funnel-name">暴露本「聞かれなければ言わない」を読む</p>
+                <p class="funnel-detail">住宅業界の12の事実。読んだ人の来場率が大幅に上がる</p>
+            </div>
+        </div>
+        <div class="funnel-arrow">↓</div>
+        <div class="funnel-step" style="border-color:var(--green);border-width:2px">
+            <div class="funnel-icon" style="background:var(--green);color:#fff">4</div>
+            <div>
+                <p class="funnel-label">最終ゴール</p>
+                <p class="funnel-name">来場予約 / お問い合わせ</p>
+                <p class="funnel-detail">事前に情報を得た来場者は、成約率が大幅に上がることが統計で実証されています</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="note">
+        <p><strong>核心:</strong> 事前にコンテンツを読んだ来場者は「冷やかし」ではなく「確認作業」として来場します。</p>
+        <p>新潟の成約率42.3%は、まさにこの動線が機能している証拠です。業界平均10〜15%の約3倍。ブログ717記事と長尺動画で「判断基準」を持った人が来場するから、この数字が出ています。</p>
+    </div>
+
+    <h3 style="font-size:17px;font-weight:600;margin:32px 0 20px">この動線の目的</h3>
+
+    <div class="note" style="border-left-color:var(--green)">
+        <p style="font-size:15px;font-weight:600;color:var(--text);margin-bottom:8px">この動線の役割は、集客の"その先"を設計すること</p>
+        <p>集客は引き続き注力します。この動線は、集客した人が来場前に<strong>「この会社に決めたい」と思える状態を作る</strong>仕組みです。集客と成約率、両方を同時に育てていきます。</p>
+        <p style="margin-top:8px">SNSやYouTubeから新しくLINEに登録した人はもちろん、今すでに接点のあるお客様にも「聞かれなければ言わない」を届けることで、来場前の判断基準が変わります。</p>
+        <p style="margin-top:8px">業界平均の成約率は10〜15%（出典: LIFULL HOME'S / 船井総研）。新潟では既にブログ・動画による事前教育で成約率42.3%を達成しています。この動線は、その仕組みをさらに<strong>SNS・LINE・暴露本で強化・自動化</strong>するものです。</p>
+    </div>
+</div>
+
+<hr class="divider">
+
+<!-- ===== 1b. 新潟の実績 ===== -->
+<div class="section">
+    <p class="section-num">SECTION 01b</p>
+    <h2 class="section-title">新潟の実績データ</h2>
+    <p class="section-sub">ブログ717記事と長尺動画の蓄積が、成約率42.3%を支えています。</p>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px">
+        <div style="background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:28px 20px;text-align:center">
+            <p style="font-size:42px;font-weight:600;color:var(--green);line-height:1.2">42.3<span style="font-size:20px">%</span></p>
+            <p style="font-size:14px;font-weight:600;color:var(--text);margin-top:8px">成約率<br><span style="font-size:12px;font-weight:400;color:var(--text2)">業界平均10〜15%の約3倍</span></p>
+        </div>
+        <div style="background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:28px 20px;text-align:center">
+            <p style="font-size:42px;font-weight:600;color:var(--green);line-height:1.2">717<span style="font-size:20px">記事</span></p>
+            <p style="font-size:14px;font-weight:600;color:var(--text);margin-top:8px">ブログ蓄積<br><span style="font-size:12px;font-weight:400;color:var(--text2)">10年間の信頼資産</span></p>
+        </div>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px">
+        <div style="background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:28px 20px;text-align:center">
+            <p style="font-size:42px;font-weight:600;color:var(--green);line-height:1.2">5,070<span style="font-size:20px">人</span></p>
+            <p style="font-size:14px;font-weight:600;color:var(--text);margin-top:8px">YouTube登録者<br><span style="font-size:12px;font-weight:400;color:var(--text2)">工務店上位1.8%</span></p>
+        </div>
+        <div style="background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:28px 20px;text-align:center">
+            <p style="font-size:42px;font-weight:600;color:var(--green);line-height:1.2">52<span style="font-size:20px">万回</span></p>
+            <p style="font-size:14px;font-weight:600;color:var(--text);margin-top:8px">YouTube総再生数<br><span style="font-size:12px;font-weight:400;color:var(--text2)">289本の動画資産</span></p>
+        </div>
+    </div>
+
+    <div class="note" style="border-left-color:var(--green)">
+        <p style="font-size:15px;font-weight:600;color:var(--text);margin-bottom:8px">なぜ成約率42.3%が出ているのか</p>
+        <p><strong>1. Shortsで恐怖のフックを植え付ける</strong> — カビ・結露・業界暴露で30秒以内に問題意識を作る。月間約41,000再生。</p>
+        <p><strong>2. 長尺動画で専門家の証明をする</strong> — 原因→メカニズム→対策を10〜15分で解説。いいね率4.4%はShortsの11倍。</p>
+        <p><strong>3. ブログ717記事が営業マンの代わりをする</strong> — スクリーニング・教育・反論予防・人格信頼の4機能が同時に作動。</p>
+        <p><strong>4. 来場=確認作業になる</strong> — 教育が完了した状態で来場するから、42.3%が成約する。</p>
+    </div>
+
+    <p style="font-size:14px;color:var(--text2);line-height:1.8;margin-bottom:24px">この構造を「暴露本」と「LINE」で補強し、さらに自動化するのが今回の動線設計です。ブログと動画で築いた信頼を、SNS→LINE→暴露本の流れで加速させます。</p>
+</div>
+
+<hr class="divider">
+
+<!-- ===== 2. Instagram ===== -->
+<div class="section">
+    <p class="section-num">SECTION 02</p>
+    <h2 class="section-title">Instagram投稿</h2>
+    <p class="section-sub">バズを狙うのではなく、安定したリーチを積み上げて「聞かれなければ言わない」への導線を確保します。</p>
+
+    <div class="img-row">
+        <div class="img-card">
+            <img src="img/ig_niigata.png" alt="Instagram投稿サンプル">
+            <p class="img-card-caption">P1: 表紙（タイトル+社長写真）</p>
+        </div>
+        <div class="img-card">
+            <img src="img/ig_p6_cta.jpg" alt="P6 CTA">
+            <p class="img-card-caption">P6: LINE登録への導線（全社共通）</p>
+        </div>
+    </div>
+
+    <div class="note" style="border-left-color:var(--green);margin-bottom:24px">
+        <p style="font-size:15px;font-weight:600;color:var(--text);margin-bottom:8px">Instagramの役割</p>
+        <p>ブログの内容を6枚のスライドに変換して投稿します。P1〜P5で「家づくりで知っておくべきこと」を伝え、P6で「続きはLINEで」と誘導。P6のデザインは全社共通で「聞かれなければ言わない」への導線を組み込んでいます。</p>
+        <p>目的はバズることではありません。<strong>1投稿ごとに安定したリーチを出し続けること</strong>で、プロフィール経由のLINE登録を積み上げます。</p>
+    </div>
+
+    <div class="bench">
+        <p class="bench-title">新潟の現在の数値</p>
+        <div class="bench-row"><span class="bench-label">フォロワー</span><span class="bench-value">369人</span></div>
+        <div class="bench-row"><span class="bench-label">投稿数</span><span class="bench-value">111件（ストック300件まで生成済み）</span></div>
+        <div class="bench-row"><span class="bench-label">ブログ記事数（投稿原料）</span><span class="bench-value">717記事（412件未処理）</span></div>
+    </div>
+
+    <div class="bench">
+        <p class="bench-title">成長目標スケジュール（毎日1投稿を継続した場合）</p>
+        <div class="bench-row"><span class="bench-label">3ヶ月後</span><span class="bench-value">フォロワー500人 / 月間リーチ5,000</span></div>
+        <div class="bench-row"><span class="bench-label">6ヶ月後</span><span class="bench-value">フォロワー650人 / 月間リーチ7,500</span></div>
+        <div class="bench-row"><span class="bench-label">12ヶ月後</span><span class="bench-value">フォロワー900人 / 月間リーチ10,000</span></div>
+    </div>
+
+    <div class="bench">
+        <p class="bench-title">プロフィール訪問・リンククリックの安定化見通し</p>
+        <div class="bench-row"><span class="bench-label">3ヶ月目: 月間プロフィール訪問</span><span class="bench-value">250人</span></div>
+        <div class="bench-row"><span class="bench-label">3ヶ月目: 月間LINEへのリンククリック</span><span class="bench-value">10回</span></div>
+        <div class="bench-row"><span class="bench-label">6ヶ月目: 月間プロフィール訪問</span><span class="bench-value">375人</span></div>
+        <div class="bench-row"><span class="bench-label">6ヶ月目: 月間LINEへのリンククリック</span><span class="bench-value">15回</span></div>
+        <div class="bench-row"><span class="bench-label">12ヶ月目: 月間プロフィール訪問</span><span class="bench-value">500人</span></div>
+        <div class="bench-row"><span class="bench-label">12ヶ月目: 月間LINEへのリンククリック</span><span class="bench-value">20回</span></div>
+    </div>
+
+    <div class="note">
+        <p><strong>新潟の強み:</strong> ブログ717記事という膨大な投稿原料があります。大阪のIGは75日間で11,000人にリーチ（フォロワー911人）。新潟も同じ毎日投稿を継続することで、同等以上の成果を見込めます。算出はPV率5%、リンク率4%（大阪の実測値）を基にした保守的な見積もりです。</p>
+    </div>
+
+    <div style="text-align:center;margin-top:24px"><a href="https://www.instagram.com/mominoki.niigata/" target="_blank" rel="noopener" style="display:inline-block;padding:14px 32px;background:var(--accent);color:#fff;text-decoration:none;border-radius:8px;font-size:15px;font-weight:600;letter-spacing:.04em">Instagramを見る</a></div>
+</div>
+
+<hr class="divider">
+
+<!-- ===== 3. YouTube 本編 ===== -->
+<div class="section">
+    <p class="section-num">SECTION 03</p>
+    <h2 class="section-title">YouTube 本編動画</h2>
+    <p class="section-sub">住宅の課題を1テーマずつ解説し、視聴者に「家を選ぶ判断基準」を渡します。</p>
+
+    <div class="img-row" style="margin-bottom:24px">
+        <div class="img-card">
+            <img src="img/yt_niigata.png" alt="本編動画サムネイル" style="aspect-ratio:16/9;object-fit:cover">
+            <p class="img-card-caption">本編動画: 社長が1テーマずつ顔出しで解説</p>
+        </div>
+    </div>
+
+    <div class="note" style="border-left-color:var(--green);margin-bottom:24px">
+        <p style="font-size:15px;font-weight:600;color:var(--text);margin-bottom:8px">本編動画の役割</p>
+        <p>カビの問題、化学物質の問題、断熱の問題、コストの問題。住宅の課題を1本ずつ細分化して、社長が顔出しで解説します。</p>
+        <p>視聴者は動画を見るたびに「家を選ぶときにここを見る」という<strong>判断基準</strong>を1つずつ獲得していきます。この判断基準を持った状態で「聞かれなければ言わない」を読むから、確信して来場予約につながります。</p>
+        <p style="margin-top:12px"><strong>本編動画と「聞かれなければ言わない」は相関関係にあります。</strong>本編が判断基準を植え付け、暴露本が確信を与える。暴露本を読んだ人が本編を見直すと、判断基準がさらに強化される。どちらが先でも機能する設計です。</p>
+    </div>
+
+    <h3 style="font-size:17px;font-weight:600;margin-bottom:24px">なぜ動画で「判断基準」を渡すことが重要なのか</h3>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px">
+        <div style="background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:28px 20px;text-align:center">
+            <p style="font-size:42px;font-weight:600;color:var(--green);line-height:1.2">131<span style="font-size:20px">%</span></p>
+            <p style="font-size:14px;font-weight:600;color:var(--text);margin-top:8px">教育動画を見た人は<br>2.3倍購入しやすくなる</p>
+            <p style="font-size:12px;color:var(--text3);margin-top:4px">出典: Conductor社 調査</p>
+        </div>
+        <div style="background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:28px 20px;text-align:center">
+            <p style="font-size:42px;font-weight:600;color:var(--green);line-height:1.2">83.6<span style="font-size:20px">%</span></p>
+            <p style="font-size:14px;font-weight:600;color:var(--text);margin-top:8px">教育コンテンツを出している<br>会社が選ばれる確率</p>
+            <p style="font-size:12px;color:var(--text3);margin-top:4px">出典: Conductor社 調査</p>
+        </div>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px">
+        <div style="background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:28px 20px;text-align:center">
+            <p style="font-size:42px;font-weight:600;color:var(--green);line-height:1.2">9.5<span style="font-size:20px">倍</span></p>
+            <p style="font-size:14px;font-weight:600;color:var(--text);margin-top:8px">動画のメッセージ記憶率は<br>テキストの9.5倍</p>
+            <p style="font-size:12px;color:var(--text3);margin-top:4px">動画95% vs テキスト10%<br>出典: PopVideo / Insivia</p>
+        </div>
+        <div style="background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:28px 20px;text-align:center">
+            <p style="font-size:42px;font-weight:600;color:var(--green);line-height:1.2">78<span style="font-size:20px">%</span></p>
+            <p style="font-size:14px;font-weight:600;color:var(--text);margin-top:8px">顔出し動画を<br>信頼すると回答</p>
+            <p style="font-size:12px;color:var(--text3);margin-top:4px">出典: StudyFinds 消費者調査</p>
+        </div>
+    </div>
+
+    <p style="font-size:14px;color:var(--text2);line-height:1.8;margin-bottom:24px">ブログに同じことを書いても、記憶に残るのは10%。動画で社長が話せば95%が記憶に残ります。しかも顔出しの動画は78%の消費者が信頼すると回答しています。「判断基準を植え付ける」には、動画が最も効果的な手段です。</p>
+
+    <div style="background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:28px 20px;margin-bottom:24px;text-align:center">
+        <p style="font-size:42px;font-weight:600;color:var(--green);line-height:1.2">52<span style="font-size:20px">%</span></p>
+        <p style="font-size:14px;font-weight:600;color:var(--text);margin-top:8px">Google検索結果の半分以上が動画枠</p>
+        <p style="font-size:12px;color:var(--text3);margin-top:4px">出典: ARC Marketing 2025年調査</p>
+    </div>
+    <p style="font-size:14px;color:var(--text2);line-height:1.8;margin-bottom:32px">「地域名+工務店」で検索した際、検索結果の52%が動画枠です。動画を出していない会社は、検索結果の半分以上から除外されています。なお、登録者1,000人を超えている工務店チャンネルは全体のわずか1.8%（出典: ARC Marketing）。<strong>新潟は登録者5,070人で、既に上位1.8%の中でもトップクラスのポジションを確保しています。</strong></p>
+
+    <div class="bench">
+        <p class="bench-title">新潟の現在の数値</p>
+        <div class="bench-row"><span class="bench-label">チャンネル登録者</span><span class="bench-value">5,070人</span></div>
+        <div class="bench-row"><span class="bench-label">総再生数</span><span class="bench-value">522,683回</span></div>
+        <div class="bench-row"><span class="bench-label">動画本数</span><span class="bench-value">289本（長尺+Shorts）</span></div>
+        <div class="bench-row"><span class="bench-label">月間再生数</span><span class="bench-value">約54,000回（2026年5月実績）</span></div>
+        <div class="bench-row"><span class="bench-label">長尺動画いいね率</span><span class="bench-value">4.4%（Shortsの11倍）</span></div>
+    </div>
+
+    <div style="text-align:center;margin-top:24px"><a href="https://www.youtube.com/@mominoki_niigata" target="_blank" rel="noopener" style="display:inline-block;padding:14px 32px;background:var(--accent);color:#fff;text-decoration:none;border-radius:8px;font-size:15px;font-weight:600;letter-spacing:.04em">YouTubeチャンネルを見る</a></div>
+</div>
+
+<hr class="divider">
+
+<!-- ===== 3b. Shorts ===== -->
+<div class="section">
+    <p class="section-num">SECTION 03b</p>
+    <h2 class="section-title">Shorts動画（YouTube Shorts）</h2>
+    <p class="section-sub">本編動画の副産物。追加撮影ゼロで、新しい人に見つけてもらうための装置です。</p>
+
+    <div class="img-row">
+        <div class="img-card">
+            <img src="img/shorts_niigata.jpg" alt="Shorts動画" style="aspect-ratio:9/16;object-fit:cover;max-height:400px">
+            <p class="img-card-caption">Shorts: 本編から切り抜いた30〜60秒の縦型動画</p>
+        </div>
+    </div>
+
+    <div class="note" style="border-left-color:var(--green);margin-bottom:24px">
+        <p style="font-size:15px;font-weight:600;color:var(--text);margin-bottom:8px">Shortsの作り方と役割</p>
+        <p>撮影済みの本編動画（10〜20分）から、感情的に伝わるシーンを3〜5本切り出します。<strong>追加の撮影は不要です。</strong>編集のみで週3〜4本の投稿ができます。</p>
+        <p>目的はバズることではありません。本編動画のダイジェストを短い動画で届けて、「この人の話をもっと聞きたい」と思った人を<strong>本編動画やLINEに誘導する</strong>ことが仕事です。</p>
+    </div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px">
+        <div style="background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:28px 20px;text-align:center">
+            <p style="font-size:42px;font-weight:600;color:var(--green);line-height:1.2">41<span style="font-size:20px">%</span></p>
+            <p style="font-size:14px;font-weight:600;color:var(--text);margin-top:8px">Shorts併用チャンネルは<br>成長速度が41%速い</p>
+            <p style="font-size:12px;color:var(--text3);margin-top:4px">出典: Loopex Digital / AutoFaceless 2026</p>
+        </div>
+        <div style="background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:28px 20px;text-align:center">
+            <p style="font-size:42px;font-weight:600;color:var(--green);line-height:1.2">+40<span style="font-size:20px">%</span></p>
+            <p style="font-size:14px;font-weight:600;color:var(--text);margin-top:8px">切り抜きShortsを出すと<br>本編の視聴時間が40%増加</p>
+            <p style="font-size:12px;color:var(--text3);margin-top:4px">出典: MarketingAgent Blog 2026</p>
+        </div>
+    </div>
+
+    <p style="font-size:14px;color:var(--text2);line-height:1.8;margin-bottom:24px">長尺動画だけのチャンネルと比べて、Shortsを併用しているチャンネルは成長速度が41%速いという統計があります。さらに、切り抜きShortsを投稿すると、元の本編動画の視聴時間も40%増加します。Shortsは本編を見てもらうための入場券です。</p>
+
+    <div class="note" style="margin-bottom:24px">
+        <p style="font-size:15px;font-weight:600;color:var(--text);margin-bottom:8px">本編 → Shorts → 本編の循環</p>
+        <p>本編動画を1本撮影すると、そこから3〜5本のShortsが生まれます。そのShortsを見た新しい人が本編を見に来ます。つまり、本編を撮り続けるだけでShortsも自動的に増えていきます。</p>
+        <p style="margin-top:8px"><strong>社長に追加でお願いすることはありません。</strong>撮影した動画から、こちらで切り抜き・編集・投稿まで行います。</p>
+    </div>
+
+    <div class="bench">
+        <p class="bench-title">新潟のShorts実績</p>
+        <div class="bench-row"><span class="bench-label">月間Shorts再生数</span><span class="bench-value">約41,000回</span></div>
+        <div class="bench-row"><span class="bench-label">Shorts いいね率</span><span class="bench-value">0.4%</span></div>
+        <div class="bench-row"><span class="bench-label">月間投稿本数</span><span class="bench-value">約16本</span></div>
+        <div class="bench-row"><span class="bench-label">関連動画経由の本編視聴時間</span><span class="bench-value">7,355分/月</span></div>
+    </div>
+
+    <div class="bench">
+        <p class="bench-title">Shortsの一般的なベンチマーク</p>
+        <div class="bench-row"><span class="bench-label">1本あたり視聴数（登録者5,000人台）</span><span class="bench-value">500〜3,000回</span></div>
+        <div class="bench-row"><span class="bench-label">Shorts→本編への誘導率</span><span class="bench-value">4.5%</span></div>
+        <div class="bench-row"><span class="bench-label">戦略的切り抜き vs ランダム切り出し</span><span class="bench-value">74%高パフォーマンス</span></div>
+        <div class="bench-row"><span class="bench-label">1本の本編から切り抜く最適本数</span><span class="bench-value">3〜5本</span></div>
+        <div class="bench-row"><span class="bench-label">投稿の最適頻度</span><span class="bench-value">週3〜5本</span></div>
+    </div>
+
+    <div style="text-align:center;margin-top:24px"><a href="https://www.youtube.com/@mominoki_niigata/shorts" target="_blank" rel="noopener" style="display:inline-block;padding:14px 32px;background:var(--accent);color:#fff;text-decoration:none;border-radius:8px;font-size:15px;font-weight:600;letter-spacing:.04em">Shortsを見る</a></div>
+</div>
+
+<hr class="divider">
+
+<!-- ===== 4. LINE動線 ===== -->
+<div class="section">
+    <p class="section-num">SECTION 04</p>
+    <h2 class="section-title">LINE動線</h2>
+    <p class="section-sub">LINE登録した瞬間から、暴露本 → お問い合わせまでの動線が自動で動きます。</p>
+
+    <div class="img-row">
+        <div class="img-card">
+            <img src="img/line_niigata.jpg" alt="あいさつメッセージ" style="max-height:500px;object-fit:contain;background:var(--bg)">
+            <p class="img-card-caption">あいさつメッセージ（登録直後に自動送信）</p>
+        </div>
+        <div class="img-card">
+            <img src="img/richmenu_niigata.jpg" alt="リッチメニュー">
+            <p class="img-card-caption">リッチメニュー（常時表示）</p>
+        </div>
+    </div>
+
+    <p class="section-desc">LINE登録すると、すぐに暴露本のリンクが届きます。リッチメニューからはいつでも暴露本・YouTube・お客様の声・相談予約にアクセスできます。</p>
+
+    <div class="bench">
+        <p class="bench-title">LINE動線の構成</p>
+        <div class="bench-row"><span class="bench-label">あいさつメッセージ</span><span class="bench-value">暴露本を即配信</span></div>
+        <div class="bench-row"><span class="bench-label">リッチメニュー上段</span><span class="bench-value">暴露本（常設）</span></div>
+        <div class="bench-row"><span class="bench-label">リッチメニュー下段</span><span class="bench-value">YouTube / よくある質問 / 相談</span></div>
+        <div class="bench-row"><span class="bench-label">ステップ配信 D+3</span><span class="bench-value">お客様インタビュー動画</span></div>
+        <div class="bench-row"><span class="bench-label">ステップ配信 D+7</span><span class="bench-value">来場CTA</span></div>
+    </div>
+
+    <div class="bench">
+        <p class="bench-title">LINE経路URL（媒体別トラッキング）</p>
+        <div class="bench-row"><span class="bench-label">YouTube概要欄</span><span class="bench-value">専用URL（経路計測）</span></div>
+        <div class="bench-row"><span class="bench-label">YouTubeコメント</span><span class="bench-value">専用URL（経路計測）</span></div>
+        <div class="bench-row"><span class="bench-label">Instagramプロフィール</span><span class="bench-value">専用URL（経路計測）</span></div>
+        <div class="bench-row"><span class="bench-label">Instagramストーリーズ</span><span class="bench-value">専用URL（経路計測）</span></div>
+        <div class="bench-row"><span class="bench-label">ホームページ</span><span class="bench-value">専用URL（経路計測）</span></div>
+    </div>
+
+    <div class="note">
+        <p><strong>経路計測の意味:</strong> どの媒体からLINE登録が来たかを正確に把握できます。YouTube経由が多いのか、Instagram経由が多いのか。データに基づいて、効果の高い媒体にリソースを集中できます。</p>
+    </div>
+
+    <div style="text-align:center;margin-top:24px"><a href="https://lin.ee/tpHI1Kc" target="_blank" rel="noopener" style="display:inline-block;padding:14px 32px;background:var(--accent);color:#fff;text-decoration:none;border-radius:8px;font-size:15px;font-weight:600;letter-spacing:.04em">LINE公式アカウントを見る</a></div>
+</div>
+
+<hr class="divider">
+
+<!-- ===== 5. この動線の核心 ===== -->
+<div class="section">
+    <p class="section-num">SECTION 05</p>
+    <h2 class="section-title">この動線の核心</h2>
+    <p class="section-sub">SNSもLINEも、すべてはこの1冊を読んでもらうための仕組みです。</p>
+
+    <div style="text-align:center;margin-bottom:40px">
+        <img src="img/bakuro_cover.png" alt="聞かれなければ言わない" style="max-width:260px;margin:0 auto;display:block;filter:drop-shadow(0 4px 16px rgba(0,0,0,.15))">
+    </div>
+
+    <div class="note" style="border-left-color:var(--green);margin-bottom:32px">
+        <p style="font-size:16px;font-weight:600;color:var(--text);margin-bottom:12px">なぜこの資料が動線の中心なのか</p>
+        <p>住宅業界では、来場者の成約率は10〜15%が平均です（出典: LIFULL HOME'S / 船井総研）。10組来場しても、契約に至るのは1〜2組。それは「とりあえず見に来た」人が大半だからです。</p>
+        <p>しかし統計上、<strong>事前にコンテンツを読んだ人の成約率は、飛び込み客の8.6倍</strong>になります（出典: HubSpot）。</p>
+        <p>新潟では既にブログと動画で事前教育を行い、<strong>成約率42.3%</strong>を実現しています。「聞かれなければ言わない」は、この事前教育を<strong>さらに濃縮して短時間で届ける</strong>ための装置です。</p>
+    </div>
+
+    <h3 style="font-size:17px;font-weight:600;margin-bottom:24px">なぜ「問題提起型」のコンテンツが効くのか</h3>
+
+    <div style="background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:32px 24px;margin-bottom:16px;text-align:center">
+        <p style="font-size:42px;font-weight:600;color:var(--green);margin-bottom:4px;line-height:1.2">8.6<span style="font-size:20px">倍</span></p>
+        <p style="font-size:15px;font-weight:600;color:var(--text);margin-bottom:8px">事前に情報を読んだ人の成約率は、飛び込み客の8.6倍</p>
+        <p style="font-size:13px;color:var(--text3)">出典: HubSpot Marketing Statistics 2026</p>
+    </div>
+    <p style="font-size:14px;color:var(--text2);line-height:1.8;margin-bottom:24px">展示場にふらっと来た人と、事前にコンテンツを読んで「この会社が気になる」と思って来た人では、成約率に8.6倍の差があります。「聞かれなければ言わない」は、この「事前に読む人」を作るための装置です。</p>
+
+    <div style="background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:32px 24px;margin-bottom:16px;text-align:center">
+        <p style="font-size:42px;font-weight:600;color:var(--green);margin-bottom:4px;line-height:1.2">95<span style="font-size:20px">%</span></p>
+        <p style="font-size:15px;font-weight:600;color:var(--text);margin-bottom:8px">成約した人の95%は、検討段階で候補に入っていた会社と契約</p>
+        <p style="font-size:13px;color:var(--text3)">出典: Omnibound B2B Content Marketing Statistics 2026</p>
+    </div>
+    <p style="font-size:14px;color:var(--text2);line-height:1.8;margin-bottom:24px">つまり「あとから知ってもらう」のでは遅い。検討を始めた段階で候補に入っていなければ、ほぼ選ばれません。SNSで認知→LINEで登録→暴露本で候補入り。この順番が重要です。</p>
+
+    <div style="background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:32px 24px;margin-bottom:16px;text-align:center">
+        <p style="font-size:42px;font-weight:600;color:var(--green);margin-bottom:4px;line-height:1.2">80<span style="font-size:20px">%</span></p>
+        <p style="font-size:15px;font-weight:600;color:var(--text);margin-bottom:8px">フォローアップなしでは、見込み客の80%が離脱する</p>
+        <p style="font-size:13px;color:var(--text3)">出典: Invesp / 99firms Lead Nurturing Statistics</p>
+    </div>
+    <p style="font-size:14px;color:var(--text2);line-height:1.8;margin-bottom:24px">LINEに登録しても、何も届かなければ80%はそのまま離れていきます。「聞かれなければ言わない」は登録直後に届く。さらにD+3で動画、D+7で来場案内。この自動配信が離脱を防ぎます。</p>
+
+    <div style="background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:32px 24px;margin-bottom:32px;text-align:center">
+        <p style="font-size:42px;font-weight:600;color:var(--green);margin-bottom:4px;line-height:1.2">127<span style="font-size:20px">本の論文</span></p>
+        <p style="font-size:15px;font-weight:600;color:var(--text);margin-bottom:8px">「問題を提起し、解決策を示す」構成は、学術的に最も効果が高いと実証済み</p>
+        <p style="font-size:13px;color:var(--text3)">出典: Tannenbaum et al. 2015, Psychological Bulletin（米国心理学会）</p>
+    </div>
+    <p style="font-size:14px;color:var(--text2);line-height:1.8;margin-bottom:32px">「こんな問題がありますよ」だけでは不安を煽るだけ。「だからこう解決できます」まで書いてあるから、行動につながる。127本の論文、27,372人の調査結果が、この構成の有効性を裏付けています。「聞かれなければ言わない」は、まさにこの構成で設計しています。</p>
+
+    <div class="note">
+        <p style="font-size:15px;font-weight:600;color:var(--text);margin-bottom:8px">つまり、この資料の役割は3つです。</p>
+        <p><strong>1. 候補に入る</strong> — 読んだ時点で「もみの木ハウス」が検討リストに入る。この「候補入り」が最も重要な転換点です。</p>
+        <p><strong>2. 冷やかしを減らす</strong> — 事前に判断材料を持っているから、来場者の質が変わる。新潟の成約率42.3%は、ここで生まれています。</p>
+        <p><strong>3. 離脱を防ぐ</strong> — ナーチャリングなしでは80%が離脱。この資料が、登録から来場までの「つなぎ」として機能します。</p>
+    </div>
+
+    <h3 style="font-size:17px;font-weight:600;margin:32px 0 20px">コンテンツの全体像</h3>
+
+    <div class="card-grid">
+        <a href="https://mominoki-house.github.io/housing-facts/ch1.html" target="_blank" rel="noopener" class="card" style="text-decoration:none;color:inherit;display:block">
+            <div style="padding:24px;text-align:center;background:var(--green-soft)">
+                <p style="font-size:13px;font-weight:600;color:var(--accent);margin-bottom:8px">聞かれなければ言わない</p>
+                <p style="font-size:18px;font-weight:600">住宅業界の12の事実</p>
+                <p style="font-size:13px;color:var(--text2);margin-top:8px">全63ページ / 全数字に出典明記</p>
+            </div>
+            <div class="card-body">
+                <p class="card-text">壁紙の化学物質、カビ・ダニ、設備コスト、坪単価のトリック、保証の抜け穴、太陽光のリスク。住宅会社が自分からは話さない12のテーマを、数字と出典で伝えます。</p>
+            </div>
+        </a>
+        <a href="https://mominoki-house.github.io/housing-facts/talk/niigata.html" target="_blank" rel="noopener" class="card" style="text-decoration:none;color:inherit;display:block">
+            <div style="padding:24px;text-align:center;background:var(--accent-soft)">
+                <p style="font-size:13px;font-weight:600;color:var(--accent);margin-bottom:8px">本音トークLP</p>
+                <p style="font-size:18px;font-weight:600">家のこと、本音で話しませんか？</p>
+                <p style="font-size:13px;color:var(--text2);margin-top:8px">電話 or フォームで予約</p>
+            </div>
+            <div class="card-body">
+                <p class="card-text">資料を読んだ方も、まだの方も。売り込みなし、プラン・見積もりなし。聞きたいことだけ聞いて帰ってください。</p>
+            </div>
+        </a>
+    </div>
+
+    <div style="text-align:center;margin-top:24px"><a href="https://mominoki-house.github.io/housing-facts/ch1.html" target="_blank" rel="noopener" style="display:inline-block;padding:14px 32px;background:var(--accent);color:#fff;text-decoration:none;border-radius:8px;font-size:15px;font-weight:600;letter-spacing:.04em">暴露本を読む</a></div>
+    <div style="text-align:center;margin-top:12px"><a href="https://mominoki-house.github.io/housing-facts/talk/niigata.html" target="_blank" rel="noopener" style="display:inline-block;padding:14px 32px;background:var(--accent);color:#fff;text-decoration:none;border-radius:8px;font-size:15px;font-weight:600;letter-spacing:.04em;border:2px solid var(--accent);background:transparent;color:var(--accent)">本音トークLPを見る</a></div>
+</div>
+
+<hr class="divider">
+
+<!-- ===== 6. 成長目標 ===== -->
+<div class="section">
+    <p class="section-num">SECTION 06</p>
+    <h2 class="section-title">成長目標</h2>
+    <p class="section-sub">実測データと業界ベンチマークをもとに、目標値を算出しています。</p>
+
+    <div class="note" style="border-left-color:var(--green);margin-bottom:32px">
+        <p style="font-size:15px;font-weight:600;color:var(--text);margin-bottom:8px">目標の考え方</p>
+        <p>この動線の目標は「来場者数」ではなく、<strong>「聞かれなければ言わない」を読んだ人の数</strong>です。読んだ人が増えれば、来場者の質が変わり、成約率がさらに上がります。</p>
+        <p>LINE登録者数と暴露本タップ数をKPIとして追いかけます。</p>
+    </div>
+
+    <h3 style="font-size:17px;font-weight:600;margin-bottom:20px">新潟の成長目標</h3>
+
+    <table class="stats-table">
+        <tr>
+            <th>指標</th>
+            <th>現在</th>
+            <th>3ヶ月後</th>
+            <th>6ヶ月後</th>
+            <th>12ヶ月後</th>
+        </tr>
+        <tr>
+            <td>IG リーチ/月</td>
+            <td>運用中</td>
+            <td>5,000</td>
+            <td>7,500</td>
+            <td>10,000</td>
+        </tr>
+        <tr>
+            <td>YT 本編 視聴/月</td>
+            <td>約13,000</td>
+            <td>15,000</td>
+            <td>18,000</td>
+            <td>22,000</td>
+        </tr>
+        <tr>
+            <td>Shorts 視聴/月</td>
+            <td>約41,000</td>
+            <td>45,000</td>
+            <td>50,000</td>
+            <td>55,000</td>
+        </tr>
+        <tr>
+            <td>月間Imp合計</td>
+            <td class="stats-highlight">約54,000</td>
+            <td class="stats-highlight">65,000</td>
+            <td class="stats-highlight">75,500</td>
+            <td class="stats-highlight">87,000</td>
+        </tr>
+        <tr>
+            <td>LINE月間純増（目標）</td>
+            <td class="stats-highlight">計測開始</td>
+            <td class="stats-highlight">5人</td>
+            <td class="stats-highlight">8人</td>
+            <td class="stats-highlight">12人</td>
+        </tr>
+        <tr>
+            <td>暴露本タップ/月（目標）</td>
+            <td>計測開始</td>
+            <td>1人</td>
+            <td>2人</td>
+            <td>3人</td>
+        </tr>
+    </table>
+
+    <div class="note">
+        <p><strong>算出根拠:</strong></p>
+        <p>IG: 毎日投稿+フォロワー369人ベースで月10%成長。大阪実測値（PV率5%、リンク率4%）を適用</p>
+        <p>YT本編: 月間約13,000回（5月実績から推定）。月次5〜10%の緩やかな成長</p>
+        <p>Shorts: 月41,000回の実績ベースで安定成長</p>
+        <p>Imp → LINE登録: 転換率 <strong>0.03%</strong>（業界ベンチマーク） → 動線整備後 <strong>0.05%</strong> に改善見込み</p>
+        <p>LINE登録 → 暴露本タップ: <strong>25%</strong>（LINE不動産業界クリック率20〜30%の範囲内）</p>
+    </div>
+
+    <h3 style="font-size:17px;font-weight:600;margin:32px 0 16px">転換率の目標値（業界ベンチマーク）</h3>
+
+    <p style="font-size:14px;color:var(--text2);line-height:1.8;margin-bottom:16px">新潟はYouTubeの基盤が既にあるため、他社より高い転換率を見込めます。以下の施策で、業界ベンチマーク0.03%を超える0.05%を目指します。</p>
+
+    <div class="bench">
+        <p class="bench-title">実施する施策と期待される転換率</p>
+        <div class="bench-row"><span class="bench-label">IG P6にLINE登録CTAを全投稿に設置</span><span class="bench-value">Imp→LINE 0.05〜0.15%</span></div>
+        <div class="bench-row"><span class="bench-label">YT概要欄+口頭CTAでLINE誘導</span><span class="bench-value">視聴→LINE 0.3〜1.5%</span></div>
+        <div class="bench-row"><span class="bench-label">LINE登録特典（暴露本）配布</span><span class="bench-value">登録率+30%改善</span></div>
+        <div class="bench-row"><span class="bench-label">ブログ記事内CTA追加（717記事）</span><span class="bench-value">記事→LINE 0.5〜2%</span></div>
+    </div>
+
+    <div class="bench">
+        <p class="bench-title">出典・根拠</p>
+        <div class="bench-row"><span class="bench-label">IG P6 CTAでプロフィール訪問+25%</span><span class="bench-value">Later / TrueFuture Media</span></div>
+        <div class="bench-row"><span class="bench-label">IGバイオリンクCTR 2〜3%</span><span class="bench-value">Tapmy 2026（1,200+キャンペーン）</span></div>
+        <div class="bench-row"><span class="bench-label">YT口頭CTAで概要欄CTR 2〜3倍</span><span class="bench-value">VidIQ / Noble Desktop</span></div>
+        <div class="bench-row"><span class="bench-label">特典付きLINE登録率+30%</span><span class="bench-value">Liny事例調査</span></div>
+        <div class="bench-row"><span class="bench-label">LINEメッセージ開封率 55〜60%</span><span class="bench-value">LINEヤフー公式</span></div>
+        <div class="bench-row"><span class="bench-label">LINEブロック率 27〜30%</span><span class="bench-value">SocialPLUS調査</span></div>
+    </div>
+
+    <h3 style="font-size:17px;font-weight:600;margin:32px 0 20px">成長タイムライン</h3>
+
+    <div class="timeline">
+        <div class="timeline-item">
+            <div class="timeline-dot">1</div>
+            <p class="timeline-period">現在〜3ヶ月（動線強化期）</p>
+            <p class="timeline-text">全投稿にP6 LINE CTA設置。YouTube口頭CTAの整備。LINE動線の自動化完了。ブログ717記事へのCTA追加開始。</p>
+            <p class="timeline-metric">目標: 月間Imp 65,000 / LINE純増 5人/月</p>
+        </div>
+        <div class="timeline-item">
+            <div class="timeline-dot">2</div>
+            <p class="timeline-period">3〜6ヶ月（蓄積加速期）</p>
+            <p class="timeline-text">IG投稿が300件を超え、リーチが安定化。ブログCTA追加の効果が顕在化。LINE登録者が蓄積され、暴露本読了者が増加。</p>
+            <p class="timeline-metric">目標: 月間Imp 75,500 / LINE純増 8人/月 / 暴露本タップ 2人/月</p>
+        </div>
+        <div class="timeline-item">
+            <div class="timeline-dot">3</div>
+            <p class="timeline-period">6〜12ヶ月（複利効果期）</p>
+            <p class="timeline-text">ブログ717記事+動画289本+IG投稿の3チャネルが相互に送客。LINE登録者の累計が増え、暴露本読了→来場予約の流れが定常化。</p>
+            <p class="timeline-metric">目標: 月間Imp 87,000 / LINE純増 12人/月 / 年間LINE累計 96人</p>
+        </div>
+    </div>
+
+    <div class="note">
+        <p><strong>12ヶ月間の累計目標:</strong></p>
+        <p>LINE登録者: <strong>96人</strong></p>
+        <p>暴露本タップ: <strong>24人</strong></p>
+        <p>この24人は「聞かれなければ言わない」を読んだ上で来場を検討する層です。新潟の成約率42.3%で計算すると、<strong>年間約10組の成約</strong>が暴露本経由で上乗せされる見込みです。</p>
+    </div>
+</div>
+
+<hr class="divider">
+
+<!-- ===== 7. なぜこの動線を設計したのか ===== -->
+<div class="section">
+    <p class="section-num">SECTION 07</p>
+    <h2 class="section-title">なぜ、今この動線を強化するのか</h2>
+
+    <p style="font-size:15px;color:var(--text);line-height:1.9;margin-bottom:32px">新潟の成約率42.3%は、ブログと動画の蓄積で実現しています。しかし、住宅市場の変化を考えると「来場者数」を増やす仕組みが今後さらに重要になります。</p>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px">
+        <div style="background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:28px 20px;text-align:center">
+            <p style="font-size:42px;font-weight:600;color:var(--text);line-height:1.2">31<span style="font-size:20px">%減</span></p>
+            <p style="font-size:14px;color:var(--text2);margin-top:8px">注文住宅の着工戸数<br><span style="font-size:12px">29.2万戸 → 20.1万戸（10年間）</span></p>
+            <p style="font-size:11px;color:var(--text3);margin-top:4px">出典: 国交省 建築着工統計</p>
+        </div>
+        <div style="background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:28px 20px;text-align:center">
+            <p style="font-size:42px;font-weight:600;color:var(--text);line-height:1.2">29<span style="font-size:20px">%減</span></p>
+            <p style="font-size:14px;color:var(--text2);margin-top:8px">住宅展示場の来場者数<br><span style="font-size:12px">424万組 → 301万組（6年間）</span></p>
+            <p style="font-size:11px;color:var(--text3);margin-top:4px">出典: 住宅展示場協議会</p>
+        </div>
+    </div>
+
+    <div class="bench" style="margin-bottom:16px">
+        <p class="bench-title">新潟県の注文住宅（持家）着工戸数の推移（全国比率から推計）</p>
+        <div class="bench-row"><span class="bench-label">2016年</span><span class="bench-value">3,865戸</span></div>
+        <div class="bench-row"><span class="bench-label">2024年</span><span class="bench-value">2,714戸（-29.8%）</span></div>
+        <div class="bench-row"><span class="bench-label">2040年予測</span><span class="bench-value">約1,800戸（NRI予測から推計）</span></div>
+        <div class="bench-row"><span class="bench-label">出典</span><span class="bench-value" style="font-size:12px">出典: 国交省 建築着工統計（e-stat）/ NRI 2040年予測</span></div>
+    </div>
+
+    <p style="font-size:14px;color:var(--text2);line-height:1.8;margin-bottom:32px">来る人が減っています。そして来る人も変わりました。以前は展示場で3〜4社を回っていた人が、今はネットで2社に絞ってから来ます。「とりあえず見に来た」人が減り、「ある程度決めてから来る」人が増えています。</p>
+
+    <div class="note" style="border-left-color:var(--green);margin-bottom:32px">
+        <p style="font-size:15px;font-weight:600;color:var(--text);margin-bottom:12px">だから、今ある資産を「動線」に変える</p>
+        <p>新潟にはブログ717記事、動画289本、登録者5,070人という圧倒的な資産があります。しかし、これらの資産からLINE登録→暴露本→来場予約への<strong>自動的な流れ</strong>がまだ構築されていません。</p>
+        <p>この動線は、既にある資産を<strong>来場予約につなげるパイプライン</strong>に変える設計です。成約率42.3%は維持しつつ、来場者数を増やすことで、成約件数を最大化します。</p>
+    </div>
+
+    <div style="background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:32px 24px;margin-bottom:32px">
+        <p style="font-size:15px;font-weight:600;color:var(--text);margin-bottom:12px">水信建太より</p>
+        <p style="font-size:14px;color:var(--text2);line-height:2.0">新潟のブログと動画が作り出した成約率42.3%は、全4社の中で最も高い数字です。この仕組みを他社にも展開しながら、新潟自身も「暴露本」と「LINE動線」で次の段階に進みたいと考えています。既にある資産を最大限活かして、来場者数と成約率の両方を伸ばしていきます。</p>
+    </div>
+</div>
+
+<div class="section" style="text-align:center;padding-top:0">
+    <div class="note" style="border-left:none;text-align:center;background:var(--green-soft)">
+        <p style="font-size:16px;font-weight:600;color:var(--text);margin-bottom:8px">ご質問・ご確認事項があればお気軽にご連絡ください</p>
+        <p style="font-size:14px;color:var(--text2)">担当: 水信建太（もみの木ハウス新潟）</p>
+    </div>
+</div>
+
+<footer class="page-footer">
+    <p>もみの木ハウス新潟 集客動線説明資料</p>
+    <p>作成: 2026年6月1日 / 担当: 水信建太</p>
+</footer>
+
+</body>
+</html>

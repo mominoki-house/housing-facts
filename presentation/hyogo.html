@@ -92,6 +92,12 @@ body{font-family:var(--font);font-size:16px;line-height:1.8;color:var(--text);ba
 /* Footer */
 .page-footer{max-width:var(--max-w);margin:48px auto 0;padding:32px 24px 64px;border-top:1px solid var(--border);text-align:center;font-size:12px;color:var(--text3)}
 
+/* Schedule Badge */
+.schedule{display:flex;align-items:center;gap:10px;background:var(--green-soft);border:1px solid var(--border);border-radius:8px;padding:12px 16px;margin-bottom:24px}
+.schedule-label{font-size:12px;font-weight:600;color:var(--accent);letter-spacing:.06em;white-space:nowrap}
+.schedule-value{font-size:14px;font-weight:600;color:var(--text)}
+.schedule-group{display:flex;flex-direction:column;gap:8px;margin-bottom:24px}
+
 /* Divider */
 .divider{max-width:var(--max-w);margin:0 auto;border:none;border-top:1px solid var(--border);margin-bottom:64px}
 
@@ -196,6 +202,11 @@ body{font-family:var(--font);font-size:16px;line-height:1.8;color:var(--text);ba
         </div>
     </div>
 
+    <div class="schedule">
+        <span class="schedule-label">配信スケジュール</span>
+        <span class="schedule-value">毎日投稿</span>
+    </div>
+
     <div class="note" style="border-left-color:var(--green);margin-bottom:24px">
         <p style="font-size:15px;font-weight:600;color:var(--text);margin-bottom:8px">Instagramの役割</p>
         <p>ブログの内容を6枚のスライドに変換して投稿します。P1〜P5で「家づくりで知っておくべきこと」を伝え、P6で「続きはLINEで」と誘導。P6のデザインは全社共通で「聞かれなければ言わない」への導線を組み込んでいます。</p>
@@ -240,6 +251,11 @@ body{font-family:var(--font);font-size:16px;line-height:1.8;color:var(--text);ba
             <img src="img/yt_hyogo.jpg" alt="本編動画サムネイル" style="aspect-ratio:16/9;object-fit:cover">
             <p class="img-card-caption">本編動画: 社長が1テーマずつ顔出しで解説</p>
         </div>
+    </div>
+
+    <div class="schedule">
+        <span class="schedule-label">配信スケジュール</span>
+        <span class="schedule-value">隔週金曜日 17:00公開（2週間に1回）</span>
     </div>
 
     <div class="note" style="border-left-color:var(--green);margin-bottom:24px">
@@ -307,6 +323,17 @@ body{font-family:var(--font);font-size:16px;line-height:1.8;color:var(--text);ba
         <div class="img-card">
             <img src="img/shorts_hyogo.jpg" alt="Shorts動画" style="aspect-ratio:9/16;object-fit:cover;max-height:400px">
             <p class="img-card-caption">Shorts: 本編から切り抜いた30〜60秒の縦型動画</p>
+        </div>
+    </div>
+
+    <div class="schedule-group">
+        <div class="schedule">
+            <span class="schedule-label">Day1</span>
+            <span class="schedule-value">YouTube Shorts 19:00 / IG Reels 12:10</span>
+        </div>
+        <div class="schedule">
+            <span class="schedule-label">Day2</span>
+            <span class="schedule-value">TikTok 19:00</span>
         </div>
     </div>
 

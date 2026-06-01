@@ -634,14 +634,14 @@ body{font-family:var(--font);font-size:16px;line-height:1.8;color:var(--text);ba
         </tr>
         <tr>
             <td>LINE月間純増（目標）</td>
-            <td class="stats-highlight">計測開始</td>
+            <td class="stats-highlight">0人（稼働前）</td>
             <td class="stats-highlight">5人</td>
             <td class="stats-highlight">8人</td>
             <td class="stats-highlight">12人</td>
         </tr>
         <tr>
             <td>暴露本タップ/月（目標）</td>
-            <td>計測開始</td>
+            <td>0人（稼働前）</td>
             <td>1人</td>
             <td>2人</td>
             <td>3人</td>
@@ -651,16 +651,16 @@ body{font-family:var(--font);font-size:16px;line-height:1.8;color:var(--text);ba
     <div class="note">
         <p><strong>算出根拠:</strong></p>
         <p>IG: 毎日投稿+フォロワー369人ベースで月10%成長。大阪実測値（PV率5%、リンク率4%）を適用</p>
-        <p>YT本編: 月間約13,000回（5月実績から推定）。月次5〜10%の緩やかな成長</p>
+        <p>YT本編: 月間約13,000回（5月実績）。月次5〜10%の緩やかな成長</p>
         <p>YT Shorts: 月41,000回の実績ベースで安定成長</p>
-        <p>TikTok: 月240,000回（5月実績）。月次5〜8%の保守的成長を想定</p>
-        <p>Imp → LINE登録: 転換率 <strong>0.03%</strong>（業界ベンチマーク） → 動線整備後 <strong>0.05%</strong> に改善見込み</p>
-        <p>LINE登録 → 暴露本タップ: <strong>25%</strong>（LINE不動産業界クリック率20〜30%の範囲内）</p>
+        <p>TikTok: 月240,000回（5月実績）。認知獲得の最大チャネルだが、LINE登録への直接寄与は構造上限定的（出典: Tapmy 2026 / TikAdSuite 2026）。月次5〜8%の保守的成長を想定</p>
+        <p>LINE登録目標: 6月1日から動線本格稼働。YouTube概要欄・IG P6 CTA・ブログCTAの3経路から流入を見込む</p>
+        <p>LINE登録 → 暴露本タップ: <strong>25%</strong>（LINE不動産業界クリック率20〜30%の範囲内。大阪実測値を参考）</p>
     </div>
 
     <h3 style="font-size:17px;font-weight:600;margin:32px 0 16px">転換率の目標値（業界ベンチマーク）</h3>
 
-    <p style="font-size:14px;color:var(--text2);line-height:1.8;margin-bottom:16px">新潟はYouTubeの基盤が既にあるため、他社より高い転換率を見込めます。以下の施策で、業界ベンチマーク0.03%を超える0.05%を目指します。</p>
+    <p style="font-size:14px;color:var(--text2);line-height:1.8;margin-bottom:16px">新潟はYouTubeの基盤が既にあるため、YouTube・Instagram経由では高い転換率を見込めます。TikTokは認知獲得（Imp）が主な役割で、LINE登録への直接転換は構造上限定的です。以下の施策で、YouTube・Instagram経由のLINE登録を積み上げます。</p>
 
     <div class="bench">
         <p class="bench-title">実施する施策と期待される転換率</p>
@@ -703,11 +703,51 @@ body{font-family:var(--font);font-size:16px;line-height:1.8;color:var(--text);ba
         </div>
     </div>
 
-    <div class="note">
-        <p><strong>12ヶ月間の累計目標:</strong></p>
-        <p>LINE登録者: <strong>96人</strong></p>
-        <p>暴露本タップ: <strong>24人</strong></p>
-        <p>この24人は「聞かれなければ言わない」を読んだ上で来場を検討する層です。新潟の成約率42.3%で計算すると、<strong>年間約10組の成約</strong>が暴露本経由で上乗せされる見込みです。</p>
+    <div class="note" style="border-left-color:var(--green)">
+        <p style="font-size:15px;font-weight:600;color:var(--text);margin-bottom:12px">12ヶ月間の累計目標</p>
+        <p>LINE登録者累計（目標）: <strong>96人</strong></p>
+        <p>暴露本タップ（25%想定）: <strong>24人</strong></p>
+    </div>
+
+    <h3 style="font-size:17px;font-weight:600;margin:32px 0 16px">暴露本読了から来場までの試算</h3>
+
+    <div class="note" style="margin-bottom:24px">
+        <p>暴露本を読んだ人が実際に来場する転換率は、<strong>現時点では未計測</strong>です。GA4による計測基盤を整備し、実数を把握していきます。</p>
+        <p style="margin-top:8px">以下は、住宅業界の実測データをもとにした3つのシナリオです。</p>
+    </div>
+
+    <table class="stats-table">
+        <tr>
+            <th>シナリオ</th>
+            <th>読了→来場率</th>
+            <th>年間来場</th>
+            <th>年間成約（参考）</th>
+        </tr>
+        <tr>
+            <td>保守的</td>
+            <td>10%</td>
+            <td>2.4人</td>
+            <td>約1組</td>
+        </tr>
+        <tr>
+            <td style="font-weight:600">中間</td>
+            <td class="stats-highlight">15%</td>
+            <td class="stats-highlight">3.6人</td>
+            <td class="stats-highlight">約1〜2組</td>
+        </tr>
+        <tr>
+            <td>楽観的</td>
+            <td>25%</td>
+            <td>6人</td>
+            <td>約2〜3組</td>
+        </tr>
+    </table>
+
+    <div class="note" style="margin-top:24px">
+        <p><strong>転換率の根拠:</strong></p>
+        <p>住宅業界の資料請求→来場率は<strong>7〜13%</strong>（出典: LIFULL HOME'S / KASIKA事例）。MA（マーケティングオートメーション）導入で<strong>2倍に改善</strong>した事例あり（出典: KASIKA へいせいの木の家）。暴露本は一般的な資料請求より教育完了度が高いため、10〜25%の範囲で試算しています。</p>
+        <p style="margin-top:8px"><strong>成約率42.3%について:</strong> これは新潟の全来場者に対する実績値です。暴露本を読んで来場した人だけの成約率は、今後データが蓄積され次第、分離して計測します。</p>
+        <p style="margin-top:8px">この数字が確定するのは、<strong>GA4で暴露本→来場予約ページの遷移を計測し始めてから</strong>です。計測基盤の整備を最優先で進めます。</p>
     </div>
 </div>
 

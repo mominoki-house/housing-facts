@@ -162,5 +162,24 @@ body{font-family:var(--font-serif);font-size:18px;line-height:1.7;color:var(--co
     <p class="footer-tel"><a href="tel:025-201-6888">025-201-6888</a></p>
 </footer>
 
+<script>
+(function(){
+  var fired={};
+  var thresholds=[25,50,75,100];
+  window.addEventListener('scroll',function(){
+    var h=document.documentElement,b=document.body;
+    var st=h.scrollTop||b.scrollTop;
+    var sh=(h.scrollHeight||b.scrollHeight)-h.clientHeight;
+    if(sh<=0)return;
+    var pct=Math.round(st/sh*100);
+    thresholds.forEach(function(t){
+      if(pct>=t&&!fired[t]){
+        fired[t]=true;
+        gtag('event','scroll_depth',{percent_scrolled:t,page_path:location.pathname});
+      }
+    });
+  });
+})();
+</script>
 </body>
 </html>

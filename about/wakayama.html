@@ -499,5 +499,24 @@ img { max-width: 100%; height: auto; display: block; }
     <p>もみの木ハウス・わかやま &nbsp;|&nbsp; <a href="https://wakayama-koyama.com/" target="_blank" rel="noopener">wakayama-koyama.com</a></p>
 </footer>
 
+<script>
+(function(){
+  var fired={};
+  var thresholds=[25,50,75,100];
+  window.addEventListener('scroll',function(){
+    var h=document.documentElement,b=document.body;
+    var st=h.scrollTop||b.scrollTop;
+    var sh=(h.scrollHeight||b.scrollHeight)-h.clientHeight;
+    if(sh<=0)return;
+    var pct=Math.round(st/sh*100);
+    thresholds.forEach(function(t){
+      if(pct>=t&&!fired[t]){
+        fired[t]=true;
+        gtag('event','scroll_depth',{percent_scrolled:t,page_path:location.pathname});
+      }
+    });
+  });
+})();
+</script>
 </body>
 </html>

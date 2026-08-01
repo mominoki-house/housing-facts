@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>外注移行計画・集客戦略 報告書 | 2026年8月</title>
+<style>
+  :root {
+    --accent: #4A90B8;
+    --label: #1D1D1F;
+    --label-2: #555;
+    --label-3: #86868b;
+    --bg: #f5f5f0;
+    --surface: #fff;
+    --surface-2: #fafaf7;
+    --sep: #e8e8e4;
+    --sep-light: #f0f0ec;
+    --success: #5AB77B;
+    --caution: #D4944A;
+    --sh-card: 0 1px 4px rgba(0,0,0,0.06);
+    --sh-card-accent: 0 1px 4px rgba(0,0,0,0.06), inset 0 0 0 1px var(--accent);
+  }
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Noto Sans JP', -apple-system, BlinkMacSystemFont, sans-serif; background: var(--bg); color: var(--label); line-height: 1.8; }
+  .container { max-width: 860px; margin: 0 auto; padding: 48px 24px 80px; }
+  h1 { font-size: 28px; font-weight: 600; margin-bottom: 4px; }
+  h2 { font-size: 20px; font-weight: 600; margin: 56px 0 16px; padding-bottom: 8px; border-bottom: 2px solid var(--label); }
+  h3 { font-size: 15px; font-weight: 600; margin: 32px 0 12px; }
+  .meta { font-size: 12px; color: var(--label-3); margin-bottom: 40px; }
+  .card { background: var(--surface); border-radius: 12px; padding: 24px 28px; margin: 16px 0; box-shadow: var(--sh-card); }
+  .card-accent { box-shadow: var(--sh-card-accent); }
+  .card-policy { background: var(--label); color: var(--surface); box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
+  .card-policy .policy-sub { color: #aaa; font-size: 13px; margin-top: 8px; }
+  .card-caution { box-shadow: var(--sh-card), inset 0 0 0 1px var(--caution); }
+  .card-success { box-shadow: var(--sh-card), inset 0 0 0 1px var(--success); }
+  table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 14px; }
+  th, td { padding: 10px 14px; text-align: left; border-bottom: 1px solid var(--sep); }
+  th { background: var(--surface-2); font-weight: 600; font-size: 12px; color: var(--label-3); }
+  .num { text-align: right; font-variant-numeric: tabular-nums; }
+  .highlight { font-weight: 600; color: var(--accent); }
+  .tag { display: inline-block; font-size: 11px; font-weight: 600; padding: 2px 10px; border-radius: 20px; margin-right: 6px; }
+  .tag-phase1 { background: #e3f2fd; color: var(--accent); }
+  .tag-phase2 { background: #eee; color: var(--label); }
+  .tag-planb { background: #eee; color: var(--label-3); }
+  .flow { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin: 12px 0; font-size: 14px; }
+  .flow-step { background: var(--surface-2); padding: 6px 14px; border-radius: 8px; font-weight: 500; }
+  .flow-arrow { color: var(--label-3); font-size: 17px; }
+  .three-col { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; margin: 16px 0; }
+  .three-col .col { padding: 16px; background: var(--surface-2); border-radius: 10px; }
+  .three-col .col-num { font-size: 12px; color: var(--label-3); margin-bottom: 4px; }
+  .three-col .col-title { font-size: 15px; font-weight: 600; margin-bottom: 4px; }
+  .three-col .col-desc { font-size: 13px; color: var(--label-2); }
+  .row { display: flex; justify-content: space-between; align-items: baseline; padding: 12px 0; border-bottom: 1px solid var(--sep-light); }
+  .row:last-child { border-bottom: none; }
+  .row-label { font-size: 14px; flex: 1; }
+  .row-value { font-size: 15px; font-weight: 600; color: var(--accent); text-align: right; }
+  .row-note { font-size: 13px; color: var(--label-3); text-align: right; min-width: 120px; }
+  .section-label { font-size: 11px; font-weight: 600; color: var(--label-3); letter-spacing: 2px; margin-bottom: 8px; }
+  .big-num { font-size: 28px; font-weight: 600; color: var(--label); }
+  .big-num .unit { font-size: 14px; font-weight: 500; color: var(--label-3); }
+  .note { font-size: 13px; color: var(--label-3); margin-top: 12px; }
+  .divider { border: none; border-top: 1px solid var(--sep); margin: 48px 0; }
+  strong { font-weight: 600; }
+  @media (max-width: 768px) {
+    .three-col { grid-template-columns: 1fr; }
+    .row { flex-wrap: wrap; gap: 4px; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+<h1>外注移行計画・集客戦略</h1>
+<div class="meta">2026年8月 | 山田木画 水信 | お任せパッケージ 4社</div>
+
+<!-- ===== 方針 ===== -->
+<h2>1. 方針</h2>
+
+<div class="card card-policy">
+  <span style="font-size: 17px; font-weight: 600;">PKGを「制作代行の20万円」から「集客のための20万円」へ</span>
+  <div class="policy-sub">制作を外注化し、空いた時間で集客に取り組む。</div>
+</div>
+
+<!-- ===== 外注移行 ===== -->
+<h2>2. 外注移行計画</h2>
+
+<h3>体制</h3>
+<div class="card">
+  <table>
+    <tr><th>担当</th><th>対象</th><th>本数</th><th>単価</th></tr>
+    <tr>
+      <td><strong>大谷さん</strong>（外注）</td>
+      <td>大阪・兵庫・和歌山</td>
+      <td class="num">5本/月</td>
+      <td class="num">10,000円/本</td>
+    </tr>
+    <tr>
+      <td><strong>佐田さん</strong>（社内）</td>
+      <td>新潟</td>
+      <td class="num">2本/月</td>
+      <td class="num">8,000円/本</td>
+    </tr>
+  </table>
+  <p class="note">作業範囲: テロップ文字合わせ + テロップ編集。<br>佐田さんは2ヶ月前サイクル安定後に参加（Mac mini移管 + Premiere Pro契約）。</p>
+</div>
+
+<h3>スケジュール</h3>
+<div class="card card-accent">
+  <div class="row">
+    <span class="row-label"><strong>8月</strong> &mdash; 体制準備。大谷さんテスト1本</span>
+    <span class="row-value">10,000円</span>
+    <span class="row-note">±0h</span>
+  </div>
+  <div class="row">
+    <span class="row-label"><strong>9月</strong> &mdash; 大谷さん稼働開始</span>
+    <span class="row-value">50,000円</span>
+    <span class="row-note highlight">+20h/月</span>
+  </div>
+  <div class="row">
+    <span class="row-label"><strong>10月</strong> &mdash; 大谷さん継続</span>
+    <span class="row-value">50,000円</span>
+    <span class="row-note highlight">+20h/月</span>
+  </div>
+  <div class="row">
+    <span class="row-label"><strong>佐田さん合流後</strong> &mdash; 2名体制完成</span>
+    <span class="row-value">69,280円</span>
+    <span class="row-note highlight">+28h/月</span>
+  </div>
+  <p class="note">3人目は上越再開・長野確定時に追加。</p>
+</div>
+
+<hr class="divider">
+
+<!-- ===== 集客戦略 ===== -->
+<h2>3. 確保した時間の使い方</h2>
+
+<!-- Phase 1 -->
+<h3><span class="tag tag-phase1">Phase 1</span> 暴露本の効果測定（9〜10月）</h3>
+
+<div class="card">
+  <p class="section-label">やること</p>
+  <p>暴露本への誘致動画を制作し、Meta広告でテスト配信。集客装置として機能するか実測する。</p>
+  <div class="flow" style="margin-top:16px;">
+    <span class="flow-step">Meta広告（動画）</span>
+    <span class="flow-arrow">&rarr;</span>
+    <span class="flow-step">LINE登録</span>
+    <span class="flow-arrow">&rarr;</span>
+    <span class="flow-step">暴露本</span>
+    <span class="flow-arrow">&rarr;</span>
+    <span class="flow-step">来場予約</span>
+  </div>
+</div>
+
+<div class="card card-accent">
+  <p class="section-label">広告予算（山田木画計上）</p>
+  <div class="big-num">月5万円 <span class="unit">× 2ヶ月 = 10万円</span></div>
+</div>
+
+<div class="card">
+  <p class="section-label">目標値</p>
+  <table>
+    <tr><th>指標</th><th>目標</th><th>現状</th><th>業界相場</th></tr>
+    <tr>
+      <td>LINE登録CPA</td>
+      <td class="num highlight">1,000円以下</td>
+      <td class="num">-</td>
+      <td class="num">-</td>
+    </tr>
+    <tr>
+      <td>月間LINE登録数</td>
+      <td class="num highlight">50〜100人</td>
+      <td class="num">月4.5人</td>
+      <td class="num">-</td>
+    </tr>
+    <tr>
+      <td>暴露本タップ率</td>
+      <td class="num">実測（GA4）</td>
+      <td class="num">推定25%</td>
+      <td class="num">-</td>
+    </tr>
+    <tr>
+      <td>来場予約CPA</td>
+      <td class="num highlight">50,000円以下</td>
+      <td class="num">未計測</td>
+      <td class="num">25,000〜100,000円</td>
+    </tr>
+  </table>
+</div>
+
+<div class="card card-success">
+  <p><strong>判定（10月末）:</strong> 目標達成 &rarr; Phase 2へ</p>
+</div>
+
+<div class="card card-caution">
+  <p><strong>未達の場合:</strong> 動画の訴求軸を変更し、最大1ヶ月延長。それでも未達 &rarr; Phase 2に切り替え。</p>
+</div>
+
+<!-- Phase 2 -->
+<h3><span class="tag tag-phase2">Phase 2</span> AI CM制作 × Instagram本格運用（11月〜）</h3>
+
+<div class="card">
+  <p class="section-label">やること</p>
+  <p>AIでハイクオリティなCMを制作し、IGに投稿。バズったものを広告に転用する。</p>
+  <div class="flow" style="margin-top:16px;">
+    <span class="flow-step">AI CM制作</span>
+    <span class="flow-arrow">&rarr;</span>
+    <span class="flow-step">IG投稿</span>
+    <span class="flow-arrow">&rarr;</span>
+    <span class="flow-step">バズった動画を広告に転用</span>
+    <span class="flow-arrow">&rarr;</span>
+    <span class="flow-step">LP</span>
+    <span class="flow-arrow">&rarr;</span>
+    <span class="flow-step">来場予約</span>
+  </div>
+</div>
+
+<div class="card">
+  <p class="section-label">1つの行動で、3つを同時に回す</p>
+  <div class="three-col">
+    <div class="col">
+      <div class="col-num">01</div>
+      <div class="col-title">IGフォロワー増</div>
+      <div class="col-desc">オーガニックでリーチを獲得</div>
+    </div>
+    <div class="col">
+      <div class="col-num">02</div>
+      <div class="col-title">広告に転用</div>
+      <div class="col-desc">バズ = 市場が証明した勝ちクリエイティブ</div>
+    </div>
+    <div class="col">
+      <div class="col-num">03</div>
+      <div class="col-title">山田木画の武器</div>
+      <div class="col-desc">AI CM制作力 = 事業拡張の根拠と実績</div>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <p class="section-label">投稿計画</p>
+  <div class="row">
+    <span class="row-label">投稿ペース</span>
+    <span class="row-value">週2本（月8本）</span>
+  </div>
+  <div class="row">
+    <span class="row-label">バズ基準</span>
+    <span class="row-value">5,000再生超</span>
+    <span class="row-note">フォロワー数の10倍</span>
+  </div>
+  <div class="row">
+    <span class="row-label">バズ1本あたりの獲得</span>
+    <span class="row-value">+25〜50人</span>
+    <span class="row-note">転換率0.5-1%</span>
+  </div>
+</div>
+
+<div class="card card-accent">
+  <p class="section-label">目標（SAKIYOMI基準: 月+500人）</p>
+  <table>
+    <tr><th>期間</th><th>投稿</th><th>必要バズ本数</th><th>フォロワー増</th><th>判定</th></tr>
+    <tr>
+      <td>1ヶ月目</td>
+      <td class="num">月8本</td>
+      <td class="num">0〜1本</td>
+      <td class="num highlight">+50人</td>
+      <td>型の確立</td>
+    </tr>
+    <tr>
+      <td>3ヶ月目</td>
+      <td class="num">月8本</td>
+      <td class="num">2〜3本</td>
+      <td class="num highlight">+300人</td>
+      <td>未達ならプランBへ</td>
+    </tr>
+    <tr>
+      <td>6ヶ月目</td>
+      <td class="num">月8本</td>
+      <td class="num">3〜4本</td>
+      <td class="num highlight">+500人</td>
+      <td>SAKIYOMI基準到達</td>
+    </tr>
+  </table>
+  <p class="note">現状: 各社 月+16〜23人 / 月8本中のバズ率が成長のカギ</p>
+</div>
+
+<!-- Plan B -->
+<h3><span class="tag tag-planb">プランB</span> SAKIYOMIスクール</h3>
+
+<div class="card">
+  <p>Phase 2で3ヶ月目に月+300人未達の場合、水信がIG運用を学ぶ。</p>
+  <div class="row" style="margin-top:12px;">
+    <span class="row-label">入会金</span>
+    <span class="row-value">330,000円</span>
+  </div>
+  <div class="row">
+    <span class="row-label">月額</span>
+    <span class="row-value">15,400円</span>
+  </div>
+  <div class="row">
+    <span class="row-label">年間総額</span>
+    <span class="row-value">約515,000円</span>
+  </div>
+  <p class="note">自力でSAKIYOMI基準を超えられれば不要。</p>
+</div>
+
+<hr class="divider">
+
+<!-- ===== タイムライン ===== -->
+<h2>4. 全体スケジュール</h2>
+
+<div class="card">
+  <div class="row">
+    <span class="row-label"><strong>8月</strong> &mdash; 準備（外注引き継ぎ / GA4整備 / 動画制作）</span>
+  </div>
+  <div class="row">
+    <span class="row-label"><strong>9月</strong> &mdash; 外注開始 + Phase 1開始（広告テスト月5万円）</span>
+  </div>
+  <div class="row">
+    <span class="row-label"><strong>10月末</strong> &mdash; Phase 1判定</span>
+  </div>
+  <div class="row">
+    <span class="row-label"><strong>11月</strong> &mdash; Phase 2開始（AI CM × IG投稿）</span>
+  </div>
+  <div class="row">
+    <span class="row-label"><strong>1月末</strong> &mdash; Phase 2判定（月+300人未達ならプランB検討）</span>
+  </div>
+</div>
+
+<!-- ===== 投資サマリー ===== -->
+<h2>5. 投資サマリー</h2>
+
+<div class="card card-accent">
+  <div class="row">
+    <span class="row-label">外注費（8〜3月・8ヶ月分）</span>
+    <span class="row-value">約486,000円</span>
+    <span class="row-note">確定</span>
+  </div>
+  <div class="row">
+    <span class="row-label">Phase 1 広告費（9〜10月）</span>
+    <span class="row-value">100,000円</span>
+    <span class="row-note">確定</span>
+  </div>
+  <div class="row">
+    <span class="row-label">Premiere Pro（佐田さん用）</span>
+    <span class="row-value">3,280円/月</span>
+    <span class="row-note">合流後</span>
+  </div>
+  <div class="row">
+    <span class="row-label">Phase 2 広告費</span>
+    <span class="row-value">バズ後に投入</span>
+    <span class="row-note">条件付き</span>
+  </div>
+  <div class="row">
+    <span class="row-label">プランB SAKIYOMIスクール</span>
+    <span class="row-value">約515,000円/年</span>
+    <span class="row-note">未達時のみ</span>
+  </div>
+  <p class="note">確定投資: 約59万円（外注費+広告費）。それ以外は段階的に判断。全て山田木画計上。</p>
+</div>
+
+<hr class="divider">
+
+<!-- ===== 上越 ===== -->
+<h2>6. 上越について</h2>
+
+<div class="card card-caution">
+  <p>ストック枯渇・配信保留中。笠原さんへの対応が必要。</p>
+</div>
+
+<div class="meta" style="margin-top:48px; text-align:center;">山田木画 | 2026年8月</div>
+
+</div>
+</body>
+</html>

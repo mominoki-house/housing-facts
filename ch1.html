@@ -132,12 +132,20 @@ body {
     counter-increment: toc-counter;
     margin-bottom: 8px;
 }
-.toc li span {
+.toc li a {
     font-family: var(--font-serif);
     font-size: 14px;
     color: var(--color-text);
     display: block;
     padding: 6px 0;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+.toc li a:hover,
+.toc li a:focus-visible {
+    color: var(--color-accent);
+    text-decoration: underline;
+    text-underline-offset: 3px;
 }
 
 /* ===== Sticky Nav ===== */
@@ -504,6 +512,11 @@ tr:nth-child(even) {
     .chapter-divider { padding: 32px 20px; margin: 48px auto 32px; }
     .nav a { font-size: 11px; padding: 10px 8px; }
 }
+
+/* ===== Anchor offset (sticky nav) ===== */
+[id^="section-"] {
+    scroll-margin-top: 64px;
+}
 </style>
 </head>
 <body>
@@ -521,18 +534,18 @@ tr:nth-child(even) {
 <nav class="toc">
     <div class="toc-label">目次</div>
     <ol>
-        <li><span>暴露01　日本の住宅の壁紙</span></li>
-        <li><span>暴露02　なぜビニールクロスを使うのか</span></li>
-        <li><span>暴露03　じゃあ、自然素材にすればいいのか？</span></li>
-        <li><span>暴露04　カビとダニは、湿度で決まる</span></li>
-        <li><span>暴露05　換気だけでは湿度は管理できない</span></li>
-        <li><span>暴露06　設備に頼る暮らしの代償</span></li>
-        <li><span>暴露07　設備に頼る暮らしの生涯コスト</span></li>
-        <li><span>暴露08　断熱等級7は、元が取れない</span></li>
-        <li><span>暴露09　構造計算していない家</span></li>
-        <li><span>暴露10　保証が長い＝安心、ではない</span></li>
-        <li><span>暴露11　坪単価のトリック</span></li>
-        <li><span>暴露12　太陽光パネルという「設備投資」の正体</span></li>
+        <li><a href="#section-1">暴露01　日本の住宅の壁紙</a></li>
+        <li><a href="#section-2">暴露02　なぜビニールクロスを使うのか</a></li>
+        <li><a href="#section-3">暴露03　じゃあ、自然素材にすればいいのか？</a></li>
+        <li><a href="ch2.html#section-4">暴露04　カビとダニは、湿度で決まる</a></li>
+        <li><a href="ch2.html#section-5">暴露05　換気だけでは湿度は管理できない</a></li>
+        <li><a href="ch2.html#section-6">暴露06　設備に頼る暮らしの代償</a></li>
+        <li><a href="ch3a.html#section-7">暴露07　設備に頼る暮らしの生涯コスト</a></li>
+        <li><a href="ch3a.html#section-8">暴露08　断熱等級7は、元が取れない</a></li>
+        <li><a href="ch3a.html#section-9">暴露09　構造計算していない家</a></li>
+        <li><a href="ch3b.html#section-10">暴露10　保証が長い＝安心、ではない</a></li>
+        <li><a href="ch3b.html#section-11">暴露11　坪単価のトリック</a></li>
+        <li><a href="ch3b.html#section-12">暴露12　太陽光パネルという「設備投資」の正体</a></li>
     </ol>
 </nav>
 
